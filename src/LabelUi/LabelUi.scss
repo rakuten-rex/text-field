@@ -2,4 +2,8 @@
 
 .rex-text-field-label {
   @include rex-label-ui();
+
+  &.hover {
+    @include rex-label-ui-hover-state();
+  }
 }

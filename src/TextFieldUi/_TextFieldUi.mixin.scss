@@ -26,4 +26,15 @@
   @include placeholder {
     color: #717171;
   }
+  &:hover,
+  &.hover {
+    @include rex-text-field-native-hover-state();
+  }
+}
+
+@mixin rex-text-field-native-hover-state {
+  border-color: #1364FF;
+  @include placeholder {
+    color: #606060;
+  }
 }

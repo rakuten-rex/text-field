@@ -17,3 +17,5 @@ export default {
  * Stories
  * */
 export const DefaultView = () => <LabelUi label="Label" />;
+
+export const HoverState = () => <LabelUi label="Label" state="hover" />;

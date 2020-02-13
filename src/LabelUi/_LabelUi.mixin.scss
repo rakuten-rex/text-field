@@ -13,3 +13,7 @@
   margin-bottom: .5rem;
   padding-left: .75rem;
 }
+
+@mixin rex-label-ui-hover-state {
+  color: #1364FF;
+}

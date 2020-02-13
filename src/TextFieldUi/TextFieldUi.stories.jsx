@@ -25,3 +25,14 @@ export const DefaultView = () => {
     />
   );
 };
+
+export const HoverState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="hover"
+    />
+  );
+};
