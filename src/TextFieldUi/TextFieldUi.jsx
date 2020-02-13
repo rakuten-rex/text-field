@@ -14,8 +14,8 @@ export default function TextFieldUi({
   id,
   ...props
 }) {
-  const stateClass = (() => {
-    switch (state) {
+  const stateClass = (stateClassName => {
+    switch (stateClassName) {
       case 'error':
         return 'error';
       case 'valid':
@@ -31,21 +31,22 @@ export default function TextFieldUi({
       default:
         return '';
     }
-  })();
-  const classes = ['rex-text-field-native', className, stateClass]
+  })(state);
+
+  const classes = ['rex-text-field-ui', className]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
   const hasLabel = !!(label && label.length > 0);
 
   return (
-    <div className="rex-text-field-ui">
+    <div className={classes}>
       <div className="rex-text-field-inner">
         <input
           id={id}
           name={name}
           placeholder={placeholder}
-          className={classes}
+          // className={classes}
           aria-label={!hasLabel ? name || placeholder : null}
           aria-labelledby={hasLabel ? labelId : null}
           {...props}

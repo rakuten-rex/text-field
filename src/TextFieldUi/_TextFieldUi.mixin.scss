@@ -1,31 +1,14 @@
-@import './core.mixin';
+@import "./core.mixin";
 
 @mixin rex-text-field-ui {
   @include rex-core();
   input {
     @include rex-text-field-native-state();
   }
-}
 
-@mixin rex-text-field-native-state {
-  display: block;
-  width: 100%;
-  line-height: 1.5;
-  color: #333;
-  background-clip: padding-box;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  -webkit-font-smoothing: antialiased;
-  font-size: 1rem;
-  box-sizing: border-box;
-  outline: none;
-  border: 1px solid #606060;
-  border-radius: .25rem;
-  padding: .5rem .75rem;
-  background-color: #fff;
+  // div states
+  @include rex-text-field-native-default-state();
 
-  @include placeholder {
-    color: #717171;
-  }
   &:hover,
   &.hover {
     @include rex-text-field-native-hover-state();
@@ -40,14 +23,68 @@
   }
 }
 
+@mixin rex-text-field-native-state {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  color: #333;
+  background-clip: padding-box;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #fff;
+}
+
+@mixin rex-text-field-native-default-state {
+  input {
+    border-color: #606060;
+    @include placeholder {
+      color: #717171;
+    }
+  }
+}
+
 @mixin rex-text-field-native-hover-state {
-  border-color: #1364FF;
-  @include placeholder {
-    color: #606060;
+  input {
+    border-color: #1364ff;
+    @include placeholder {
+      color: #606060;
+    }
   }
 }
 
 @mixin rex-text-field-native-active-state {
-  border-color: #1364FF;
-  outline: none;
+  input {
+    border-color: #1364ff;
+    @include placeholder {
+      color: #606060;
+    }
+  }
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
 }

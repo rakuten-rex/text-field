@@ -13,7 +13,8 @@
   margin-bottom: .5rem;
   padding-left: .75rem;
 
-  &.hover {
+  &.hover,
+  &:hover {
     @include rex-label-ui-hover-state();
   }
   &.active,
@@ -27,10 +28,10 @@
 }
 
 @mixin rex-label-ui-hover-state {
-  color: #1364FF;
+  color: gold;
 }
 
 @mixin rex-label-ui-active-state {
-  color: #1364FF;
+  color: orange;
   outline: none;
 }

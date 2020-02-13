@@ -11,8 +11,8 @@ export default function LabelUi({
   labelRef,
   id,
 }) {
-  const stateClass = (() => {
-    switch (state) {
+  const stateClass = (stateClassName => {
+    switch (stateClassName) {
       case 'error':
         return 'error';
       case 'valid':
@@ -28,8 +28,8 @@ export default function LabelUi({
       default:
         return '';
     }
-  })();
-  const classes = ['rex-text-field-label', className, stateClass]
+  })(state);
+  const classes = ['rex-text-field-label', className]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();

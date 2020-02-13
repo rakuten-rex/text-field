@@ -33,6 +33,7 @@ export const HoverState = () => {
       placeholder="Placeholder"
       htmlFor="firstname"
       state="hover"
+      className="hover"
     />
   );
 };
@@ -44,6 +45,7 @@ export const FocusAndActiveState = () => {
       placeholder="Placeholder"
       htmlFor="firstname"
       state="active"
+      className="active"
     />
   );
 };
