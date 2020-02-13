@@ -12,6 +12,18 @@
   overflow-wrap: break-word;
   margin-bottom: .5rem;
   padding-left: .75rem;
+
+  &.hover {
+    @include rex-label-ui-hover-state();
+  }
+  &.active,
+  &:active {
+    @include rex-label-ui-active-state();
+  }
+  &.focus,
+  &:focus {
+    @include rex-label-ui-active-state();
+  }
 }
 
 @mixin rex-label-ui-hover-state {

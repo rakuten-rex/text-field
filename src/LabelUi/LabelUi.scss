@@ -2,16 +2,4 @@
 
 .rex-text-field-label {
   @include rex-label-ui();
-
-  &.hover {
-    @include rex-label-ui-hover-state();
-  }
-  &.active,
-  &:active {
-    @include rex-label-ui-active-state();
-  }
-  &.focus,
-  &:focus {
-    @include rex-label-ui-active-state();
-  }
 }
