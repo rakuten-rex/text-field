@@ -42,3 +42,17 @@ export const HoverState = () => {
     />
   );
 };
+
+export const FocusAndActiveState = () => {
+  return (
+    <TextFieldLabel
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      state="active"
+    />
+  );
+};

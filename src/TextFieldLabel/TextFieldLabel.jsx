@@ -27,6 +27,12 @@ export default function TextFieldLabel({
   const onTextFieldMouseOut = () => {
     labelEl && labelEl.current.classList.remove('hover');
   };
+  const onTextFieldFocus = () => {
+    labelEl && labelEl.current.classList.add('active');
+  };
+  const onTextFieldBlur = () => {
+    labelEl && labelEl.current.classList.remove('active');
+  };
 
   return (
     <div className={classes} {...props}>
@@ -46,8 +52,8 @@ export default function TextFieldLabel({
         state={state}
         onMouseOver={onTextFieldMouseOver}
         onMouseOut={onTextFieldMouseOut}
-        onFocus={onTextFieldMouseOver}
-        onBlur={onTextFieldMouseOut}
+        onFocus={onTextFieldFocus}
+        onBlur={onTextFieldBlur}
       />
     </div>
   );

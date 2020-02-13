@@ -17,3 +17,8 @@
 @mixin rex-label-ui-hover-state {
   color: #1364FF;
 }
+
+@mixin rex-label-ui-active-state {
+  color: #1364FF;
+  outline: none;
+}

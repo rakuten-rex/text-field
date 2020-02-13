@@ -36,3 +36,14 @@ export const HoverState = () => {
     />
   );
 };
+
+export const FocusAndActiveState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="active"
+    />
+  );
+};

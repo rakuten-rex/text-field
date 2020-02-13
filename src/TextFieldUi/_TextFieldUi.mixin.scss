@@ -30,6 +30,14 @@
   &.hover {
     @include rex-text-field-native-hover-state();
   }
+  &:active,
+  &.active {
+    @include rex-text-field-native-active-state();
+  }
+  &:focus,
+  &.focus {
+    @include rex-text-field-native-active-state();
+  }
 }
 
 @mixin rex-text-field-native-hover-state {
@@ -37,4 +45,9 @@
   @include placeholder {
     color: #606060;
   }
+}
+
+@mixin rex-text-field-native-active-state {
+  border-color: #1364FF;
+  outline: none;
 }
