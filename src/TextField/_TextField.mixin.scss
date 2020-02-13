@@ -1,0 +1,26 @@
+@import './core.mixin';
+
+@mixin rex-text-field {
+  @include rex-core();
+  @include rex-text-field-theme();
+  @include rex-text-field-title();
+}
+
+@mixin rex-text-field-theme() {
+  // ReX Colors
+  --rex-gray-900: #333333;
+  // Theme
+  --rex-text-field-theme-text: var(--rex-gray-900);
+  // Props
+  --rex-text-field-title-weight: 600;
+}
+
+@mixin rex-text-field-title {
+  h3 {
+    line-height: 1.5rem;
+    font-weight: var(--rex-text-field-title-weight);
+    color: var(--rex-text-field-theme-text);
+    margin: 1rem 0 0 0;
+    display: block;
+  }
+}
