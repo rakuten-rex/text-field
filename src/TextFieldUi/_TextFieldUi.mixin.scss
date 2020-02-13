@@ -14,12 +14,24 @@
     @include rex-text-field-native-hover-state();
   }
   &:active,
-  &.active {
-    @include rex-text-field-native-active-state();
-  }
+  &.active,
   &:focus,
   &.focus {
     @include rex-text-field-native-active-state();
+  }
+
+  &-border {
+    @include rex-textarea-outside-border-state();
+    &:hover,
+    &.hover {
+      @include rex-textarea-outside-border-hover-state();
+    }
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      @include rex-textarea-outside-border-active-and-focus-state();
+    }
   }
 }
 
@@ -43,7 +55,7 @@
 
 @mixin rex-text-field-native-default-state {
   input {
-    border-color: #606060;
+    border-color: transparent;
     @include placeholder {
       color: #717171;
     }
@@ -52,7 +64,6 @@
 
 @mixin rex-text-field-native-hover-state {
   input {
-    border-color: #1364ff;
     @include placeholder {
       color: #606060;
     }
@@ -61,11 +72,34 @@
 
 @mixin rex-text-field-native-active-state {
   input {
-    border-color: #1364ff;
+    border: 1px solid #1364ff;
     @include placeholder {
       color: #606060;
     }
   }
+}
+
+@mixin rex-textarea-outside-border-state() {
+  border: 1px solid #606060;
+  border-radius: 0.32rem;
+  padding: 0;
+  background-color: #fff;
+}
+
+@mixin rex-textarea-outside-border-hover-state() {
+  border-color: #1364FF;
+  .rex-text-field-native {
+    color: #333333;
+    @include placeholder {
+      color: #717171;
+    }
+  }
+}
+
+@mixin rex-textarea-outside-border-active-and-focus-state() {
+  outline: none;
+  border-color: #1364FF;
+  background-color: #1364FF;
 }
 
 @mixin optional-at-root($sel) {

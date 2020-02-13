@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { string } from 'prop-types';
@@ -38,18 +39,39 @@ export default function TextFieldUi({
     .join(' ')
     .trim();
   const hasLabel = !!(label && label.length > 0);
+  const borderClass = ['rex-text-field-ui-border', stateClass]
+    .filter(singleClass => singleClass && singleClass.length > 0)
+    .join(' ')
+    .trim();
+  const handleOnFocus = e => {
+    const textFieldBorder = e.target.parentNode.parentNode;
+    const textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
+    textFieldBorder && textFieldBorder.classList.add('focus');
+    textFieldLabel && textFieldLabel.classList.add('focus');
+  };
+  const handleOnFocusOut = e => {
+    const textFieldBorder = e.target.parentNode.parentNode;
+    const textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
+    textFieldBorder && textFieldBorder.classList.remove('focus');
+    textFieldLabel && textFieldLabel.classList.remove('focus');
+  };
 
   return (
     <div className={classes}>
-      <div className="rex-text-field-inner">
-        <input
-          id={id}
-          name={name}
-          placeholder={placeholder}
-          aria-label={!hasLabel ? name || placeholder : null}
-          aria-labelledby={hasLabel ? labelId : null}
-          {...props}
-        />
+      <div className={borderClass}>
+        <div className="rex-text-field-inner">
+          <input
+            id={id}
+            className="rex-text-field-native"
+            name={name}
+            placeholder={placeholder}
+            aria-label={!hasLabel ? name || placeholder : null}
+            aria-labelledby={hasLabel ? labelId : null}
+            onFocus={handleOnFocus}
+            onBlur={handleOnFocusOut}
+            {...props}
+          />
+        </div>
       </div>
     </div>
   );
