@@ -1,0 +1,5 @@
+@import './LabelUi.mixin';
+
+.rex-text-field-label {
+  @include rex-label-ui();
+}

@@ -1,0 +1,15 @@
+@import './core.mixin';
+
+@mixin rex-label-ui {
+  @include rex-core();
+  @include rex-label-ui-content();
+}
+
+@mixin rex-label-ui-content {
+  font-size: .75rem;
+  display: block;
+  color: #606060;
+  overflow-wrap: break-word;
+  margin-bottom: .5rem;
+  padding-left: .75rem;
+}

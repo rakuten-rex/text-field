@@ -1,0 +1,29 @@
+@import './core.mixin';
+
+@mixin rex-text-field-ui {
+  @include rex-core();
+  input {
+    @include rex-text-field-native-state();
+  }
+}
+
+@mixin rex-text-field-native-state {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  color: #333;
+  background-clip: padding-box;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #606060;
+  border-radius: .25rem;
+  padding: .5rem .75rem;
+  background-color: #fff;
+
+  @include placeholder {
+    color: #717171;
+  }
+}

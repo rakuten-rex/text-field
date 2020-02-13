@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { string, func, element, oneOfType, arrayOf } from 'prop-types';
-import './TextField.scss';
 
 export default function TextField({
   children,
