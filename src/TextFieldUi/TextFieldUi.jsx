@@ -33,7 +33,7 @@ export default function TextFieldUi({
     }
   })(state);
 
-  const classes = ['rex-text-field-ui', className]
+  const classes = ['rex-text-field-ui', className, stateClass]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
@@ -46,7 +46,6 @@ export default function TextFieldUi({
           id={id}
           name={name}
           placeholder={placeholder}
-          // className={classes}
           aria-label={!hasLabel ? name || placeholder : null}
           aria-labelledby={hasLabel ? labelId : null}
           {...props}

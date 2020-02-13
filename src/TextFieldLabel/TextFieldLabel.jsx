@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { string } from 'prop-types';
 import LabelUi from '../LabelUi';
 import TextFieldUi from '../TextFieldUi';
+import './TextFieldLabel.scss';
 
 export default function TextFieldLabel({
   name,

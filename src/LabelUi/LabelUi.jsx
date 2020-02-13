@@ -29,7 +29,7 @@ export default function LabelUi({
         return '';
     }
   })(state);
-  const classes = ['rex-text-field-label', className]
+  const classes = ['rex-text-field-label-ui', className, stateClass]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
