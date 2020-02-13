@@ -1,5 +1,12 @@
 <div class="rex-my-component" role="presentation">
-  <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-  <h3>Hello World</h3>
-  <p>This is a basic example for ReX React Components Starter Kit</p>
+  <div class="rex-text-field-label">
+    <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+    <div class="rex-text-field-ui">
+      <div class="rex-text-field-ui-border">
+        <div class="rex-text-field-inner">
+          <input id="age" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

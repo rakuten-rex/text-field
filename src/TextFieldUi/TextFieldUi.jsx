@@ -45,13 +45,15 @@ export default function TextFieldUi({
     .trim();
   const handleOnFocus = e => {
     const textFieldBorder = e.target.parentNode.parentNode;
-    const textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
+    const textFieldLabel =
+      e.target.parentNode.parentNode.parentNode.previousSibling;
     textFieldBorder && textFieldBorder.classList.add('focus');
     textFieldLabel && textFieldLabel.classList.add('focus');
   };
   const handleOnFocusOut = e => {
     const textFieldBorder = e.target.parentNode.parentNode;
-    const textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
+    const textFieldLabel =
+      e.target.parentNode.parentNode.parentNode.previousSibling;
     textFieldBorder && textFieldBorder.classList.remove('focus');
     textFieldLabel && textFieldLabel.classList.remove('focus');
   };
