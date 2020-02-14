@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.1 2020-02-14
  * TextFieldLabel/TextFieldLabel.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -75,6 +75,7 @@
   display: block;
   font-size: 1rem;
   line-height: 1.5;
+  margin: 0;
   outline: none;
   padding: 0.5rem 0.75rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
