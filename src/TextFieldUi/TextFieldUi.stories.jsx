@@ -26,18 +26,6 @@ export const DefaultView = () => {
   );
 };
 
-export const HoverState = () => {
-  return (
-    <TextFieldUi
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      state="hover"
-      className="hover"
-    />
-  );
-};
-
 export const FocusAndActiveState = () => {
   return (
     <TextFieldUi
@@ -45,7 +33,6 @@ export const FocusAndActiveState = () => {
       placeholder="Placeholder"
       htmlFor="firstname"
       state="active"
-      className="active"
     />
   );
 };

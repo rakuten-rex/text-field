@@ -22,18 +22,6 @@ export default function TextFieldLabel({
     .join(' ')
     .trim();
   const labelEl = useRef(null);
-  // const onTextFieldMouseOver = () => {
-  //   labelEl && labelEl.current.classList.add('hover');
-  // };
-  // const onTextFieldMouseOut = () => {
-  //   labelEl && labelEl.current.classList.remove('hover');
-  // };
-  // const onTextFieldFocus = () => {
-  //   labelEl && labelEl.current.classList.add('active');
-  // };
-  // const onTextFieldBlur = () => {
-  //   labelEl && labelEl.current.classList.remove('active');
-  // };
 
   return (
     <div className={classes} {...props}>
@@ -43,7 +31,6 @@ export default function TextFieldLabel({
         label={label}
         state={state}
         labelRef={labelEl}
-        className=""
       />
       <TextFieldUi
         id={id}
@@ -52,11 +39,6 @@ export default function TextFieldLabel({
         placeholder={placeholder}
         label={label}
         state={state}
-        className=""
-        // onMouseOver={onTextFieldMouseOver}
-        // onMouseOut={onTextFieldMouseOut}
-        // onFocus={onTextFieldFocus}
-        // onBlur={onTextFieldBlur}
       />
     </div>
   );

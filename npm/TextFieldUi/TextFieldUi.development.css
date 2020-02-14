@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.0.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.0 2020-02-14
  * TextFieldUi/TextFieldUi.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -34,8 +34,7 @@
   -webkit-font-smoothing: antialiased;
   background-clip: padding-box;
   background-color: #fff;
-  border: 1px solid;
-  border-color: transparent;
+  border: 1px solid transparent;
   border-radius: 0.25rem;
   box-sizing: border-box;
   color: #333;
@@ -48,56 +47,29 @@
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   width: 100%;
 }
-.rex-text-field-ui input::-webkit-input-placeholder {
-  color: #717171;
-}
-.rex-text-field-ui input:-moz-placeholder,
-.rex-text-field-ui input::-moz-placeholder {
-  color: #717171;
-}
-.rex-text-field-ui input:-ms-input-placeholder {
-  color: #717171;
-}
-.rex-text-field-ui.hover input::-webkit-input-placeholder,
-.rex-text-field-ui:hover input::-webkit-input-placeholder {
-  color: #606060;
-}
-.rex-text-field-ui.hover input:-moz-placeholder,
-.rex-text-field-ui.hover input::-moz-placeholder,
-.rex-text-field-ui:hover input:-moz-placeholder,
-.rex-text-field-ui:hover input::-moz-placeholder {
-  color: #606060;
-}
-.rex-text-field-ui.hover input:-ms-input-placeholder,
-.rex-text-field-ui:hover input:-ms-input-placeholder {
-  color: #606060;
-}
-.rex-text-field-ui.active input,
+.rex-text-field-ui.active .rex-text-field-ui:focus input,
 .rex-text-field-ui.focus input,
-.rex-text-field-ui:active input,
-.rex-text-field-ui:focus input {
+.rex-text-field-ui:active input {
   border: 1px solid #1364ff;
 }
-.rex-text-field-ui.active input::-webkit-input-placeholder,
+.rex-text-field-ui.active
+  .rex-text-field-ui:focus
+  input::-webkit-input-placeholder,
 .rex-text-field-ui.focus input::-webkit-input-placeholder,
-.rex-text-field-ui:active input::-webkit-input-placeholder,
-.rex-text-field-ui:focus input::-webkit-input-placeholder {
+.rex-text-field-ui:active input::-webkit-input-placeholder {
   color: #606060;
 }
-.rex-text-field-ui.active input:-moz-placeholder,
-.rex-text-field-ui.active input::-moz-placeholder,
+.rex-text-field-ui.active .rex-text-field-ui:focus input:-moz-placeholder,
+.rex-text-field-ui.active .rex-text-field-ui:focus input::-moz-placeholder,
 .rex-text-field-ui.focus input:-moz-placeholder,
 .rex-text-field-ui.focus input::-moz-placeholder,
 .rex-text-field-ui:active input:-moz-placeholder,
-.rex-text-field-ui:active input::-moz-placeholder,
-.rex-text-field-ui:focus input:-moz-placeholder,
-.rex-text-field-ui:focus input::-moz-placeholder {
+.rex-text-field-ui:active input::-moz-placeholder {
   color: #606060;
 }
-.rex-text-field-ui.active input:-ms-input-placeholder,
+.rex-text-field-ui.active .rex-text-field-ui:focus input:-ms-input-placeholder,
 .rex-text-field-ui.focus input:-ms-input-placeholder,
-.rex-text-field-ui:active input:-ms-input-placeholder,
-.rex-text-field-ui:focus input:-ms-input-placeholder {
+.rex-text-field-ui:active input:-ms-input-placeholder {
   color: #606060;
 }
 .rex-text-field-ui-border {
@@ -105,30 +77,6 @@
   border: 1px solid #606060;
   border-radius: 0.32rem;
   padding: 0;
-}
-.rex-text-field-ui-border.hover,
-.rex-text-field-ui-border:hover {
-  border-color: #1364ff;
-}
-.rex-text-field-ui-border.hover .rex-text-field-native,
-.rex-text-field-ui-border:hover .rex-text-field-native {
-  color: #333;
-}
-.rex-text-field-ui-border.hover
-  .rex-text-field-native::-webkit-input-placeholder,
-.rex-text-field-ui-border:hover
-  .rex-text-field-native::-webkit-input-placeholder {
-  color: #717171;
-}
-.rex-text-field-ui-border.hover .rex-text-field-native:-moz-placeholder,
-.rex-text-field-ui-border.hover .rex-text-field-native::-moz-placeholder,
-.rex-text-field-ui-border:hover .rex-text-field-native:-moz-placeholder,
-.rex-text-field-ui-border:hover .rex-text-field-native::-moz-placeholder {
-  color: #717171;
-}
-.rex-text-field-ui-border.hover .rex-text-field-native:-ms-input-placeholder,
-.rex-text-field-ui-border:hover .rex-text-field-native:-ms-input-placeholder {
-  color: #717171;
 }
 .rex-text-field-ui-border.active,
 .rex-text-field-ui-border.focus,

@@ -5,16 +5,8 @@
   input {
     @include rex-text-field-native-state();
   }
-
-  // div states
-  @include rex-text-field-native-default-state();
-
-  &:hover,
-  &.hover {
-    @include rex-text-field-native-hover-state();
-  }
   &:active,
-  &.active,
+  &.active
   &:focus,
   &.focus {
     @include rex-text-field-native-active-state();
@@ -22,10 +14,6 @@
 
   &-border {
     @include rex-textarea-outside-border-state();
-    &:hover,
-    &.hover {
-      @include rex-textarea-outside-border-hover-state();
-    }
     &:active,
     &.active,
     &:focus,
@@ -47,27 +35,10 @@
   font-size: 1rem;
   box-sizing: border-box;
   outline: none;
-  border: 1px solid;
+  border: 1px solid transparent;
   border-radius: 0.25rem;
   padding: 0.5rem 0.75rem;
   background-color: #fff;
-}
-
-@mixin rex-text-field-native-default-state {
-  input {
-    border-color: transparent;
-    @include placeholder {
-      color: #717171;
-    }
-  }
-}
-
-@mixin rex-text-field-native-hover-state {
-  input {
-    @include placeholder {
-      color: #606060;
-    }
-  }
 }
 
 @mixin rex-text-field-native-active-state {
@@ -88,7 +59,7 @@
 
 @mixin rex-textarea-outside-border-hover-state() {
   border-color: #1364FF;
-  .rex-text-field-native {
+  input {
     color: #333333;
     @include placeholder {
       color: #717171;

@@ -19,4 +19,9 @@ addParameters({
 });
 
 // automatically import all files ending in *.stories.js
-configure(require.context('../src', true, /\.stories\.jsx$/), module);
+configure([
+  require.context('../src/TextFieldLabel', true, /\.stories\.jsx$/),
+  require.context('../src/LabelUi', true, /\.stories\.jsx$/),
+  require.context('../src/TextFieldUi', true, /\.stories\.jsx$/),
+  require.context('../src', true, /\.stories\.jsx$/, )
+], module);
