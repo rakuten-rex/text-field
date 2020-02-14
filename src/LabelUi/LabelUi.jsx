@@ -10,6 +10,7 @@ export default function LabelUi({
   state,
   labelRef,
   id,
+  style,
 }) {
   const stateClass = (stateClassName => {
     switch (stateClassName) {
@@ -35,7 +36,13 @@ export default function LabelUi({
     .trim();
 
   return (
-    <label id={id || null} htmlFor={htmlFor} className={classes} ref={labelRef}>
+    <label
+      id={id || null}
+      htmlFor={htmlFor}
+      className={classes}
+      ref={labelRef}
+      style={style}
+    >
       {label}
     </label>
   );
@@ -48,6 +55,7 @@ LabelUi.defaultProps = {
   state: '',
   labelRef: null,
   id: '',
+  style: {},
 };
 
 LabelUi.propTypes = {
@@ -57,4 +65,5 @@ LabelUi.propTypes = {
   state: string,
   labelRef: objectOf(string),
   id: string,
+  style: objectOf(string),
 };

@@ -2,21 +2,10 @@
 @import './theme';
 
 @mixin rex-text-field-label() {
-  @include rex-text-field-native-default-state();
-
   &:hover,
   &.hover {
     @include rex-text-field-native-hover-state();
     @include rex-label-ui-hover-state();
-  }
-}
-
-@mixin rex-text-field-native-default-state {
-  input {
-    border-color: transparent;
-    @include placeholder {
-      color: var(--rex-text-field-theme-placeholder, $--rex-text-field-theme-placeholder);
-    }
   }
 }
 

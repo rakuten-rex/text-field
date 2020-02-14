@@ -40,6 +40,14 @@
   padding: 0.5rem 0.75rem;
   background-color: $--rex-white;
   margin: 0;
+  @include rex-text-field-native-default-state();
+}
+
+@mixin rex-text-field-native-default-state {
+  border-color: transparent;
+  @include placeholder {
+    color: var(--rex-text-field-theme-placeholder, $--rex-text-field-theme-placeholder);
+  }
 }
 
 @mixin rex-text-field-native-active-state {

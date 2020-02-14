@@ -83,44 +83,17 @@ function Theme() {
   };
 
   return {
+    customStyle,
     customStyleHtml: cssVarsToLegacy(customStyle, TextFieldLabel),
   };
 }
 
 export const WithThemeReactAndCSSVars = () => {
-  const {
-    themeDefaultBorder,
-    themeDefaultPlaceholder,
-    themeDefaultText,
-    themeHoverBorder,
-    themeHoverPlaceholder,
-    themeHoverText,
-    themeActiveBorder,
-    themeActivePlaceholder,
-    themeActiveText,
-  } = TextFieldThemeProps();
-  const {
-    themeLabelDefaultText,
-    themeLabelHoverText,
-    themeLabelActiveText,
-  } = LabelThemeProps();
+  const { customStyle } = Theme();
 
   return (
     <TextFieldLabel
-      style={{
-        '--rex-text-field-theme-border': themeDefaultBorder,
-        '--rex-text-field-theme-placeholder': themeDefaultPlaceholder,
-        '--rex-text-field-theme-text': themeDefaultText,
-        '--rex-text-field-theme-hover-text': themeHoverText,
-        '--rex-text-field-theme-hover-border': themeHoverBorder,
-        '--rex-text-field-theme-hover-placeholder': themeHoverPlaceholder,
-        '--rex-text-field-theme-active-text': themeActiveText,
-        '--rex-text-field-theme-active-border': themeActiveBorder,
-        '--rex-text-field-theme-active-placeholder': themeActivePlaceholder,
-        '--rex-text-field-label-theme-text': themeLabelDefaultText,
-        '--rex-text-field-label-theme-hover-text': themeLabelHoverText,
-        '--rex-text-field-label-theme-active-text': themeLabelActiveText,
-      }}
+      style={customStyle}
       id="age"
       name="firstname"
       placeholder="Placeholder"
@@ -147,4 +120,4 @@ export const WithThemeHTMLAndLegacyCSS = () => {
       />
     </>
   );
-}
+};
