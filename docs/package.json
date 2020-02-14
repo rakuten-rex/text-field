@@ -1,17 +1,17 @@
 {
-  "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "3.4.8",
-  "description": "ReX React UI Component",
+  "name": "@rakuten-rex/text-field",
+  "version": "1.0.0",
+  "description": "TextField component",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rakuten-rex/react-component-starter-kit.git"
+    "url": "https://github.com/rakuten-rex/text-field.git"
   },
   "bugs": {
-    "url": "https://github.com/rakuten-rex/react-component-starter-kit/issues"
+    "url": "https://github.com/rakuten-rex/text-field/issues"
   },
-  "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
-  "author": "ReX React UI Components Library Authors (https://github.com/rakuten-rex/react-component-starter-kit/graphs/contributors)",
+  "homepage": "https://rakuten-rex.github.io/text-field/",
+  "author": "ReX React UI Components Library Authors (https://github.com/rakuten-rex/text-field/graphs/contributors)",
   "contributors": [
     "Rakuten, Inc."
   ],

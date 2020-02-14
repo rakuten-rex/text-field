@@ -1,0 +1,124 @@
+@import "./core.mixin";
+
+@mixin rex-text-field-ui {
+  @include rex-core();
+  input {
+    @include rex-text-field-native-state();
+  }
+
+  // div states
+  @include rex-text-field-native-default-state();
+
+  &:hover,
+  &.hover {
+    @include rex-text-field-native-hover-state();
+  }
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    @include rex-text-field-native-active-state();
+  }
+
+  &-border {
+    @include rex-textarea-outside-border-state();
+    &:hover,
+    &.hover {
+      @include rex-textarea-outside-border-hover-state();
+    }
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      @include rex-textarea-outside-border-active-and-focus-state();
+    }
+  }
+}
+
+@mixin rex-text-field-native-state {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  color: #333;
+  background-clip: padding-box;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #fff;
+}
+
+@mixin rex-text-field-native-default-state {
+  input {
+    border-color: transparent;
+    @include placeholder {
+      color: #717171;
+    }
+  }
+}
+
+@mixin rex-text-field-native-hover-state {
+  input {
+    @include placeholder {
+      color: #606060;
+    }
+  }
+}
+
+@mixin rex-text-field-native-active-state {
+  input {
+    border: 1px solid #1364ff;
+    @include placeholder {
+      color: #606060;
+    }
+  }
+}
+
+@mixin rex-textarea-outside-border-state() {
+  border: 1px solid #606060;
+  border-radius: 0.32rem;
+  padding: 0;
+  background-color: #fff;
+}
+
+@mixin rex-textarea-outside-border-hover-state() {
+  border-color: #1364FF;
+  .rex-text-field-native {
+    color: #333333;
+    @include placeholder {
+      color: #717171;
+    }
+  }
+}
+
+@mixin rex-textarea-outside-border-active-and-focus-state() {
+  outline: none;
+  border-color: #1364FF;
+  background-color: #1364FF;
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}

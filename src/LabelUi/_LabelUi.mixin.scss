@@ -1,0 +1,37 @@
+@import './core.mixin';
+
+@mixin rex-label-ui {
+  @include rex-core();
+  @include rex-label-ui-content();
+}
+
+@mixin rex-label-ui-content {
+  font-size: .75rem;
+  display: block;
+  color: #606060;
+  overflow-wrap: break-word;
+  margin-bottom: .5rem;
+  padding-left: .75rem;
+
+  &.hover,
+  &:hover {
+    @include rex-label-ui-hover-state();
+  }
+  &.active,
+  &:active {
+    @include rex-label-ui-active-state();
+  }
+  &.focus,
+  &:focus {
+    @include rex-label-ui-active-state();
+  }
+}
+
+@mixin rex-label-ui-hover-state {
+  color: #1364FF;
+}
+
+@mixin rex-label-ui-active-state {
+  color: #1364FF;
+  outline: none;
+}
