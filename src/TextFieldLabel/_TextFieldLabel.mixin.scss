@@ -18,10 +18,7 @@
   }
   > div > div {
     border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
-    background-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
-    input {
-      border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
-    }
+    background-color: $--rex-white;
   }
 }
 
