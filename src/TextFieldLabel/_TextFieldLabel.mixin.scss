@@ -1,4 +1,5 @@
 @import '../TextFieldUi/TextFieldUi.mixin';
+@import './theme';
 
 @mixin rex-text-field-label() {
   @include rex-text-field-native-default-state();
@@ -14,38 +15,29 @@
   input {
     border-color: transparent;
     @include placeholder {
-      color: #717171;
+      color: var(--rex-text-field-theme-placeholder, $--rex-text-field-theme-placeholder);
     }
   }
 }
 
 @mixin rex-text-field-native-hover-state {
   input {
+    color: var(--rex-text-field-theme-hover-text, $--rex-text-field-theme-hover-text);
     @include placeholder {
-      color: #606060;
+      color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
     }
   }
   > div > div {
-    border-color: #1364ff;
-  }
-}
-
-@mixin rex-text-field-native-active-state {
-  input {
-    border: 1px solid #1364ff;
-    @include placeholder {
-      color: #606060;
+    border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
+    background-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
+    input {
+      border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
     }
   }
 }
 
 @mixin rex-label-ui-hover-state {
   label {
-    color: #1364FF;
+    color: var(--rex-text-field-label-theme-hover-text, $--rex-text-field-label-theme-hover-text);
   }
-}
-
-@mixin rex-label-ui-active-state {
-  color: #1364FF;
-  outline: none;
 }

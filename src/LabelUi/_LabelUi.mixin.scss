@@ -1,4 +1,5 @@
 @import './core.mixin';
+@import '../TextFieldLabel/theme';
 
 @mixin rex-label-ui {
   @include rex-core();
@@ -8,7 +9,7 @@
 @mixin rex-label-ui-content {
   font-size: .75rem;
   display: block;
-  color: #606060;
+  color: var(--rex-text-field-label-theme-text, $--rex-text-field-label-theme-text);
   overflow-wrap: break-word;
   margin-bottom: .5rem;
   padding-left: .75rem;
@@ -22,6 +23,6 @@
 }
 
 @mixin rex-label-ui-active-state {
-  color: #1364FF;
+  color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
   outline: none;
 }
