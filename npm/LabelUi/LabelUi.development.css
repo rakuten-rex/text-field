@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.0.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.0 2020-02-14
  * LabelUi/LabelUi.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -33,10 +33,6 @@
   -o-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
-.rex-text-field-label-ui.hover,
-.rex-text-field-label-ui:hover {
-  color: #1364ff;
 }
 .rex-text-field-label-ui.active,
 .rex-text-field-label-ui.focus,
