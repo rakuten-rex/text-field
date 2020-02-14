@@ -1,7 +1,7 @@
 /*!
  * 
- * @license @rakuten-rex/react-component-starter-kit v3.4.8 2020-01-24
- * MyComponent/MyComponent.development.js
+ * @license @rakuten-rex/text-field v1.0.0 2020-02-14
+ * TextFieldUi/TextFieldUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
  * 
@@ -11,11 +11,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
-		define("rakutenRexReactComponentStarterKit", ["react"], factory);
+		define("rakutenRexTextField", ["react"], factory);
 	else if(typeof exports === 'object')
-		exports["rakutenRexReactComponentStarterKit"] = factory(require("react"));
+		exports["rakutenRexTextField"] = factory(require("react"));
 	else
-		root["rakutenRexReactComponentStarterKit"] = factory(root["React"]);
+		root["rakutenRexTextField"] = factory(root["React"]);
 })(window, function(__WEBPACK_EXTERNAL_MODULE__0__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -137,7 +137,7 @@ module.exports = _extends;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(5);
+var objectWithoutPropertiesLoose = __webpack_require__(6);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -161,69 +161,119 @@ function _objectWithoutProperties(source, excluded) {
 module.exports = _objectWithoutProperties;
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = "MyComponent/assets/Image.jpg";
-
-/***/ }),
+/* 3 */,
 /* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TextFieldUi; });
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _assets_Image_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-/* harmony import */ var _assets_Image_jpg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_Image_jpg__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _MyComponent_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var _MyComponent_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_MyComponent_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _TextFieldUi_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _TextFieldUi_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TextFieldUi_scss__WEBPACK_IMPORTED_MODULE_3__);
 
 
+
+/* eslint-disable no-unused-expressions */
 
 /* eslint-disable react/jsx-props-no-spreading */
 
 
-
-function MyComponent(_ref) {
-  var children = _ref.children,
-      onClick = _ref.onClick,
-      title = _ref.title,
-      text = _ref.text,
+function TextFieldUi(_ref) {
+  var name = _ref.name,
+      placeholder = _ref.placeholder,
       className = _ref.className,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["children", "onClick", "title", "text", "className"]);
+      htmlFor = _ref.htmlFor,
+      state = _ref.state,
+      label = _ref.label,
+      labelId = _ref.labelId,
+      id = _ref.id,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id"]);
 
-  var style = {
-    width: '100%'
+  var stateClass = function (stateClassName) {
+    switch (stateClassName) {
+      case 'error':
+        return 'error';
+
+      case 'valid':
+        return 'valid';
+
+      case 'active':
+        return 'active';
+
+      case 'focus':
+        return 'focus';
+
+      case 'hover':
+        return 'hover';
+
+      case 'disabled':
+        return 'disabled';
+
+      default:
+        return '';
+    }
+  }(state);
+
+  var classes = ['rex-text-field-ui', className, stateClass].filter(function (singleClass) {
+    return singleClass && singleClass.length > 0;
+  }).join(' ').trim();
+  var hasLabel = !!(label && label.length > 0);
+  var borderClass = ['rex-text-field-ui-border', stateClass].filter(function (singleClass) {
+    return singleClass && singleClass.length > 0;
+  }).join(' ').trim();
+
+  var handleOnFocus = function handleOnFocus(e) {
+    var textFieldBorder = e.target.parentNode.parentNode;
+    var textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
+    textFieldBorder && textFieldBorder.classList.add('focus');
+    textFieldLabel && textFieldLabel.classList.add('focus');
   };
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    className: className,
-    onClick: onClick,
-    role: "presentation"
-  }, props), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
-    src: _assets_Image_jpg__WEBPACK_IMPORTED_MODULE_3___default.a,
-    alt: "Basic example",
-    style: style
-  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", null, title), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, text), children);
+
+  var handleOnFocusOut = function handleOnFocusOut(e) {
+    var textFieldBorder = e.target.parentNode.parentNode;
+    var textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
+    textFieldBorder && textFieldBorder.classList.remove('focus');
+    textFieldLabel && textFieldLabel.classList.remove('focus');
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: classes
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: borderClass
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: "rex-text-field-inner"
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+    id: id,
+    className: "rex-text-field-native",
+    name: name,
+    placeholder: placeholder,
+    "aria-label": !hasLabel ? name || placeholder : null,
+    "aria-labelledby": hasLabel ? labelId : null,
+    onFocus: handleOnFocus,
+    onBlur: handleOnFocusOut
+  }, props)))));
 }
-MyComponent.displayName = "MyComponent";
-MyComponent.defaultProps = {
-  children: null,
-  title: 'Hello World',
-  text: 'This is a basic example for ReX React Components Starter Kit',
-  className: 'rex-my-component',
-  onClick: function onClick() {
-    return null;
-  }
+TextFieldUi.displayName = "TextFieldUi";
+TextFieldUi.defaultProps = {
+  name: '',
+  placeholder: '',
+  className: '',
+  htmlFor: '',
+  state: '',
+  label: '',
+  labelId: '',
+  id: ''
 };
 
 /***/ }),
-/* 5 */
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports) {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -244,7 +294,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
