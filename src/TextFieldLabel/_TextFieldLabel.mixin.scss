@@ -15,15 +15,28 @@
     @include placeholder {
       color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
     }
+    &:focus {
+      color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
+      @include placeholder {
+        color: var(--rex-text-field-theme-active-placeholder, $--rex-text-field-theme-active-placeholder);
+      }
+    }
   }
   > div > div {
     border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
     background-color: $--rex-white;
+    &.focus {
+      background-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+      border-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+    }
   }
 }
 
 @mixin rex-label-ui-hover-state {
   label {
     color: var(--rex-text-field-label-theme-hover-text, $--rex-text-field-label-theme-hover-text);
+    &.focus {
+      color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
+    }
   }
 }
