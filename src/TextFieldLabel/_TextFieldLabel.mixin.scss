@@ -1,3 +1,5 @@
+@import '../TextFieldUi/TextFieldUi.mixin';
+
 @mixin rex-text-field-label-state() {
   @include rex-text-field-native-default-state();
 
@@ -46,25 +48,4 @@
 @mixin rex-label-ui-active-state {
   color: #1364FF;
   outline: none;
-}
-
-@mixin optional-at-root($sel) {
-  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
-    @content;
-  }
-}
-
-@mixin placeholder {
-  @include optional-at-root("::-webkit-input-placeholder") {
-    @content;
-  }
-  @include optional-at-root(":-moz-placeholder") {
-    @content;
-  }
-  @include optional-at-root("::-moz-placeholder") {
-    @content;
-  }
-  @include optional-at-root(":-ms-input-placeholder") {
-    @content;
-  }
 }

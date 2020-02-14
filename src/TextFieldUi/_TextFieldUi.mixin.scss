@@ -59,7 +59,7 @@
 
 @mixin rex-textarea-outside-border-hover-state() {
   border-color: #1364FF;
-  .rex-text-field-native {
+  input {
     color: #333333;
     @include placeholder {
       color: #717171;
