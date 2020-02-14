@@ -29,20 +29,6 @@ export const DefaultView = () => {
   );
 };
 
-export const HoverState = () => {
-  return (
-    <TextFieldLabel
-      id="age"
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      label="Label"
-      labelId="labelId"
-      state="hover"
-    />
-  );
-};
-
 export const FocusAndActiveState = () => {
   return (
     <TextFieldLabel

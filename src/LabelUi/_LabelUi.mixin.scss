@@ -13,22 +13,12 @@
   margin-bottom: .5rem;
   padding-left: .75rem;
 
-  &.hover,
-  &:hover {
-    @include rex-label-ui-hover-state();
-  }
+  &.focus,
+  &:focus,
   &.active,
   &:active {
     @include rex-label-ui-active-state();
   }
-  &.focus,
-  &:focus {
-    @include rex-label-ui-active-state();
-  }
-}
-
-@mixin rex-label-ui-hover-state {
-  color: #1364FF;
 }
 
 @mixin rex-label-ui-active-state {

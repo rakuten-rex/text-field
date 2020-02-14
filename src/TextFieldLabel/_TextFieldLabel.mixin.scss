@@ -1,0 +1,70 @@
+@mixin rex-text-field-label-state() {
+  @include rex-text-field-native-default-state();
+
+  &:hover,
+  &.hover {
+    @include rex-text-field-native-hover-state();
+    @include rex-label-ui-hover-state();
+  }
+}
+
+@mixin rex-text-field-native-default-state {
+  input {
+    border-color: transparent;
+    @include placeholder {
+      color: #717171;
+    }
+  }
+}
+
+@mixin rex-text-field-native-hover-state {
+  input {
+    @include placeholder {
+      color: #606060;
+    }
+  }
+  > div > div {
+    border-color: #1364ff;
+  }
+}
+
+@mixin rex-text-field-native-active-state {
+  input {
+    border: 1px solid #1364ff;
+    @include placeholder {
+      color: #606060;
+    }
+  }
+}
+
+@mixin rex-label-ui-hover-state {
+  label {
+    color: #1364FF;
+  }
+}
+
+@mixin rex-label-ui-active-state {
+  color: #1364FF;
+  outline: none;
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}

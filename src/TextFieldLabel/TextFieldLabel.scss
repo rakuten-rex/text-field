@@ -1,7 +1,5 @@
+@import './TextFieldLabel.mixin';
+
 .rex-text-field-label {
-  &:hover {
-    .rex-text-field-label-ui {
-      color: #1364FF;
-    }
-  }
+  @include rex-text-field-label-state();
 }
