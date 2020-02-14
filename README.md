@@ -1,4 +1,4 @@
-# ReX React UI Component: react-component-starter-kit
+# ReX React UI Component: text-field
 
 This project is part of ReX Design System and it can be used to create UI Components compatible with:
 
@@ -9,13 +9,13 @@ React, HTML/CSS and Vue.js
 <img src="project-scripts/webpack/markdown/logos/npm.svg?sanitize=true" height="16" />
 
 ```
-npm install @rakuten-rex/react-component-starter-kit@3.4.8 --save
+npm install @rakuten-rex/text-field@1.0.0 --save
 ```
 
 <img src="project-scripts/webpack/markdown/logos/yarn.svg?sanitize=true" height="16" />
 
 ```
-yarn add @rakuten-rex/react-component-starter-kit@3.4.8
+yarn add @rakuten-rex/text-field@1.0.0
 ```
 
 # Getting started
@@ -24,9 +24,9 @@ yarn add @rakuten-rex/react-component-starter-kit@3.4.8
 
 For a complete guide of properties for React and HTML classes please visit our Storybook page:  
 
-[<img src="project-scripts/webpack/markdown/logos/storybook.svg?sanitize=true" height="16" />](https://rakuten-rex.github.io/react-component-starter-kit/)   
+[<img src="project-scripts/webpack/markdown/logos/storybook.svg?sanitize=true" height="16" />](https://rakuten-rex.github.io/text-field/)   
 
-https://rakuten-rex.github.io/react-component-starter-kit/   
+https://rakuten-rex.github.io/text-field/   
 
 
 **Storybook features**
@@ -57,17 +57,17 @@ Example:
 `my-component.jsx`
 
 ```jsx
-import MyComponent from '@rakuten-rex/react-component-starter-kit';
+import TextFieldLabel from '@rakuten-rex/text-field/TextFieldLabel';
 
 function MyCustomComponent() {
   return (
-    <MyComponent />
+    <TextFieldLabel id='age' name='firstname' placeholder='Placeholder' htmlFor='firstname' label='Label' labelId='labelId' />
   );
 }
 ```
 
 
-[Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
+[Click here](https://rakuten-rex.github.io/text-field/) to see all working examples in Storybook.
 
 
 ### <img src="project-scripts/webpack/markdown/logos/css-3.svg?sanitize=true" height="16" /> CSS Styles only
@@ -81,14 +81,21 @@ Example:
 `my-component.jsx`
 
 ```jsx
-import '@rakuten-rex/react-component-starter-kit/MyComponent/css';
+import '@rakuten-rex/text-field/TextFieldLabel/css';
 
 function MyCustomComponent() {
   return (
     <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
+      <div class="rex-text-field-label">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-ui-border">
+            <div class="rex-text-field-inner">
+              <input id="age" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -101,20 +108,27 @@ Example:
 `my-component.jsx`
 
 ```jsx
-import '@rakuten-rex/react-component-starter-kit/MyComponent/css/static';
+import '@rakuten-rex/text-field/TextFieldLabel/css/static';
 
 function MyCustomComponent() {
   return (
     <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
+      <div class="rex-text-field-label">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-ui-border">
+            <div class="rex-text-field-inner">
+              <input id="age" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 ```
 
-[Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
+[Click here](https://rakuten-rex.github.io/text-field/) to see all working examples in Storybook.
 
 
 ### <img src="project-scripts/webpack/markdown/logos/sass.svg?sanitize=true" height="16" /> Sass mixins
@@ -126,10 +140,10 @@ Example:
 `my-styles.scss`
 
 ```scss
-@import '~@rakuten-rex/react-component-starter-kit/MyComponent/sass/styles.mixin';
+@import '~@rakuten-rex/text-field/TextFieldUi/sass/styles.mixin';
 
 .my-component-with-rex-styles {
-  @include rex-my-component();
+  @include rex-text-field-ui();
 }
 ```
 
@@ -144,9 +158,16 @@ Example:
 ```vue
 <template>
     <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
+      <div class="rex-text-field-label">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-ui-border">
+            <div class="rex-text-field-inner">
+              <input id="age" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 <script>
@@ -155,7 +176,7 @@ export default {
 }
 </script>
 <style scoped>
-@import "~@rakuten-rex/react-component-starter-kit/MyComponent/css";
+@import "~@rakuten-rex/text-field/TextFieldLabel/css";
 </style>
 ```
 
@@ -167,21 +188,21 @@ Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles
 ### Using CSS Variables (Modern Websites and WebApps)
 **Production mode URL** (recommended for Static HTML projects):  
 ```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.4.8/MyComponent/MyComponent.production.min.css
+https://unpkg.com/@rakuten-rex/text-field@1.0.0/TextFieldLabel/TextFieldLabel.production.min.css
 ```
 
 
 Development mode URL (for local testing):  
 
 ```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.4.8/MyComponent/MyComponent.development.css
+https://unpkg.com/@rakuten-rex/text-field@1.0.0/TextFieldLabel/TextFieldLabel.development.css
 ```
 
 
 ### Using Static CSS (Legacy Websites)
 
 ```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.4.8/MyComponent/MyComponent.static.css
+https://unpkg.com/@rakuten-rex/text-field@1.0.0/TextFieldLabel/TextFieldLabel.static.css
 ```
 
 ### <img src="project-scripts/webpack/markdown/logos/html-5.svg?sanitize=true" height="16" /> Single component integration
@@ -197,14 +218,21 @@ Example:
   <head>
     <meta charset="utf-8">
     <title>My Page</title>
-    <!-- ReX react-component-starter-kit -->
-    <link href="https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.4.8/MyComponent/MyComponent.production.min.css" rel="stylesheet">
+    <!-- ReX text-field -->
+    <link href="https://unpkg.com/@rakuten-rex/text-field@1.0.0/TextFieldLabel/TextFieldLabel.production.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
+      <div class="rex-text-field-label">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-ui-border">
+            <div class="rex-text-field-inner">
+              <input id="age" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -274,7 +302,7 @@ npm start
 
 ## How to build
 
-The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./npm/@rakuten-rex/react-component-starter-kit` and other one for Github pages `./docs`.   
+The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./npm/@rakuten-rex/text-field` and other one for Github pages `./docs`.   
 
 ```
 npm run build
@@ -305,7 +333,7 @@ npm run publish:component
 
 Once the process finish, take a look to the NPM site:   
 
-https://www.npmjs.com/package/@rakuten-rex/react-component-starter-kit
+https://www.npmjs.com/package/@rakuten-rex/text-field
 
 
 # Javascript and React related documents

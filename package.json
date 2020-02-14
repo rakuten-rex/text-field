@@ -1,6 +1,6 @@
 {
   "name": "@rakuten-rex/text-field",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "TextField component",
   "main": "src/index.jsx",
   "scripts": {
