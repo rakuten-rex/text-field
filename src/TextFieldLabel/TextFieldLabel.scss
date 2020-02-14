@@ -1,5 +1,5 @@
 @import './TextFieldLabel.mixin';
 
 .rex-text-field-label {
-  @include rex-text-field-label-state();
+  @include rex-text-field-label();
 }

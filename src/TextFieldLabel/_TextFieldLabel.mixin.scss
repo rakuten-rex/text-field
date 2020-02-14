@@ -1,6 +1,6 @@
 @import '../TextFieldUi/TextFieldUi.mixin';
 
-@mixin rex-text-field-label-state() {
+@mixin rex-text-field-label() {
   @include rex-text-field-native-default-state();
 
   &:hover,

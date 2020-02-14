@@ -140,10 +140,10 @@ Example:
 `my-styles.scss`
 
 ```scss
-@import '~@rakuten-rex/text-field/TextFieldUi/sass/styles.mixin';
+@import '~@rakuten-rex/text-field/TextFieldLabel/sass/styles.mixin';
 
 .my-component-with-rex-styles {
-  @include rex-text-field-ui();
+  @include rex-text-field-label();
 }
 ```
 
