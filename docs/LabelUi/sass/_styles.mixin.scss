@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.0.0 2020-02-14
+* @license @rakuten-rex/text-field v1.1.0 2020-02-14
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -53,22 +53,12 @@
   margin-bottom: 0.5rem;
   padding-left: 0.75rem;
 
-  &.hover,
-  &:hover {
-    @include rex-label-ui-hover-state();
-  }
+  &.focus,
+  &:focus,
   &.active,
   &:active {
     @include rex-label-ui-active-state();
   }
-  &.focus,
-  &:focus {
-    @include rex-label-ui-active-state();
-  }
-}
-
-@mixin rex-label-ui-hover-state {
-  color: #1364ff;
 }
 
 @mixin rex-label-ui-active-state {

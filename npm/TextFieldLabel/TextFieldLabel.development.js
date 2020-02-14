@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.0.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.0 2020-02-14
  * TextFieldLabel/TextFieldLabel.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -434,19 +434,7 @@ function TextFieldLabel_TextFieldLabel(_ref) {
   var classes = ['rex-text-field-label', className].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
-  var labelEl = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_["useRef"])(null); // const onTextFieldMouseOver = () => {
-  //   labelEl && labelEl.current.classList.add('hover');
-  // };
-  // const onTextFieldMouseOut = () => {
-  //   labelEl && labelEl.current.classList.remove('hover');
-  // };
-  // const onTextFieldFocus = () => {
-  //   labelEl && labelEl.current.classList.add('active');
-  // };
-  // const onTextFieldBlur = () => {
-  //   labelEl && labelEl.current.classList.remove('active');
-  // };
-
+  var labelEl = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_["useRef"])(null);
   return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", extends_default()({
     className: classes
   }, props), external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(LabelUi["default"], {
@@ -454,20 +442,14 @@ function TextFieldLabel_TextFieldLabel(_ref) {
     htmlFor: htmlFor,
     label: label,
     state: state,
-    labelRef: labelEl,
-    className: ""
+    labelRef: labelEl
   }), external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(TextFieldUi["default"], {
     id: id,
     labelId: labelId,
     name: name,
     placeholder: placeholder,
     label: label,
-    state: state,
-    className: "" // onMouseOver={onTextFieldMouseOver}
-    // onMouseOut={onTextFieldMouseOut}
-    // onFocus={onTextFieldFocus}
-    // onBlur={onTextFieldBlur}
-
+    state: state
   }));
 }
 TextFieldLabel_TextFieldLabel.displayName = "TextFieldLabel";
