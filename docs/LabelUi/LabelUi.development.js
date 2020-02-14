@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.0.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.0 2020-02-14
  * LabelUi/LabelUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
