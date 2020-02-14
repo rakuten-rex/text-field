@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.1.0 2020-02-14
+* @license @rakuten-rex/text-field v1.1.1 2020-02-14
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -44,6 +44,7 @@
   border-radius: 0.25rem;
   padding: 0.5rem 0.75rem;
   background-color: #fff;
+  margin: 0;
 }
 
 @mixin rex-text-field-native-active-state {
