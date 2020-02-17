@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.1 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.2 2020-02-17
  * TextFieldUi/TextFieldUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -193,7 +193,8 @@ function TextFieldUi(_ref) {
       label = _ref.label,
       labelId = _ref.labelId,
       id = _ref.id,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id"]);
+      style = _ref.style,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style"]);
 
   var stateClass = function (stateClassName) {
     switch (stateClassName) {
@@ -243,7 +244,8 @@ function TextFieldUi(_ref) {
   };
 
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: classes
+    className: classes,
+    style: style
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: borderClass
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -268,7 +270,8 @@ TextFieldUi.defaultProps = {
   state: '',
   label: '',
   labelId: '',
-  id: ''
+  id: '',
+  style: {}
 };
 
 /***/ }),

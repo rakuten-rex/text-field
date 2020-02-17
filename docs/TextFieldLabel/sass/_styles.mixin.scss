@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.1.1 2020-02-14
+* @license @rakuten-rex/text-field v1.1.2 2020-02-17
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -10,11 +10,12 @@
   @include rex-core();
   input {
     @include rex-text-field-native-state();
-  }
-  &:active,
-  &.active &:focus,
-  &.focus {
-    @include rex-text-field-native-active-state();
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      @include rex-text-field-native-active-state();
+    }
   }
 
   &-border {
@@ -23,7 +24,7 @@
     &.active,
     &:focus,
     &.focus {
-      @include rex-textarea-outside-border-active-and-focus-state();
+      @include rex-textarea-outside-border-active-state();
     }
   }
 }
@@ -32,10 +33,10 @@
   display: block;
   width: 100%;
   line-height: 1.5;
-  color: #333;
+  color: var(--rex-text-field-theme-text, $--rex-text-field-theme-text);
   background-clip: padding-box;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-color 0.15s ease-in-out;
   -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   box-sizing: border-box;
@@ -43,40 +44,57 @@
   border: 1px solid transparent;
   border-radius: 0.25rem;
   padding: 0.5rem 0.75rem;
-  background-color: #fff;
+  background-color: $--rex-white;
   margin: 0;
+  @include rex-text-field-native-default-state();
+}
+
+@mixin rex-text-field-native-default-state {
+  border-color: transparent;
+  @include placeholder {
+    color: var(
+      --rex-text-field-theme-placeholder,
+      $--rex-text-field-theme-placeholder
+    );
+  }
 }
 
 @mixin rex-text-field-native-active-state {
-  input {
-    border: 1px solid #1364ff;
-    @include placeholder {
-      color: #606060;
-    }
+  color: var(
+    --rex-text-field-theme-active-text,
+    $--rex-text-field-theme-active-text
+  );
+  border: 1px solid
+    var(
+      --rex-text-field-theme-active-border,
+      $--rex-text-field-theme-active-border
+    );
+  @include placeholder {
+    color: var(
+      --rex-text-field-theme-active-placeholder,
+      $--rex-text-field-theme-active-placeholder
+    );
   }
 }
 
 @mixin rex-textarea-outside-border-state() {
-  border: 1px solid #606060;
+  border: 1px solid
+    var(--rex-text-field-theme-border, $--rex-text-field-theme-border);
   border-radius: 0.32rem;
   padding: 0;
-  background-color: #fff;
+  background-color: $--rex-white;
 }
 
-@mixin rex-textarea-outside-border-hover-state() {
-  border-color: #1364ff;
-  input {
-    color: #333333;
-    @include placeholder {
-      color: #717171;
-    }
-  }
-}
-
-@mixin rex-textarea-outside-border-active-and-focus-state() {
+@mixin rex-textarea-outside-border-active-state() {
   outline: none;
-  border-color: #1364ff;
-  background-color: #1364ff;
+  border-color: var(
+    --rex-text-field-theme-active-border,
+    $--rex-text-field-theme-active-border
+  );
+  background-color: var(
+    --rex-text-field-theme-active-border,
+    $--rex-text-field-theme-active-border
+  );
 }
 
 @mixin optional-at-root($sel) {
@@ -134,8 +152,6 @@
 }
 
 @mixin rex-text-field-label() {
-  @include rex-text-field-native-default-state();
-
   &:hover,
   &.hover {
     @include rex-text-field-native-hover-state();
@@ -143,42 +159,84 @@
   }
 }
 
-@mixin rex-text-field-native-default-state {
-  input {
-    border-color: transparent;
-    @include placeholder {
-      color: #717171;
-    }
-  }
-}
-
 @mixin rex-text-field-native-hover-state {
   input {
+    color: var(
+      --rex-text-field-theme-hover-text,
+      $--rex-text-field-theme-hover-text
+    );
     @include placeholder {
-      color: #606060;
+      color: var(
+        --rex-text-field-theme-hover-placeholder,
+        $--rex-text-field-theme-hover-placeholder
+      );
+    }
+    &:focus {
+      color: var(
+        --rex-text-field-theme-active-text,
+        $--rex-text-field-theme-active-text
+      );
+      @include placeholder {
+        color: var(
+          --rex-text-field-theme-active-placeholder,
+          $--rex-text-field-theme-active-placeholder
+        );
+      }
     }
   }
   > div > div {
-    border-color: #1364ff;
-  }
-}
-
-@mixin rex-text-field-native-active-state {
-  input {
-    border: 1px solid #1364ff;
-    @include placeholder {
-      color: #606060;
+    border-color: var(
+      --rex-text-field-theme-hover-border,
+      $--rex-text-field-theme-hover-border
+    );
+    background-color: $--rex-white;
+    &.focus {
+      background-color: var(
+        --rex-text-field-theme-active-border,
+        $--rex-text-field-theme-active-border
+      );
+      border-color: var(
+        --rex-text-field-theme-active-border,
+        $--rex-text-field-theme-active-border
+      );
     }
   }
 }
 
 @mixin rex-label-ui-hover-state {
   label {
-    color: #1364ff;
+    color: var(
+      --rex-text-field-label-theme-hover-text,
+      $--rex-text-field-label-theme-hover-text
+    );
+    &.focus {
+      color: var(
+        --rex-text-field-label-theme-active-text,
+        $--rex-text-field-label-theme-active-text
+      );
+    }
   }
-}
+} // ReX Colors
+$--rex-gray-500: #9c9c9c;
+$--rex-gray-600: #828282;
+$--rex-gray-900: #333333;
+$--rex-white: #fff;
+$--rex-blue-700: #1364ff;
+$--rex-error: #e60000;
+$--rex-valid: #069907;
+// Theme
+$--rex-text-field-theme-text: $--rex-gray-900;
+$--rex-text-field-theme-border: #606060;
+$--rex-text-field-theme-placeholder: #717171;
 
-@mixin rex-label-ui-active-state {
-  color: #1364ff;
-  outline: none;
-}
+$--rex-text-field-theme-hover-text: $--rex-gray-900;
+$--rex-text-field-theme-hover-border: $--rex-blue-700;
+$--rex-text-field-theme-hover-placeholder: #606060;
+
+$--rex-text-field-theme-active-text: $--rex-gray-900;
+$--rex-text-field-theme-active-border: $--rex-blue-700;
+$--rex-text-field-theme-active-placeholder: #606060;
+
+$--rex-text-field-label-theme-text: #606060;
+$--rex-text-field-label-theme-hover-text: #1364ff;
+$--rex-text-field-label-theme-active-text: #1364ff;
