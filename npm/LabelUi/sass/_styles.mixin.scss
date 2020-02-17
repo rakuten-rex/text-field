@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.1.0 2020-02-14
+* @license @rakuten-rex/text-field v1.1.2 2020-02-17
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -48,7 +48,10 @@
 @mixin rex-label-ui-content {
   font-size: 0.75rem;
   display: block;
-  color: #606060;
+  color: var(
+    --rex-text-field-label-theme-text,
+    $--rex-text-field-label-theme-text
+  );
   overflow-wrap: break-word;
   margin-bottom: 0.5rem;
   padding-left: 0.75rem;
@@ -62,6 +65,33 @@
 }
 
 @mixin rex-label-ui-active-state {
-  color: #1364ff;
+  color: var(
+    --rex-text-field-label-theme-active-text,
+    $--rex-text-field-label-theme-active-text
+  );
   outline: none;
 }
+// ReX Colors
+$--rex-gray-500: #9c9c9c;
+$--rex-gray-600: #828282;
+$--rex-gray-900: #333333;
+$--rex-white: #fff;
+$--rex-blue-700: #1364ff;
+$--rex-error: #e60000;
+$--rex-valid: #069907;
+// Theme
+$--rex-text-field-theme-text: $--rex-gray-900;
+$--rex-text-field-theme-border: #606060;
+$--rex-text-field-theme-placeholder: #717171;
+
+$--rex-text-field-theme-hover-text: $--rex-gray-900;
+$--rex-text-field-theme-hover-border: $--rex-blue-700;
+$--rex-text-field-theme-hover-placeholder: #606060;
+
+$--rex-text-field-theme-active-text: $--rex-gray-900;
+$--rex-text-field-theme-active-border: $--rex-blue-700;
+$--rex-text-field-theme-active-placeholder: #606060;
+
+$--rex-text-field-label-theme-text: #606060;
+$--rex-text-field-label-theme-hover-text: #1364ff;
+$--rex-text-field-label-theme-active-text: #1364ff;

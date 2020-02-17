@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.2 2020-02-17
  * TextFieldLabel/TextFieldLabel.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -180,7 +180,8 @@ function LabelUi(_ref) {
       className = _ref.className,
       state = _ref.state,
       labelRef = _ref.labelRef,
-      id = _ref.id;
+      id = _ref.id,
+      style = _ref.style;
 
   var stateClass = function (stateClassName) {
     switch (stateClassName) {
@@ -214,7 +215,8 @@ function LabelUi(_ref) {
     id: id || null,
     htmlFor: htmlFor,
     className: classes,
-    ref: labelRef
+    ref: labelRef,
+    style: style
   }, label);
 }
 LabelUi.displayName = "LabelUi";
@@ -224,7 +226,8 @@ LabelUi.defaultProps = {
   className: '',
   state: '',
   labelRef: null,
-  id: ''
+  id: '',
+  style: {}
 };
 
 /***/ }),
@@ -259,7 +262,8 @@ function TextFieldUi(_ref) {
       label = _ref.label,
       labelId = _ref.labelId,
       id = _ref.id,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id"]);
+      style = _ref.style,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style"]);
 
   var stateClass = function (stateClassName) {
     switch (stateClassName) {
@@ -309,7 +313,8 @@ function TextFieldUi(_ref) {
   };
 
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: classes
+    className: classes,
+    style: style
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: borderClass
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -334,7 +339,8 @@ TextFieldUi.defaultProps = {
   state: '',
   label: '',
   labelId: '',
-  id: ''
+  id: '',
+  style: {}
 };
 
 /***/ }),
@@ -429,14 +435,16 @@ function TextFieldLabel_TextFieldLabel(_ref) {
       id = _ref.id,
       labelId = _ref.labelId,
       state = _ref.state,
-      props = objectWithoutProperties_default()(_ref, ["name", "placeholder", "className", "label", "htmlFor", "id", "labelId", "state"]);
+      style = _ref.style,
+      props = objectWithoutProperties_default()(_ref, ["name", "placeholder", "className", "label", "htmlFor", "id", "labelId", "state", "style"]);
 
   var classes = ['rex-text-field-label', className].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
   var labelEl = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_["useRef"])(null);
   return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", extends_default()({
-    className: classes
+    className: classes,
+    style: style
   }, props), external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(LabelUi["default"], {
     id: labelId,
     htmlFor: htmlFor,
@@ -461,7 +469,8 @@ TextFieldLabel_TextFieldLabel.defaultProps = {
   placeholder: '',
   state: '',
   id: '',
-  labelId: ''
+  labelId: '',
+  style: null
 };
 
 /***/ })

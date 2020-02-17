@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { string } from 'prop-types';
+import { string, objectOf } from 'prop-types';
 import './TextFieldUi.scss';
 
 export default function TextFieldUi({
@@ -13,6 +13,7 @@ export default function TextFieldUi({
   label,
   labelId,
   id,
+  style,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -59,7 +60,7 @@ export default function TextFieldUi({
   };
 
   return (
-    <div className={classes}>
+    <div className={classes} style={style}>
       <div className={borderClass}>
         <div className="rex-text-field-inner">
           <input
@@ -88,6 +89,7 @@ TextFieldUi.defaultProps = {
   label: '',
   labelId: '',
   id: '',
+  style: {},
 };
 
 TextFieldUi.propTypes = {
@@ -99,4 +101,5 @@ TextFieldUi.propTypes = {
   label: string,
   labelId: string,
   id: string,
+  style: objectOf(string),
 };

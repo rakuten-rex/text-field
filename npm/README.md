@@ -9,13 +9,13 @@ React, HTML/CSS and Vue.js
 <img src="https://raw.githubusercontent.com/rakuten-rex/text-field/master/project-scripts/webpack/markdown/logos/npm.svg?sanitize=true" height="16" />
 
 ```
-npm install @rakuten-rex/text-field@1.1.0 --save
+npm install @rakuten-rex/text-field@1.1.2 --save
 ```
 
 <img src="https://raw.githubusercontent.com/rakuten-rex/text-field/master/project-scripts/webpack/markdown/logos/yarn.svg?sanitize=true" height="16" />
 
 ```
-yarn add @rakuten-rex/text-field@1.1.0
+yarn add @rakuten-rex/text-field@1.1.2
 ```
 
 # Getting started
@@ -188,21 +188,21 @@ Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles
 ### Using CSS Variables (Modern Websites and WebApps)
 **Production mode URL** (recommended for Static HTML projects):  
 ```
-https://unpkg.com/@rakuten-rex/text-field@1.1.0/TextFieldLabel/TextFieldLabel.production.min.css
+https://unpkg.com/@rakuten-rex/text-field@1.1.2/TextFieldLabel/TextFieldLabel.production.min.css
 ```
 
 
 Development mode URL (for local testing):  
 
 ```
-https://unpkg.com/@rakuten-rex/text-field@1.1.0/TextFieldLabel/TextFieldLabel.development.css
+https://unpkg.com/@rakuten-rex/text-field@1.1.2/TextFieldLabel/TextFieldLabel.development.css
 ```
 
 
 ### Using Static CSS (Legacy Websites)
 
 ```
-https://unpkg.com/@rakuten-rex/text-field@1.1.0/TextFieldLabel/TextFieldLabel.static.css
+https://unpkg.com/@rakuten-rex/text-field@1.1.2/TextFieldLabel/TextFieldLabel.static.css
 ```
 
 ### <img src="https://raw.githubusercontent.com/rakuten-rex/text-field/master/project-scripts/webpack/markdown/logos/html-5.svg?sanitize=true" height="16" /> Single component integration
@@ -219,7 +219,7 @@ Example:
     <meta charset="utf-8">
     <title>My Page</title>
     <!-- ReX text-field -->
-    <link href="https://unpkg.com/@rakuten-rex/text-field@1.1.0/TextFieldLabel/TextFieldLabel.production.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/@rakuten-rex/text-field@1.1.2/TextFieldLabel/TextFieldLabel.production.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="rex-my-component" role="presentation">

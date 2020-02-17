@@ -1,0 +1,24 @@
+// ReX Colors
+$--rex-gray-500: #9C9C9C;
+$--rex-gray-600: #828282;
+$--rex-gray-900: #333333;
+$--rex-white: #fff;
+$--rex-blue-700: #1364ff;
+$--rex-error: #E60000;
+$--rex-valid: #069907;
+// Theme
+$--rex-text-field-theme-text: $--rex-gray-900;
+$--rex-text-field-theme-border: #606060;
+$--rex-text-field-theme-placeholder: #717171;
+
+$--rex-text-field-theme-hover-text: $--rex-gray-900;
+$--rex-text-field-theme-hover-border: $--rex-blue-700;
+$--rex-text-field-theme-hover-placeholder: #606060;
+
+$--rex-text-field-theme-active-text: $--rex-gray-900;
+$--rex-text-field-theme-active-border: $--rex-blue-700;
+$--rex-text-field-theme-active-placeholder: #606060;
+
+$--rex-text-field-label-theme-text: #606060;
+$--rex-text-field-label-theme-hover-text: #1364FF;
+$--rex-text-field-label-theme-active-text: #1364FF;

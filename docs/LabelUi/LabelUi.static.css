@@ -1,9 +1,9 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.2 2020-02-17
  * LabelUi/LabelUi.static.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
  * 
  * This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.
- */.rex-text-field-label-ui{-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-text-size-adjust: 100%;background-color: inherit;color: #606060;display: block;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size: .75rem;line-height: 1.5;margin-bottom: .5rem;overflow-wrap: break-word;padding-left: .75rem;text-align: left}.rex-text-field-label-ui,.rex-text-field-label-ui:after,.rex-text-field-label-ui:before{-moz-box-sizing: border-box;-ms-box-sizing: border-box;-o-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box}.rex-text-field-label-ui.active,.rex-text-field-label-ui.focus,.rex-text-field-label-ui:active,.rex-text-field-label-ui:focus{color: #1364ff;outline: none}
+ */.rex-text-field-label-ui{-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-text-size-adjust: 100%;background-color: inherit;color: #606060;display: block;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size: .75rem;line-height: 1.5;margin-bottom: .5rem;overflow-wrap: break-word;padding-left: .75rem;text-align: left}.rex-text-field-label-ui,.rex-text-field-label-ui:after,.rex-text-field-label-ui:before{-moz-box-sizing: border-box;-ms-box-sizing: border-box;-o-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box}.rex-text-field-label-ui.active{color: #1364ff;outline: none}.rex-text-field-label-ui.focus{color: #1364ff;outline: none}.rex-text-field-label-ui:active{color: #1364ff;outline: none}.rex-text-field-label-ui:focus{color: #1364ff;outline: none}

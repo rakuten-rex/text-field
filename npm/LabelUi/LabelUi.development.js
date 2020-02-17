@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.2 2020-02-17
  * LabelUi/LabelUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -131,7 +131,8 @@ function LabelUi(_ref) {
       className = _ref.className,
       state = _ref.state,
       labelRef = _ref.labelRef,
-      id = _ref.id;
+      id = _ref.id,
+      style = _ref.style;
 
   var stateClass = function (stateClassName) {
     switch (stateClassName) {
@@ -165,7 +166,8 @@ function LabelUi(_ref) {
     id: id || null,
     htmlFor: htmlFor,
     className: classes,
-    ref: labelRef
+    ref: labelRef,
+    style: style
   }, label);
 }
 LabelUi.displayName = "LabelUi";
@@ -175,7 +177,8 @@ LabelUi.defaultProps = {
   className: '',
   state: '',
   labelRef: null,
-  id: ''
+  id: '',
+  style: {}
 };
 
 /***/ }),

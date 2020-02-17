@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from 'react';
-import { string } from 'prop-types';
+import { string, objectOf } from 'prop-types';
 import LabelUi from '../LabelUi';
 import TextFieldUi from '../TextFieldUi';
 import './TextFieldLabel.scss';
@@ -15,6 +15,7 @@ export default function TextFieldLabel({
   id,
   labelId,
   state,
+  style,
   ...props
 }) {
   const classes = ['rex-text-field-label', className]
@@ -24,7 +25,7 @@ export default function TextFieldLabel({
   const labelEl = useRef(null);
 
   return (
-    <div className={classes} {...props}>
+    <div className={classes} style={style} {...props}>
       <LabelUi
         id={labelId}
         htmlFor={htmlFor}
@@ -53,6 +54,7 @@ TextFieldLabel.defaultProps = {
   state: '',
   id: '',
   labelId: '',
+  style: null,
 };
 
 TextFieldLabel.propTypes = {
@@ -64,4 +66,5 @@ TextFieldLabel.propTypes = {
   state: string,
   id: string,
   labelId: string,
+  style: objectOf(string),
 };

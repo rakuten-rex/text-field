@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.0 2020-02-14
+ * @license @rakuten-rex/text-field v1.1.2 2020-02-17
  * TextFieldUi/TextFieldUi.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -37,44 +37,59 @@
   border: 1px solid transparent;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  color: #333;
+  color: var(--rex-text-field-theme-text, #333);
   display: block;
   font-size: 1rem;
   line-height: 1.5;
+  margin: 0;
   outline: none;
   padding: 0.5rem 0.75rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-color 0.15s ease-in-out;
   width: 100%;
 }
-.rex-text-field-ui.active .rex-text-field-ui:focus input,
-.rex-text-field-ui.focus input,
-.rex-text-field-ui:active input {
-  border: 1px solid #1364ff;
+.rex-text-field-ui input::-webkit-input-placeholder {
+  color: var(--rex-text-field-theme-placeholder, #717171);
 }
-.rex-text-field-ui.active
-  .rex-text-field-ui:focus
-  input::-webkit-input-placeholder,
-.rex-text-field-ui.focus input::-webkit-input-placeholder,
-.rex-text-field-ui:active input::-webkit-input-placeholder {
-  color: #606060;
+.rex-text-field-ui input:-moz-placeholder,
+.rex-text-field-ui input::-moz-placeholder {
+  color: var(--rex-text-field-theme-placeholder, #717171);
 }
-.rex-text-field-ui.active .rex-text-field-ui:focus input:-moz-placeholder,
-.rex-text-field-ui.active .rex-text-field-ui:focus input::-moz-placeholder,
-.rex-text-field-ui.focus input:-moz-placeholder,
-.rex-text-field-ui.focus input::-moz-placeholder,
-.rex-text-field-ui:active input:-moz-placeholder,
-.rex-text-field-ui:active input::-moz-placeholder {
-  color: #606060;
+.rex-text-field-ui input:-ms-input-placeholder {
+  color: var(--rex-text-field-theme-placeholder, #717171);
 }
-.rex-text-field-ui.active .rex-text-field-ui:focus input:-ms-input-placeholder,
-.rex-text-field-ui.focus input:-ms-input-placeholder,
-.rex-text-field-ui:active input:-ms-input-placeholder {
-  color: #606060;
+.rex-text-field-ui input.active,
+.rex-text-field-ui input.focus,
+.rex-text-field-ui input:active,
+.rex-text-field-ui input:focus {
+  border: 1px solid var(--rex-text-field-theme-active-border, #1364ff);
+  color: var(--rex-text-field-theme-active-text, #333);
+}
+.rex-text-field-ui input.active::-webkit-input-placeholder,
+.rex-text-field-ui input.focus::-webkit-input-placeholder,
+.rex-text-field-ui input:active::-webkit-input-placeholder,
+.rex-text-field-ui input:focus::-webkit-input-placeholder {
+  color: var(--rex-text-field-theme-active-placeholder, #606060);
+}
+.rex-text-field-ui input.active:-moz-placeholder,
+.rex-text-field-ui input.active::-moz-placeholder,
+.rex-text-field-ui input.focus:-moz-placeholder,
+.rex-text-field-ui input.focus::-moz-placeholder,
+.rex-text-field-ui input:active:-moz-placeholder,
+.rex-text-field-ui input:active::-moz-placeholder,
+.rex-text-field-ui input:focus:-moz-placeholder,
+.rex-text-field-ui input:focus::-moz-placeholder {
+  color: var(--rex-text-field-theme-active-placeholder, #606060);
+}
+.rex-text-field-ui input.active:-ms-input-placeholder,
+.rex-text-field-ui input.focus:-ms-input-placeholder,
+.rex-text-field-ui input:active:-ms-input-placeholder,
+.rex-text-field-ui input:focus:-ms-input-placeholder {
+  color: var(--rex-text-field-theme-active-placeholder, #606060);
 }
 .rex-text-field-ui-border {
   background-color: #fff;
-  border: 1px solid #606060;
+  border: 1px solid var(--rex-text-field-theme-border, #606060);
   border-radius: 0.32rem;
   padding: 0;
 }
@@ -82,7 +97,7 @@
 .rex-text-field-ui-border.focus,
 .rex-text-field-ui-border:active,
 .rex-text-field-ui-border:focus {
-  background-color: #1364ff;
-  border-color: #1364ff;
+  background-color: var(--rex-text-field-theme-active-border, #1364ff);
+  border-color: var(--rex-text-field-theme-active-border, #1364ff);
   outline: none;
 }
