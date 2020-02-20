@@ -11,8 +11,8 @@
   display: block;
   color: var(--rex-text-field-label-theme-text, $--rex-text-field-label-theme-text);
   overflow-wrap: break-word;
-  margin-bottom: .5rem;
-  padding-left: .75rem;
+  margin-bottom: .25rem;
+  padding-left: calc(.75rem + 2px);
 
   &.focus,
   &:focus,

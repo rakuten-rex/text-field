@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.2 2020-02-17
+ * @license @rakuten-rex/text-field v1.1.3 2020-02-20
  * TextFieldUi/TextFieldUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
