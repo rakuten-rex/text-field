@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.1.2 2020-02-17
+* @license @rakuten-rex/text-field v1.1.3 2020-02-20
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -53,8 +53,8 @@
     $--rex-text-field-label-theme-text
   );
   overflow-wrap: break-word;
-  margin-bottom: 0.5rem;
-  padding-left: 0.75rem;
+  margin-bottom: 0.25rem;
+  padding-left: calc(0.75rem + 2px);
 
   &.focus,
   &:focus,
