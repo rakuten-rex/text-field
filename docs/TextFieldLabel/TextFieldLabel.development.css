@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.2 2020-02-17
+ * @license @rakuten-rex/text-field v1.1.3 2020-02-20
  * TextFieldLabel/TextFieldLabel.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -20,9 +20,9 @@
     "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 0.75rem;
   line-height: 1.5;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   overflow-wrap: break-word;
-  padding-left: 0.75rem;
+  padding-left: calc(0.75rem + 2px);
   text-align: left;
 }
 .rex-text-field-label-ui,
