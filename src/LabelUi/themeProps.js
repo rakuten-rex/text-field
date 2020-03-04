@@ -8,6 +8,11 @@ export default function ThemeProps() {
       '#CB0085',
       'Theme Default'
     ),
+    themeLabelDisabledText: color(
+      'Disabled Label Text Color',
+      '#FFE9F8',
+      'Theme Disabled'
+    ),
     themeLabelHoverText: color(
       'Hover Label Text Color',
       '#FF41BE',

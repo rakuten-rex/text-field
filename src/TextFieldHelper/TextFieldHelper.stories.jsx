@@ -2,16 +2,19 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
 import React from 'react';
-import TextFieldUi from 'src/TextFieldUi';
 import { boolean } from '@storybook/addon-knobs';
+import TextFieldHelper from 'src/TextFieldHelper';
+import TexiFieldCommonProps from '../TextFieldUi/props';
+import TextFieldThemeProps from '../TextFieldUi/themeProps';
+import HelperCommonProps from '../HelperUi/props';
+import HelperThemeProps from '../HelperUi/themeProps';
 import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
-import ThemeProps from './themeProps';
 
 /**
  * Main story
  * */
 export default {
-  title: 'TextFieldUi',
+  title: 'Text Field Helper',
   decorators: withKnobs,
 };
 
@@ -20,20 +23,26 @@ export default {
  * */
 export const DefaultView = () => {
   return (
-    <TextFieldUi
+    <TextFieldHelper
+      id="age"
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
+      helper="Helper Text"
+      labelId="labelId"
     />
   );
 };
 
 export const Disabled = () => {
   return (
-    <TextFieldUi
+    <TextFieldHelper
+      id="age"
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
+      helper="Helper Text"
+      labelId="labelId"
       disabled
     />
   );
@@ -41,11 +50,38 @@ export const Disabled = () => {
 
 export const FocusAndActiveState = () => {
   return (
-    <TextFieldUi
+    <TextFieldHelper
+      id="age"
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
+      helper="Helper Text"
+      labelId="labelId"
       state="active"
+    />
+  );
+};
+
+export const WithDynamicProps = () => {
+  const {
+    name,
+    placeholder,
+    htmlFor,
+    state,
+    disabled,
+    className,
+  } = TexiFieldCommonProps();
+  const { helper } = HelperCommonProps();
+
+  return (
+    <TextFieldHelper
+      className={className}
+      name={name}
+      placeholder={placeholder}
+      htmlFor={htmlFor}
+      state={state}
+      helper={helper}
+      disabled={disabled}
     />
   );
 };
@@ -68,7 +104,13 @@ function Theme() {
     themeDisabledBorder,
     themeDisabledPlaceholder,
     themeDisabledText,
-  } = ThemeProps();
+  } = TextFieldThemeProps();
+  const {
+    themeHelperDefaultText,
+    themeHelperDisabledText,
+    themeHelperHoverText,
+    themeHelperActiveText,
+  } = HelperThemeProps();
 
   const customStyle = {
     '--rex-text-field-theme-text': themeDefaultText,
@@ -83,11 +125,15 @@ function Theme() {
     '--rex-text-field-theme-disabled-border': themeDisabledBorder,
     '--rex-text-field-theme-disabled-placeholder': themeDisabledPlaceholder,
     '--rex-text-field-theme-disabled-text': themeDisabledText,
+    '--rex-text-field-helper-theme-text': themeHelperDefaultText,
+    '--rex-text-field-helper-theme-hover-text': themeHelperHoverText,
+    '--rex-text-field-helper-theme-active-text': themeHelperActiveText,
+    '--rex-text-field-helper-theme-disabled-text': themeHelperDisabledText,
   };
 
   return {
     customStyle,
-    customStyleHtml: cssVarsToLegacy(customStyle, TextFieldUi),
+    customStyleHtml: cssVarsToLegacy(customStyle, TextFieldHelper),
   };
 }
 
@@ -96,11 +142,14 @@ export const WithThemeReactAndCSSVars = () => {
   const disabled = boolean('Disabled', false, 'Theme Disabled');
 
   return (
-    <TextFieldUi
+    <TextFieldHelper
       style={customStyle}
+      id="age"
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
+      helper="Helper Text"
+      labelId="labelId"
       disabled={disabled}
     />
   );
@@ -113,10 +162,13 @@ export const WithThemeHTMLAndLegacyCSS = () => {
   return (
     <>
       <style>{customStyleHtml}</style>
-      <TextFieldUi
+      <TextFieldHelper
+        id="age"
         name="firstname"
         placeholder="Placeholder"
         htmlFor="firstname"
+        helper="Helper Text"
+        labelId="labelId"
         disabled={disabled}
       />
     </>

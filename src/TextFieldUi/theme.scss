@@ -1,0 +1,44 @@
+// ReX Colors
+$--rex-gray-300: #d1d1d1;
+$--rex-gray-500: #9c9c9c;
+$--rex-gray-700: #686868;
+$--rex-gray-800: #4d4d4d;
+$--rex-gray-900: #333333;
+$--rex-white: #fff;
+$--rex-blue: #1364FF;
+$--rex-disabled-text: #898989;
+
+// Theme
+$--rex-text-field-theme-text: $--rex-gray-900;
+$--rex-text-field-theme-border: #606060;
+$--rex-text-field-theme-placeholder: #717171;
+
+$--rex-text-field-theme-hover-text: $--rex-gray-900;
+$--rex-text-field-theme-hover-border: $--rex-blue;
+$--rex-text-field-theme-hover-placeholder: #606060;
+
+$--rex-text-field-theme-active-text: $--rex-gray-900;
+$--rex-text-field-theme-active-border: $--rex-blue;
+$--rex-text-field-theme-active-placeholder: #606060;
+
+$--rex-text-field-theme-disabled-text: #898989;
+$--rex-text-field-theme-disabled-border: #DFDFDF;
+$--rex-text-field-theme-disabled-placeholder: $--rex-disabled-text;
+
+$--rex-text-field-label-theme-text: #606060;
+$--rex-text-field-label-theme-hover-text: $--rex-blue;
+$--rex-text-field-label-theme-active-text: $--rex-blue;
+$--rex-text-field-label-theme-disabled-text: $--rex-disabled-text;
+$--rex-text-field-label-theme-error-text: #E60000;
+$--rex-text-field-label-theme-valid-text: #069907;
+
+$--rex-text-field-helper-theme-text: #606060;
+$--rex-text-field-helper-theme-hover-text: #606060;
+$--rex-text-field-helper-theme-active-text: #606060;
+$--rex-text-field-helper-theme-disabled-text: $--rex-disabled-text;
+$--rex-text-field-helper-theme-error-text: #E60000;
+$--rex-text-field-helper-theme-valid-text: #069907;
+
+$--rex-password-theme-icon: #606060;
+$--rex-password-theme-hover-icon: #606060;
+$--rex-password-theme-active-icon: #606060;

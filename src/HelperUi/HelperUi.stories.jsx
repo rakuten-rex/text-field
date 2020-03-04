@@ -2,17 +2,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs';
-import LabelUi from 'src/LabelUi';
+import { select, boolean } from '@storybook/addon-knobs';
+import HelperUi from 'src/HelperUi';
 import CommonProps from './props';
-import ThemeProps from './themeProps';
+import ThemeProps from '../TextFieldUi/themeProps';
 import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
 
 /**
  * Main story
  * */
 export default {
-  title: 'Label UI',
+  title: 'Helper UI',
   decorators: withKnobs,
 };
 
@@ -20,36 +20,29 @@ export default {
  * Stories
  * */
 export const Default = () => {
-  return <LabelUi label="Label" />;
+  return <HelperUi helper="Helper Text" />;
 };
 
 export const Disabled = () => {
-  return <LabelUi label="Label" disabled />;
+  return <HelperUi helper="Helper Text" disabled />;
 };
 
 // export const ErrorState = () => {
-//   return <LabelUi label="Label" state="error" />;
+//   return <HelperUi helper="Helper Text" state="error" />;
 // };
 
 // export const ValidState = () => {
-//   return <LabelUi label="Label" state="valid" />;
+//   return <HelperUi helper="Helper Text" state="valid" />;
 // };
 
 export const ActiveState = () => {
-  return <LabelUi label="Label" state="active" />;
+  return <HelperUi helper="Helper Text" state="active" />;
 };
 
 export const WithDynamicProps = () => {
-  const { label, htmlFor, state, disabled } = CommonProps();
+  const { helper, state, disabled } = CommonProps();
 
-  return (
-    <LabelUi
-      label={label}
-      htmlFor={htmlFor}
-      state={state}
-      disabled={disabled}
-    />
-  );
+  return <HelperUi helper={helper} state={state} disabled={disabled} />;
 };
 
 /**
@@ -58,24 +51,24 @@ export const WithDynamicProps = () => {
 
 function Theme() {
   const {
-    themeLabelDefaultText,
-    themeLabelDisabledText,
-    themeLabelHoverText,
-    themeLabelActiveText,
+    themeHelperDefaultText,
+    themeHelperDisabledText,
+    themeHelperHoverText,
+    themeHelperActiveText,
   } = ThemeProps();
 
   const customStyle = {
-    '--rex-text-field-label-theme-text': themeLabelDefaultText,
-    '--rex-text-field-label-theme-disabled-text': themeLabelDisabledText,
-    '--rex-text-field-label-theme-hover-text': themeLabelHoverText,
-    // '--rex-text-field-label-theme-error-text': themeErrorTextColor,
-    // '--rex-text-field-label-theme-valid-text': themeValidTextColor,
-    '--rex-text-field-label-theme-active-text': themeLabelActiveText,
+    '--rex-text-field-helper-theme-text': themeHelperDefaultText,
+    '--rex-text-field-helper-theme-disabled-text': themeHelperDisabledText,
+    '--rex-text-field-helper-theme-hover-text': themeHelperHoverText,
+    // '--rex-text-field-helper-theme-error-text': themeHelperErrorText,
+    // '--rex-text-field-helper-theme-valid-text': themeHelperValidText,
+    '--rex-text-field-helper-theme-active-text': themeHelperActiveText,
   };
 
   return {
     customStyle,
-    customStyleHtml: cssVarsToLegacy(customStyle, LabelUi),
+    customStyleHtml: cssVarsToLegacy(customStyle, HelperUi),
   };
 }
 
@@ -89,11 +82,11 @@ export const WithThemeReactAndCSSVars = () => {
   const disabled = boolean('Disabled', false, 'Theme Props');
 
   return (
-    <LabelUi
-      label="Label"
+    <HelperUi
+      helper="Helper Text"
       state={state}
-      disabled={disabled}
       style={customStyle}
+      disabled={disabled}
     />
   );
 };
@@ -110,7 +103,7 @@ export const WithThemeHTMLAndLegacyCSS = () => {
   return (
     <>
       <style>{customStyleHtml}</style>
-      <LabelUi label="Label" state={state} disabled={disabled} />
+      <HelperUi helper="Helper Text" state={state} disabled={disabled} />
     </>
   );
 };

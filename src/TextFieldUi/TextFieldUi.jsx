@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { string, objectOf } from 'prop-types';
+import { string, objectOf, bool, func } from 'prop-types';
 import './TextFieldUi.scss';
 
 export default function TextFieldUi({
@@ -14,6 +14,9 @@ export default function TextFieldUi({
   labelId,
   id,
   style,
+  disabled,
+  handleOnFocus,
+  handleOnBlur,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -24,58 +27,50 @@ export default function TextFieldUi({
         return 'valid';
       case 'active':
         return 'active';
-      case 'focus':
-        return 'focus';
-      case 'hover':
-        return 'hover';
-      case 'disabled':
-        return 'disabled';
       default:
         return '';
     }
   })(state);
 
-  const classes = ['rex-text-field-ui', className, stateClass]
+  const classes = [
+    'rex-text-field-ui',
+    'rex-text-field-ui-border',
+    className,
+    stateClass,
+  ]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
   const hasLabel = !!(label && label.length > 0);
-  const borderClass = ['rex-text-field-ui-border', stateClass]
-    .filter(singleClass => singleClass && singleClass.length > 0)
-    .join(' ')
-    .trim();
-  const handleOnFocus = e => {
-    const textFieldBorder = e.target.parentNode.parentNode;
-    const textFieldLabel =
-      e.target.parentNode.parentNode.parentNode.previousSibling;
-    textFieldBorder && textFieldBorder.classList.add('focus');
-    textFieldLabel && textFieldLabel.classList.add('focus');
-  };
-  const handleOnFocusOut = e => {
-    const textFieldBorder = e.target.parentNode.parentNode;
-    const textFieldLabel =
-      e.target.parentNode.parentNode.parentNode.previousSibling;
-    textFieldBorder && textFieldBorder.classList.remove('focus');
-    textFieldLabel && textFieldLabel.classList.remove('focus');
-  };
+  // const handleOnFocus = e => {
+  //   const textFieldBorder = e.target.parentNode.parentNode;
+  //   const textFieldLabel =
+  //     e.target.parentNode.parentNode.parentNode.previousSibling;
+  //   textFieldBorder && textFieldBorder.classList.add('focus');
+  //   textFieldLabel && textFieldLabel.classList.add('focus');
+  // };
+  // const handleOnFocusOut = e => {
+  //   const textFieldBorder = e.target.parentNode.parentNode;
+  //   const textFieldLabel =
+  //     e.target.parentNode.parentNode.parentNode.previousSibling;
+  //   textFieldBorder && textFieldBorder.classList.remove('focus');
+  //   textFieldLabel && textFieldLabel.classList.remove('focus');
+  // };
 
   return (
-    <div className={classes} style={style}>
-      <div className={borderClass}>
-        <div className="rex-text-field-inner">
-          <input
-            id={id}
-            className="rex-text-field-native"
-            name={name}
-            placeholder={placeholder}
-            aria-label={!hasLabel ? name || placeholder : null}
-            aria-labelledby={hasLabel ? labelId : null}
-            onFocus={handleOnFocus}
-            onBlur={handleOnFocusOut}
-            {...props}
-          />
-        </div>
-      </div>
+    <div className={classes} style={style} disabled={disabled}>
+      <input
+        id={id}
+        className="rex-text-field-native"
+        name={name}
+        placeholder={placeholder}
+        aria-label={!hasLabel ? name || placeholder : null}
+        aria-labelledby={hasLabel ? labelId : null}
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
+        disabled={disabled}
+        {...props}
+      />
     </div>
   );
 }
@@ -90,6 +85,9 @@ TextFieldUi.defaultProps = {
   labelId: '',
   id: '',
   style: {},
+  disabled: false,
+  handleOnFocus: () => {},
+  handleOnBlur: () => {},
 };
 
 TextFieldUi.propTypes = {
@@ -102,4 +100,7 @@ TextFieldUi.propTypes = {
   labelId: string,
   id: string,
   style: objectOf(string),
+  disabled: bool,
+  handleOnFocus: func,
+  handleOnBlur: func,
 };

@@ -1,7 +1,7 @@
 @import '../TextFieldUi/TextFieldUi.mixin';
 @import '../TextFieldUi//theme';
 
-@mixin rex-text-field-label() {
+@mixin rex-text-field-label-helper() {
   &:hover,
   &.hover {
     @include rex-text-field-native-hover-state();
@@ -26,6 +26,14 @@
         color: var(--rex-text-field-label-theme-hover-text, $--rex-text-field-label-theme-hover-text);
         &.focus {
           color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
+        }
+      }
+    }
+    small {
+      &:not([disabled]):not(.active) {
+        color: var(--rex-text-field-helper-theme-hover-text, $--rex-text-field-helper-theme-hover-text);
+        &.focus {
+          color: var(--rex-text-field-helper-theme-active-text, $--rex-text-field-helper-theme-active-text);
         }
       }
     }

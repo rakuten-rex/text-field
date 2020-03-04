@@ -9,7 +9,7 @@ export default function ThemeProps() {
       'Theme Default'
     ),
     themeDefaultPlaceholder: color(
-      'Default Placeholder Color',
+      'Default Placeholder Text Color',
       '#FF79D1',
       'Theme Default'
     ),
@@ -28,5 +28,20 @@ export default function ThemeProps() {
       'Theme Active'
     ),
     themeActiveText: color('Active Text Color', '#333', 'Theme Active'),
+    themeDisabledBorder: color(
+      'Disabled Border Color',
+      '#DFDFDF',
+      'Theme Disabled'
+    ),
+    themeDisabledPlaceholder: color(
+      'Disabled Placeholder Text Color',
+      '#898989',
+      'Theme Disabled'
+    ),
+    themeDisabledText: color(
+      'Disabled Text Color',
+      '#898989',
+      'Theme Disabled'
+    ),
   };
 }
