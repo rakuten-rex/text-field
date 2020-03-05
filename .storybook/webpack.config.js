@@ -101,6 +101,18 @@ module.exports = function ({ config, mode }) {
     return rule;
   });
 
+  // modify storybook's file-loader rule to avoid conflicts with svgr
+  const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
+  fileLoaderRule.exclude = path.resolve(__dirname, '../src');
+  
+  config.module.rules.push({
+    test: /\.svg$/,
+    include: path.resolve(__dirname, '../src'),
+    use: [{
+      loader: '@svgr/webpack',
+    }],
+  });  
+
   // Alias to run the component from src (original) or npm (build) folder
   const srcPath = (mode === 'DEVELOPMENT') ? '../src/' : `../npm/`;
 

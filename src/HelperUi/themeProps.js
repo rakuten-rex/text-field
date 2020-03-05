@@ -23,5 +23,15 @@ export default function ThemeProps() {
       '#606060',
       'Theme Active'
     ),
+    themeHelperErrorText: color(
+      'Error Helper Text Color',
+      '#DF0101',
+      'Theme Error'
+    ),
+    themeHelperValidText: color(
+      'Valid Helper Text Color',
+      '#047205',
+      'Theme Valid'
+    ),
   };
 }

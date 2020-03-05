@@ -32,7 +32,7 @@ export default function TextFieldUi({
     }
   })(state);
 
-  const classes = [
+  const borderClasses = [
     'rex-text-field-ui',
     'rex-text-field-ui-border',
     className,
@@ -41,27 +41,14 @@ export default function TextFieldUi({
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
+  const innerClasses = ['rex-text-field-native', stateClass].join(' ').trim();
   const hasLabel = !!(label && label.length > 0);
-  // const handleOnFocus = e => {
-  //   const textFieldBorder = e.target.parentNode.parentNode;
-  //   const textFieldLabel =
-  //     e.target.parentNode.parentNode.parentNode.previousSibling;
-  //   textFieldBorder && textFieldBorder.classList.add('focus');
-  //   textFieldLabel && textFieldLabel.classList.add('focus');
-  // };
-  // const handleOnFocusOut = e => {
-  //   const textFieldBorder = e.target.parentNode.parentNode;
-  //   const textFieldLabel =
-  //     e.target.parentNode.parentNode.parentNode.previousSibling;
-  //   textFieldBorder && textFieldBorder.classList.remove('focus');
-  //   textFieldLabel && textFieldLabel.classList.remove('focus');
-  // };
 
   return (
-    <div className={classes} style={style} disabled={disabled}>
+    <div className={borderClasses} style={style} disabled={disabled}>
       <input
         id={id}
-        className="rex-text-field-native"
+        className={innerClasses}
         name={name}
         placeholder={placeholder}
         aria-label={!hasLabel ? name || placeholder : null}

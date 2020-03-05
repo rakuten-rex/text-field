@@ -27,13 +27,13 @@ export const Disabled = () => {
   return <HelperUi helper="Helper Text" disabled />;
 };
 
-// export const ErrorState = () => {
-//   return <HelperUi helper="Helper Text" state="error" />;
-// };
+export const ErrorState = () => {
+  return <HelperUi helper="Helper Text" state="error" />;
+};
 
-// export const ValidState = () => {
-//   return <HelperUi helper="Helper Text" state="valid" />;
-// };
+export const ValidState = () => {
+  return <HelperUi helper="Helper Text" state="valid" />;
+};
 
 export const ActiveState = () => {
   return <HelperUi helper="Helper Text" state="active" />;

@@ -26,8 +26,11 @@ export default function TextFieldLabel({
   const handleOnFocus = e => {
     const textFieldNativeEl = e.target;
     const outsideBorderEl = e.target.parentNode;
+    const isErrorOrValid =
+      e.target.classList.contains('error') ||
+      e.target.classList.contains('valid');
 
-    if (!disabled) {
+    if (!disabled && !isErrorOrValid) {
       labelEl.current.classList.add('active');
       textFieldNativeEl.classList.add('active');
       outsideBorderEl.classList.add('active');
@@ -36,8 +39,11 @@ export default function TextFieldLabel({
   const handleOnBlur = e => {
     const textFieldNativeEl = e.target;
     const outsideBorderEl = e.target.parentNode;
+    const isErrorOrValid =
+      e.target.classList.contains('error') ||
+      e.target.classList.contains('valid');
 
-    if (!disabled) {
+    if (!disabled && !isErrorOrValid) {
       labelEl.current.classList.remove('active');
       textFieldNativeEl.classList.remove('active');
       outsideBorderEl.classList.remove('active');

@@ -5,6 +5,8 @@ export default function CommonProps() {
   const options = {
     Default: null,
     Active: 'active',
+    Error: 'error',
+    Valid: 'valid',
   };
 
   return {

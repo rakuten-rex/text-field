@@ -6,6 +6,7 @@ import TextFieldUi from 'src/TextFieldUi';
 import { boolean } from '@storybook/addon-knobs';
 import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
 import ThemeProps from './themeProps';
+import TexiFieldCommonProps, { StateProps } from './props';
 
 /**
  * Main story
@@ -39,6 +40,28 @@ export const Disabled = () => {
   );
 };
 
+export const Error = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="error"
+    />
+  );
+};
+
+export const Valid = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="valid"
+    />
+  );
+};
+
 export const FocusAndActiveState = () => {
   return (
     <TextFieldUi
@@ -46,6 +69,28 @@ export const FocusAndActiveState = () => {
       placeholder="Placeholder"
       htmlFor="firstname"
       state="active"
+    />
+  );
+};
+
+export const WithDynamicProps = () => {
+  const {
+    name,
+    placeholder,
+    htmlFor,
+    state,
+    disabled,
+    className,
+  } = TexiFieldCommonProps();
+
+  return (
+    <TextFieldUi
+      className={className}
+      name={name}
+      placeholder={placeholder}
+      htmlFor={htmlFor}
+      state={state}
+      disabled={disabled}
     />
   );
 };
@@ -68,6 +113,12 @@ function Theme() {
     themeDisabledBorder,
     themeDisabledPlaceholder,
     themeDisabledText,
+    themeErrorBorder,
+    themeErrorPlaceholder,
+    themeErrorText,
+    themeValidBorder,
+    themeValidPlaceholder,
+    themeValidText,
   } = ThemeProps();
 
   const customStyle = {
@@ -83,6 +134,12 @@ function Theme() {
     '--rex-text-field-theme-disabled-border': themeDisabledBorder,
     '--rex-text-field-theme-disabled-placeholder': themeDisabledPlaceholder,
     '--rex-text-field-theme-disabled-text': themeDisabledText,
+    '--rex-text-field-theme-error-text': themeErrorText,
+    '--rex-text-field-theme-error-border': themeErrorBorder,
+    '--rex-text-field-theme-error-placeholder': themeErrorPlaceholder,
+    '--rex-text-field-theme-valid-text': themeValidText,
+    '--rex-text-field-theme-valid-border': themeValidBorder,
+    '--rex-text-field-theme-valid-placeholder': themeValidPlaceholder,
   };
 
   return {
@@ -94,6 +151,7 @@ function Theme() {
 export const WithThemeReactAndCSSVars = () => {
   const { customStyle } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
+  const { state } = StateProps();
 
   return (
     <TextFieldUi
@@ -102,6 +160,7 @@ export const WithThemeReactAndCSSVars = () => {
       placeholder="Placeholder"
       htmlFor="firstname"
       disabled={disabled}
+      state={state}
     />
   );
 };
@@ -109,6 +168,7 @@ export const WithThemeReactAndCSSVars = () => {
 export const WithThemeHTMLAndLegacyCSS = () => {
   const { customStyleHtml } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
+  const { state } = StateProps();
 
   return (
     <>
@@ -118,6 +178,7 @@ export const WithThemeHTMLAndLegacyCSS = () => {
         placeholder="Placeholder"
         htmlFor="firstname"
         disabled={disabled}
+        state={state}
       />
     </>
   );

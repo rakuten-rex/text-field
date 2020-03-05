@@ -14,6 +14,9 @@
   padding-left: .75rem;
   margin-top: .25rem;
   transition: color 0.15s ease-in-out;
+  svg path {
+    transition: fill 0.15s ease-in-out;
+  }
   &.error {
     @include rex-helper-ui-error-state();
   }
@@ -36,18 +39,46 @@
 
 @mixin rex-helper-ui-disabled-state() {
   color: var(--rex-text-field-helper-theme-disabled-text, $--rex-text-field-helper-theme-disabled-text);
+  svg {
+    path {
+      fill: var(--rex-text-field-helper-theme-disabled-text, $--rex-text-field-helper-theme-disabled-text);
+    }
+  }
+}
+
+@mixin rex-helper-ui-error-valid-common-state {
+  display: flex;
+  align-items: center;
+  svg {
+    font-size: .75rem;
+    margin-right: .25rem;
+  }
 }
 
 @mixin rex-helper-ui-error-state {
+  @include rex-helper-ui-error-valid-common-state();
   color: var(--rex-text-field-helper-theme-error-text, $--rex-text-field-helper-theme-error-text);
+  svg {
+    path {
+      fill: var(--rex-text-field-helper-theme-error-text, $--rex-text-field-helper-theme-error-text);
+    }
+  }
 }
 
 @mixin rex-helper-ui-valid-state {
+  @include rex-helper-ui-error-valid-common-state();
   color: var(--rex-text-field-helper-theme-valid-text, $--rex-text-field-helper-theme-valid-text);
+  svg {
+    path {
+      fill: var(--rex-text-field-helper-theme-valid-text, $--rex-text-field-helper-theme-valid-text);
+    }
+  }
 }
 
 @mixin rex-helper-ui-active-state {
-  color: var(--rex-text-field-helper-theme-active-text, $--rex-text-field-helper-theme-active-text);
+  &:not([disabled]):not(.error):not(.valid) {
+    color: var(--rex-text-field-helper-theme-active-text, $--rex-text-field-helper-theme-active-text);
+  }
 }
 
 @mixin rex-helper-ui-focus-state {

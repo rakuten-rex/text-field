@@ -18,7 +18,19 @@ export default function TextFieldHelper({
   disabled,
   ...props
 }) {
-  const classes = ['rex-text-field-helper', className]
+  const stateClass = (stateClassName => {
+    switch (stateClassName) {
+      case 'error':
+        return 'error';
+      case 'valid':
+        return 'valid';
+      case 'active':
+        return 'active';
+      default:
+        return '';
+    }
+  })(state);
+  const classes = ['rex-text-field-helper', className, stateClass]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();

@@ -27,13 +27,13 @@ export const Disabled = () => {
   return <LabelUi label="Label" disabled />;
 };
 
-// export const ErrorState = () => {
-//   return <LabelUi label="Label" state="error" />;
-// };
+export const ErrorState = () => {
+  return <LabelUi label="Label" state="error" />;
+};
 
-// export const ValidState = () => {
-//   return <LabelUi label="Label" state="valid" />;
-// };
+export const ValidState = () => {
+  return <LabelUi label="Label" state="valid" />;
+};
 
 export const ActiveState = () => {
   return <LabelUi label="Label" state="active" />;
@@ -62,14 +62,16 @@ function Theme() {
     themeLabelDisabledText,
     themeLabelHoverText,
     themeLabelActiveText,
+    themeLabelErrorText,
+    themeLabelValidText,
   } = ThemeProps();
 
   const customStyle = {
     '--rex-text-field-label-theme-text': themeLabelDefaultText,
     '--rex-text-field-label-theme-disabled-text': themeLabelDisabledText,
     '--rex-text-field-label-theme-hover-text': themeLabelHoverText,
-    // '--rex-text-field-label-theme-error-text': themeErrorTextColor,
-    // '--rex-text-field-label-theme-valid-text': themeValidTextColor,
+    '--rex-text-field-label-theme-error-text': themeLabelErrorText,
+    '--rex-text-field-label-theme-valid-text': themeLabelValidText,
     '--rex-text-field-label-theme-active-text': themeLabelActiveText,
   };
 

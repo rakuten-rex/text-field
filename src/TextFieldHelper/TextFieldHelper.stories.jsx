@@ -4,7 +4,7 @@
 import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
 import TextFieldHelper from 'src/TextFieldHelper';
-import TexiFieldCommonProps from '../TextFieldUi/props';
+import TexiFieldCommonProps, { StateProps } from '../TextFieldUi/props';
 import TextFieldThemeProps from '../TextFieldUi/themeProps';
 import HelperCommonProps from '../HelperUi/props';
 import HelperThemeProps from '../HelperUi/themeProps';
@@ -44,6 +44,34 @@ export const Disabled = () => {
       helper="Helper Text"
       labelId="labelId"
       disabled
+    />
+  );
+};
+
+export const Error = () => {
+  return (
+    <TextFieldHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      helper="Helper Text"
+      labelId="labelId"
+      state="error"
+    />
+  );
+};
+
+export const Valid = () => {
+  return (
+    <TextFieldHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      helper="Helper Text"
+      labelId="labelId"
+      state="valid"
     />
   );
 };
@@ -104,12 +132,20 @@ function Theme() {
     themeDisabledBorder,
     themeDisabledPlaceholder,
     themeDisabledText,
+    themeErrorBorder,
+    themeErrorPlaceholder,
+    themeErrorText,
+    themeValidBorder,
+    themeValidPlaceholder,
+    themeValidText,
   } = TextFieldThemeProps();
   const {
     themeHelperDefaultText,
     themeHelperDisabledText,
     themeHelperHoverText,
     themeHelperActiveText,
+    themeHelperErrorText,
+    themeHelperValidText,
   } = HelperThemeProps();
 
   const customStyle = {
@@ -125,10 +161,18 @@ function Theme() {
     '--rex-text-field-theme-disabled-border': themeDisabledBorder,
     '--rex-text-field-theme-disabled-placeholder': themeDisabledPlaceholder,
     '--rex-text-field-theme-disabled-text': themeDisabledText,
+    '--rex-text-field-theme-error-text': themeErrorText,
+    '--rex-text-field-theme-error-border': themeErrorBorder,
+    '--rex-text-field-theme-error-placeholder': themeErrorPlaceholder,
+    '--rex-text-field-theme-valid-text': themeValidText,
+    '--rex-text-field-theme-valid-border': themeValidBorder,
+    '--rex-text-field-theme-valid-placeholder': themeValidPlaceholder,
     '--rex-text-field-helper-theme-text': themeHelperDefaultText,
     '--rex-text-field-helper-theme-hover-text': themeHelperHoverText,
     '--rex-text-field-helper-theme-active-text': themeHelperActiveText,
     '--rex-text-field-helper-theme-disabled-text': themeHelperDisabledText,
+    '--rex-text-field-helper-theme-error-text': themeHelperErrorText,
+    '--rex-text-field-helper-theme-valid-text': themeHelperValidText,
   };
 
   return {
@@ -140,6 +184,7 @@ function Theme() {
 export const WithThemeReactAndCSSVars = () => {
   const { customStyle } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
+  const { state } = StateProps();
 
   return (
     <TextFieldHelper
@@ -151,6 +196,7 @@ export const WithThemeReactAndCSSVars = () => {
       helper="Helper Text"
       labelId="labelId"
       disabled={disabled}
+      state={state}
     />
   );
 };
@@ -158,6 +204,7 @@ export const WithThemeReactAndCSSVars = () => {
 export const WithThemeHTMLAndLegacyCSS = () => {
   const { customStyleHtml } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
+  const { state } = StateProps();
 
   return (
     <>
@@ -170,6 +217,7 @@ export const WithThemeHTMLAndLegacyCSS = () => {
         helper="Helper Text"
         labelId="labelId"
         disabled={disabled}
+        state={state}
       />
     </>
   );

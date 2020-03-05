@@ -5,6 +5,8 @@ export function StateProps() {
   const options = {
     Default: null,
     Active: 'active',
+    Error: 'error',
+    Valid: 'valid',
   };
 
   return {

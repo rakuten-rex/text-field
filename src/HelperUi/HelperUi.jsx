@@ -2,6 +2,8 @@
 import React from 'react';
 import { string, bool, objectOf } from 'prop-types';
 import './HelperUi.scss';
+import CheckIconPath from '../assets/check.svg';
+import WarningIconPath from '../assets/warning.svg';
 
 export default function HelperUi({
   helper,
@@ -27,9 +29,17 @@ export default function HelperUi({
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
+  const withIcon = state === 'error' || state === 'valid';
+  const renderIcon = () => {
+    if (state === 'error') {
+      return <WarningIconPath className="rex-icon" />;
+    }
+    return <CheckIconPath className="rex-icon" />;
+  };
 
   return (
     <small className={classes} disabled={disabled} ref={helperRef} {...props}>
+      {withIcon && renderIcon()}
       {helper}
     </small>
   );

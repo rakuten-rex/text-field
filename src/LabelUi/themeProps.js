@@ -23,5 +23,15 @@ export default function ThemeProps() {
       '#5A003C',
       'Theme Active'
     ),
+    themeLabelErrorText: color(
+      'Error Label Text Color',
+      '#DF0101',
+      'Theme Error'
+    ),
+    themeLabelValidText: color(
+      'Valid Label Text Color',
+      '#047205',
+      'Theme Valid'
+    ),
   };
 }

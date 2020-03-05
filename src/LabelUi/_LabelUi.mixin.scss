@@ -46,7 +46,9 @@
 }
 
 @mixin rex-label-ui-active-state {
-  color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
+  &:not([disabled]):not(.error):not(.valid) {
+    color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
+  }
 }
 
 @mixin rex-label-ui-focus-style {

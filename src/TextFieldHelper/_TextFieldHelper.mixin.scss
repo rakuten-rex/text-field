@@ -11,7 +11,7 @@
 @mixin rex-text-field-native-hover-state {
   &:not([disabled]) {
     > div {
-      &:not([disabled]):not(.active) {
+      &:not([disabled]):not(.active):not(.error):not(.valid) {
         border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
         input {
           color: var(--rex-text-field-theme-hover-text, $--rex-text-field-theme-hover-text);
@@ -22,7 +22,7 @@
       }
     }
     small {
-      &:not([disabled]):not(.active) {
+      &:not([disabled]):not(.active):not(.error):not(.valid) {
         color: var(--rex-text-field-helper-theme-hover-text, $--rex-text-field-helper-theme-hover-text);
         &.focus {
           color: var(--rex-text-field-helper-theme-active-text, $--rex-text-field-helper-theme-active-text);

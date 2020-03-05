@@ -4,7 +4,7 @@
 import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
 import TextFieldLabelHelper from 'src/TextFieldLabelHelper';
-import TexiFieldCommonProps from '../TextFieldUi/props';
+import TexiFieldCommonProps, { StateProps } from '../TextFieldUi/props';
 import TextFieldThemeProps from '../TextFieldUi/themeProps';
 import LabelCommonProps from '../LabelUi/props';
 import LabelThemeProps from '../LabelUi/themeProps';
@@ -48,6 +48,36 @@ export const Disabled = () => {
       labelId="labelId"
       helper="Helper Text"
       disabled
+    />
+  );
+};
+
+export const Error = () => {
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      state="error"
+    />
+  );
+};
+
+export const Valid = () => {
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      state="valid"
     />
   );
 };
@@ -112,18 +142,28 @@ function Theme() {
     themeDisabledBorder,
     themeDisabledPlaceholder,
     themeDisabledText,
+    themeErrorBorder,
+    themeErrorPlaceholder,
+    themeErrorText,
+    themeValidBorder,
+    themeValidPlaceholder,
+    themeValidText,
   } = TextFieldThemeProps();
   const {
     themeLabelDefaultText,
     themeLabelDisabledText,
     themeLabelHoverText,
     themeLabelActiveText,
+    themeLabelErrorText,
+    themeLabelValidText,
   } = LabelThemeProps();
   const {
     themeHelperDefaultText,
     themeHelperDisabledText,
     themeHelperHoverText,
     themeHelperActiveText,
+    themeHelperErrorText,
+    themeHelperValidText,
   } = HelperThemeProps();
 
   const customStyle = {
@@ -139,13 +179,23 @@ function Theme() {
     '--rex-text-field-theme-disabled-border': themeDisabledBorder,
     '--rex-text-field-theme-disabled-placeholder': themeDisabledPlaceholder,
     '--rex-text-field-theme-disabled-text': themeDisabledText,
+    '--rex-text-field-theme-error-text': themeErrorText,
+    '--rex-text-field-theme-error-border': themeErrorBorder,
+    '--rex-text-field-theme-error-placeholder': themeErrorPlaceholder,
+    '--rex-text-field-theme-valid-text': themeValidText,
+    '--rex-text-field-theme-valid-border': themeValidBorder,
+    '--rex-text-field-theme-valid-placeholder': themeValidPlaceholder,
     '--rex-text-field-label-theme-text': themeLabelDefaultText,
     '--rex-text-field-label-theme-hover-text': themeLabelHoverText,
     '--rex-text-field-label-theme-active-text': themeLabelActiveText,
+    '--rex-text-field-label-theme-error-text': themeLabelErrorText,
+    '--rex-text-field-label-theme-valid-text': themeLabelValidText,
     '--rex-text-field-label-theme-disabled-text': themeLabelDisabledText,
     '--rex-text-field-helper-theme-text': themeHelperDefaultText,
     '--rex-text-field-helper-theme-hover-text': themeHelperHoverText,
     '--rex-text-field-helper-theme-active-text': themeHelperActiveText,
+    '--rex-text-field-helper-theme-error-text': themeHelperErrorText,
+    '--rex-text-field-helper-theme-valid-text': themeHelperValidText,
     '--rex-text-field-helper-theme-disabled-text': themeHelperDisabledText,
   };
 
@@ -158,6 +208,7 @@ function Theme() {
 export const WithThemeReactAndCSSVars = () => {
   const { customStyle } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
+  const { state } = StateProps();
 
   return (
     <TextFieldLabelHelper
@@ -170,6 +221,7 @@ export const WithThemeReactAndCSSVars = () => {
       labelId="labelId"
       helper="Helper Text"
       disabled={disabled}
+      state={state}
     />
   );
 };
@@ -177,6 +229,7 @@ export const WithThemeReactAndCSSVars = () => {
 export const WithThemeHTMLAndLegacyCSS = () => {
   const { customStyleHtml } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
+  const { state } = StateProps();
 
   return (
     <>
@@ -190,6 +243,7 @@ export const WithThemeHTMLAndLegacyCSS = () => {
         labelId="labelId"
         helper="Helper Text"
         disabled={disabled}
+        state={state}
       />
     </>
   );

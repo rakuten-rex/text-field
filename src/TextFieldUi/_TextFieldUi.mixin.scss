@@ -15,6 +15,12 @@
     &.disabled {
       @include rex-text-field-native-disabled-state();
     }
+    &.error {
+      @include rex-text-field-native-error-state();
+    }
+    &.valid {
+      @include rex-text-field-native-valid-state();
+    }
   }
 
   &-border {
@@ -28,6 +34,12 @@
     &[disabled],
     &.disabled {
       @include rex-text-field-outside-border-disabled-state();
+    }
+    &.error {
+      @include rex-text-field-outside-border-error-state();
+    }
+    &.valid {
+      @include rex-text-field-outside-border-valid-state();
     }
   }
 }
@@ -58,12 +70,39 @@
   }
 }
 
+@mixin rex-text-field-native-disabled-state {
+  color: var(--rex-text-field-theme-disabled-text, $--rex-text-field-theme-disabled-text);
+  @include placeholder {
+    color: var(--rex-text-field-theme-disabled-placeholder, $--rex-text-field-theme-disabled-placeholder)
+  }
+}
+
 @mixin rex-text-field-native-active-state {
-  &:not([disabled]):not(:active) {
+  &:not([disabled]) {
     color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
     border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
     @include placeholder {
       color: var(--rex-text-field-theme-active-placeholder, $--rex-text-field-theme-active-placeholder);
+    }
+  }
+}
+
+@mixin rex-text-field-native-error-state {
+  &:not([disabled]) {
+    color: var(--rex-text-field-theme-error-text, $--rex-text-field-theme-error-text);
+    border: 1px solid var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+    @include placeholder {
+      color: var(--rex-text-field-theme-error-placeholder, $--rex-text-field-theme-error-placeholder);
+    }
+  }
+}
+
+@mixin rex-text-field-native-valid-state {
+  &:not([disabled]) {
+    color: var(--rex-text-field-theme-valid-text, $--rex-text-field-theme-valid-text);
+    border: 1px solid var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+    @include placeholder {
+      color: var(--rex-text-field-theme-valid-placeholder, $--rex-text-field-theme-valid-placeholder);
     }
   }
 }
@@ -76,6 +115,10 @@
   background-color: $--rex-white;
 }
 
+@mixin rex-text-field-outside-border-disabled-state {
+  border-color: var(--rex-text-field-theme-disabled-border, $--rex-text-field-theme-disabled-border);
+}
+
 @mixin rex-textarea-outside-border-active-state {
   &:not([disabled]) {
     outline: none;
@@ -84,14 +127,17 @@
   }
 }
 
-@mixin rex-text-field-outside-border-disabled-state {
-  border-color: var(--rex-text-field-theme-disabled-border, $--rex-text-field-theme-disabled-border);
+@mixin rex-text-field-outside-border-error-state {
+  &:not([disabled]) {
+    border-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+    background-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+  }
 }
 
-@mixin rex-text-field-native-disabled-state {
-  color: var(--rex-text-field-theme-disabled-text, $--rex-text-field-theme-disabled-text);
-  @include placeholder {
-    color: var(--rex-text-field-theme-disabled-placeholder, $--rex-text-field-theme-disabled-placeholder)
+@mixin rex-text-field-outside-border-valid-state {
+  &:not([disabled]) {
+    border-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+    background-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
   }
 }
 

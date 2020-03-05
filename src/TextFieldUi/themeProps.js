@@ -43,5 +43,19 @@ export default function ThemeProps() {
       '#898989',
       'Theme Disabled'
     ),
+    themeErrorBorder: color('Error Border Color', '#8C0000', 'Theme Error'),
+    themeErrorPlaceholder: color(
+      'Error Placeholder Color',
+      '#8C0000',
+      'Theme Error'
+    ),
+    themeErrorText: color('Error Text Color', '#333', 'Theme Error'),
+    themeValidBorder: color('Valid Border Color', '#8C0000', 'Theme Valid'),
+    themeValidPlaceholder: color(
+      'Valid Placeholder Color',
+      '#8C0000',
+      'Theme Valid'
+    ),
+    themeValidText: color('Valid Text Color', '#333', 'Theme Valid'),
   };
 }
