@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.1.3 2020-02-20
+* @license @rakuten-rex/text-field v1.1.4 2020-03-09
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -40,7 +40,7 @@
   }
 }
 
-@mixin rex-label-ui {
+@mixin rex-text-field-label-ui {
   @include rex-core();
   @include rex-label-ui-content();
 }
@@ -52,46 +52,110 @@
     --rex-text-field-label-theme-text,
     $--rex-text-field-label-theme-text
   );
-  overflow-wrap: break-word;
+  padding-left: 0.75rem;
   margin-bottom: 0.25rem;
-  padding-left: calc(0.75rem + 2px);
-
-  &.focus,
-  &:focus,
-  &.active,
-  &:active {
+  transition: color 0.15s ease-in-out;
+  &.error {
+    @include rex-label-ui-error-state();
+  }
+  &.valid {
+    @include rex-label-ui-valid-state();
+  }
+  &:active,
+  &.active {
     @include rex-label-ui-active-state();
+  }
+  &:focus,
+  &.focus {
+    @include rex-label-ui-focus-style();
+  }
+  &[disabled],
+  &.disabled {
+    @include rex-label-ui-disabled-state();
   }
 }
 
-@mixin rex-label-ui-active-state {
+@mixin rex-label-ui-disabled-state {
   color: var(
-    --rex-text-field-label-theme-active-text,
-    $--rex-text-field-label-theme-active-text
+    --rex-text-field-label-theme-disabled-text,
+    $--rex-text-field-label-theme-disabled-text
   );
-  outline: none;
 }
-// ReX Colors
+
+@mixin rex-label-ui-error-state {
+  color: var(
+    --rex-text-field-label-theme-error-text,
+    $--rex-text-field-label-theme-error-text
+  );
+}
+
+@mixin rex-label-ui-valid-state {
+  color: var(
+    --rex-text-field-label-theme-valid-text,
+    $--rex-text-field-label-theme-valid-text
+  );
+}
+
+@mixin rex-label-ui-active-state {
+  &:not([disabled]):not(.error):not(.valid) {
+    color: var(
+      --rex-text-field-label-theme-active-text,
+      $--rex-text-field-label-theme-active-text
+    );
+  }
+}
+
+@mixin rex-label-ui-focus-style {
+  outline: none;
+} // ReX Colors
+$--rex-gray-300: #d1d1d1;
 $--rex-gray-500: #9c9c9c;
-$--rex-gray-600: #828282;
+$--rex-gray-700: #686868;
+$--rex-gray-800: #4d4d4d;
 $--rex-gray-900: #333333;
 $--rex-white: #fff;
-$--rex-blue-700: #1364ff;
-$--rex-error: #e60000;
-$--rex-valid: #069907;
+$--rex-blue: #1364ff;
+$--rex-disabled-text: #898989;
+
 // Theme
 $--rex-text-field-theme-text: $--rex-gray-900;
 $--rex-text-field-theme-border: #606060;
 $--rex-text-field-theme-placeholder: #717171;
 
 $--rex-text-field-theme-hover-text: $--rex-gray-900;
-$--rex-text-field-theme-hover-border: $--rex-blue-700;
+$--rex-text-field-theme-hover-border: $--rex-blue;
 $--rex-text-field-theme-hover-placeholder: #606060;
 
 $--rex-text-field-theme-active-text: $--rex-gray-900;
-$--rex-text-field-theme-active-border: $--rex-blue-700;
+$--rex-text-field-theme-active-border: $--rex-blue;
 $--rex-text-field-theme-active-placeholder: #606060;
 
+$--rex-text-field-theme-disabled-text: #898989;
+$--rex-text-field-theme-disabled-border: #dfdfdf;
+$--rex-text-field-theme-disabled-placeholder: $--rex-disabled-text;
+
+$--rex-text-field-theme-error-text: #898989;
+$--rex-text-field-theme-error-border: #df0101;
+$--rex-text-field-theme-error-placeholder: $--rex-disabled-text;
+
+$--rex-text-field-theme-valid-text: #898989;
+$--rex-text-field-theme-valid-border: #047205;
+$--rex-text-field-theme-valid-placeholder: $--rex-disabled-text;
+
 $--rex-text-field-label-theme-text: #606060;
-$--rex-text-field-label-theme-hover-text: #1364ff;
-$--rex-text-field-label-theme-active-text: #1364ff;
+$--rex-text-field-label-theme-hover-text: $--rex-blue;
+$--rex-text-field-label-theme-active-text: $--rex-blue;
+$--rex-text-field-label-theme-disabled-text: $--rex-disabled-text;
+$--rex-text-field-label-theme-error-text: #e60000;
+$--rex-text-field-label-theme-valid-text: #069907;
+
+$--rex-text-field-helper-theme-text: #606060;
+$--rex-text-field-helper-theme-hover-text: #606060;
+$--rex-text-field-helper-theme-active-text: #606060;
+$--rex-text-field-helper-theme-disabled-text: $--rex-disabled-text;
+$--rex-text-field-helper-theme-error-text: #e60000;
+$--rex-text-field-helper-theme-valid-text: #069907;
+
+$--rex-password-theme-icon: #606060;
+$--rex-password-theme-hover-icon: #606060;
+$--rex-password-theme-active-icon: #606060;

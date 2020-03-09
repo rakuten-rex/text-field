@@ -1,0 +1,5 @@
+@import './TextFieldHelper.mixin';
+
+.rex-text-field-helper {
+  @include rex-text-field-helper();
+}

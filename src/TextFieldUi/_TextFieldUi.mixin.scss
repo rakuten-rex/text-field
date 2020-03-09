@@ -1,5 +1,5 @@
 @import "./core.mixin";
-@import '../TextFieldLabel/theme';
+@import '../TextFieldUi/theme';
 
 @mixin rex-text-field-ui {
   @include rex-core();
@@ -11,6 +11,16 @@
     &.focus {
       @include rex-text-field-native-active-state();
     }
+    &[disabled],
+    &.disabled {
+      @include rex-text-field-native-disabled-state();
+    }
+    &.error {
+      @include rex-text-field-native-error-state();
+    }
+    &.valid {
+      @include rex-text-field-native-valid-state();
+    }
   }
 
   &-border {
@@ -20,6 +30,16 @@
     &:focus,
     &.focus {
       @include rex-textarea-outside-border-active-state();
+    }
+    &[disabled],
+    &.disabled {
+      @include rex-text-field-outside-border-disabled-state();
+    }
+    &.error {
+      @include rex-text-field-outside-border-error-state();
+    }
+    &.valid {
+      @include rex-text-field-outside-border-valid-state();
     }
   }
 }
@@ -37,38 +57,88 @@
   outline: none;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  padding: 0.5rem 0.75rem;
+  padding: .375rem 0.625rem;
   background-color: $--rex-white;
   margin: 0;
   @include rex-text-field-native-default-state();
 }
 
 @mixin rex-text-field-native-default-state {
-  border-color: transparent;
   @include placeholder {
     color: var(--rex-text-field-theme-placeholder, $--rex-text-field-theme-placeholder);
+    transition: color 0.15s ease-in-out;
+  }
+}
+
+@mixin rex-text-field-native-disabled-state {
+  color: var(--rex-text-field-theme-disabled-text, $--rex-text-field-theme-disabled-text);
+  @include placeholder {
+    color: var(--rex-text-field-theme-disabled-placeholder, $--rex-text-field-theme-disabled-placeholder)
   }
 }
 
 @mixin rex-text-field-native-active-state {
-  color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
-  border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
-  @include placeholder {
-    color: var(--rex-text-field-theme-active-placeholder, $--rex-text-field-theme-active-placeholder);
+  &:not([disabled]) {
+    color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
+    border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+    @include placeholder {
+      color: var(--rex-text-field-theme-active-placeholder, $--rex-text-field-theme-active-placeholder);
+    }
   }
 }
 
-@mixin rex-textarea-outside-border-state() {
+@mixin rex-text-field-native-error-state {
+  &:not([disabled]) {
+    color: var(--rex-text-field-theme-error-text, $--rex-text-field-theme-error-text);
+    border: 1px solid var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+    @include placeholder {
+      color: var(--rex-text-field-theme-error-placeholder, $--rex-text-field-theme-error-placeholder);
+    }
+  }
+}
+
+@mixin rex-text-field-native-valid-state {
+  &:not([disabled]) {
+    color: var(--rex-text-field-theme-valid-text, $--rex-text-field-theme-valid-text);
+    border: 1px solid var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+    @include placeholder {
+      color: var(--rex-text-field-theme-valid-placeholder, $--rex-text-field-theme-valid-placeholder);
+    }
+  }
+}
+
+@mixin rex-textarea-outside-border-state {
+  transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: 1px solid var(--rex-text-field-theme-border, $--rex-text-field-theme-border);
   border-radius: 0.32rem;
   padding: 0;
   background-color: $--rex-white;
 }
 
-@mixin rex-textarea-outside-border-active-state() {
-  outline: none;
-  border-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
-  background-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+@mixin rex-text-field-outside-border-disabled-state {
+  border-color: var(--rex-text-field-theme-disabled-border, $--rex-text-field-theme-disabled-border);
+}
+
+@mixin rex-textarea-outside-border-active-state {
+  &:not([disabled]) {
+    outline: none;
+    border-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+    background-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+  }
+}
+
+@mixin rex-text-field-outside-border-error-state {
+  &:not([disabled]) {
+    border-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+    background-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+  }
+}
+
+@mixin rex-text-field-outside-border-valid-state {
+  &:not([disabled]) {
+    border-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+    background-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+  }
 }
 
 @mixin optional-at-root($sel) {

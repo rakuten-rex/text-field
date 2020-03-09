@@ -1,0 +1,5 @@
+@import './TextFieldLabelHelper.mixin';
+
+.rex-text-field-label-helper {
+  @include rex-text-field-label-helper();
+}

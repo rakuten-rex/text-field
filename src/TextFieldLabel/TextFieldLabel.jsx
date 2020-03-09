@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from 'react';
-import { string, objectOf } from 'prop-types';
+import { string, objectOf, bool } from 'prop-types';
 import LabelUi from '../LabelUi';
 import TextFieldUi from '../TextFieldUi';
 import './TextFieldLabel.scss';
@@ -12,10 +12,10 @@ export default function TextFieldLabel({
   className,
   label,
   htmlFor,
-  id,
   labelId,
   state,
   style,
+  disabled,
   ...props
 }) {
   const classes = ['rex-text-field-label', className]
@@ -23,23 +23,53 @@ export default function TextFieldLabel({
     .join(' ')
     .trim();
   const labelEl = useRef(null);
+  const handleOnFocus = e => {
+    const textFieldNativeEl = e.target;
+    const outsideBorderEl = e.target.parentNode;
+    const isErrorOrValid =
+      e.target.classList.contains('error') ||
+      e.target.classList.contains('valid');
+
+    if (!disabled && !isErrorOrValid) {
+      labelEl.current.classList.add('active');
+      textFieldNativeEl.classList.add('active');
+      outsideBorderEl.classList.add('active');
+    }
+  };
+  const handleOnBlur = e => {
+    const textFieldNativeEl = e.target;
+    const outsideBorderEl = e.target.parentNode;
+    const isErrorOrValid =
+      e.target.classList.contains('error') ||
+      e.target.classList.contains('valid');
+
+    if (!disabled && !isErrorOrValid) {
+      labelEl.current.classList.remove('active');
+      textFieldNativeEl.classList.remove('active');
+      outsideBorderEl.classList.remove('active');
+    }
+  };
 
   return (
-    <div className={classes} style={style} {...props}>
+    <div className={classes} style={style} disabled={disabled} {...props}>
       <LabelUi
         id={labelId}
         htmlFor={htmlFor}
         label={label}
         state={state}
         labelRef={labelEl}
+        disabled={disabled}
       />
       <TextFieldUi
-        id={id}
+        id={htmlFor}
         labelId={labelId}
         name={name}
         placeholder={placeholder}
         label={label}
         state={state}
+        disabled={disabled}
+        handleOnFocus={handleOnFocus}
+        handleOnBlur={handleOnBlur}
       />
     </div>
   );
@@ -52,9 +82,9 @@ TextFieldLabel.defaultProps = {
   name: '',
   placeholder: '',
   state: '',
-  id: '',
   labelId: '',
   style: null,
+  disabled: false,
 };
 
 TextFieldLabel.propTypes = {
@@ -64,7 +94,7 @@ TextFieldLabel.propTypes = {
   name: string,
   placeholder: string,
   state: string,
-  id: string,
   labelId: string,
   style: objectOf(string),
+  disabled: bool,
 };

@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.3 2020-02-20
+ * @license @rakuten-rex/text-field v1.1.4 2020-03-09
  * TextFieldUi/TextFieldUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -137,7 +137,7 @@ module.exports = _extends;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(6);
+var objectWithoutPropertiesLoose = __webpack_require__(3);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -161,7 +161,27 @@ function _objectWithoutProperties(source, excluded) {
 module.exports = _objectWithoutProperties;
 
 /***/ }),
-/* 3 */,
+/* 3 */
+/***/ (function(module, exports) {
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+module.exports = _objectWithoutPropertiesLoose;
+
+/***/ }),
 /* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -194,7 +214,10 @@ function TextFieldUi(_ref) {
       labelId = _ref.labelId,
       id = _ref.id,
       style = _ref.style,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style"]);
+      disabled = _ref.disabled,
+      handleOnFocus = _ref.handleOnFocus,
+      handleOnBlur = _ref.handleOnBlur,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style", "disabled", "handleOnFocus", "handleOnBlur"]);
 
   var stateClass = function (stateClassName) {
     switch (stateClassName) {
@@ -207,59 +230,31 @@ function TextFieldUi(_ref) {
       case 'active':
         return 'active';
 
-      case 'focus':
-        return 'focus';
-
-      case 'hover':
-        return 'hover';
-
-      case 'disabled':
-        return 'disabled';
-
       default:
         return '';
     }
   }(state);
 
-  var classes = ['rex-text-field-ui', className, stateClass].filter(function (singleClass) {
+  var borderClasses = ['rex-text-field-ui', 'rex-text-field-ui-border', className, stateClass].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
+  var innerClasses = ['rex-text-field-native', stateClass].join(' ').trim();
   var hasLabel = !!(label && label.length > 0);
-  var borderClass = ['rex-text-field-ui-border', stateClass].filter(function (singleClass) {
-    return singleClass && singleClass.length > 0;
-  }).join(' ').trim();
-
-  var handleOnFocus = function handleOnFocus(e) {
-    var textFieldBorder = e.target.parentNode.parentNode;
-    var textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
-    textFieldBorder && textFieldBorder.classList.add('focus');
-    textFieldLabel && textFieldLabel.classList.add('focus');
-  };
-
-  var handleOnFocusOut = function handleOnFocusOut(e) {
-    var textFieldBorder = e.target.parentNode.parentNode;
-    var textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
-    textFieldBorder && textFieldBorder.classList.remove('focus');
-    textFieldLabel && textFieldLabel.classList.remove('focus');
-  };
-
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: classes,
-    style: style
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: borderClass
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: "rex-text-field-inner"
+    className: borderClasses,
+    style: style,
+    disabled: disabled
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     id: id,
-    className: "rex-text-field-native",
+    className: innerClasses,
     name: name,
     placeholder: placeholder,
     "aria-label": !hasLabel ? name || placeholder : null,
     "aria-labelledby": hasLabel ? labelId : null,
     onFocus: handleOnFocus,
-    onBlur: handleOnFocusOut
-  }, props)))));
+    onBlur: handleOnBlur,
+    disabled: disabled
+  }, props)));
 }
 TextFieldUi.displayName = "TextFieldUi";
 TextFieldUi.defaultProps = {
@@ -271,32 +266,15 @@ TextFieldUi.defaultProps = {
   label: '',
   labelId: '',
   id: '',
-  style: {}
+  style: {},
+  disabled: false,
+  handleOnFocus: function handleOnFocus() {},
+  handleOnBlur: function handleOnBlur() {}
 };
 
 /***/ }),
 /* 5 */,
-/* 6 */
-/***/ (function(module, exports) {
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-module.exports = _objectWithoutPropertiesLoose;
-
-/***/ }),
+/* 6 */,
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 

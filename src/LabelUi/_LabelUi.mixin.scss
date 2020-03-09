@@ -1,7 +1,7 @@
 @import './core.mixin';
-@import '../TextFieldLabel/theme';
+@import '../TextFieldUi/theme';
 
-@mixin rex-label-ui {
+@mixin rex-text-field-label-ui {
   @include rex-core();
   @include rex-label-ui-content();
 }
@@ -10,19 +10,47 @@
   font-size: .75rem;
   display: block;
   color: var(--rex-text-field-label-theme-text, $--rex-text-field-label-theme-text);
-  overflow-wrap: break-word;
+  padding-left: .75rem;
   margin-bottom: .25rem;
-  padding-left: calc(.75rem + 2px);
-
-  &.focus,
-  &:focus,
-  &.active,
-  &:active {
+  transition: color 0.15s ease-in-out;
+  &.error {
+    @include rex-label-ui-error-state();
+  }
+  &.valid {
+    @include rex-label-ui-valid-state();
+  }
+  &:active,
+  &.active {
     @include rex-label-ui-active-state();
+  }
+  &:focus,
+  &.focus {
+    @include rex-label-ui-focus-style();
+  }
+  &[disabled],
+  &.disabled {
+    @include rex-label-ui-disabled-state();
   }
 }
 
+@mixin rex-label-ui-disabled-state {
+  color: var(--rex-text-field-label-theme-disabled-text, $--rex-text-field-label-theme-disabled-text);
+}
+
+@mixin rex-label-ui-error-state {
+  color: var(--rex-text-field-label-theme-error-text, $--rex-text-field-label-theme-error-text);
+}
+
+@mixin rex-label-ui-valid-state {
+  color: var(--rex-text-field-label-theme-valid-text, $--rex-text-field-label-theme-valid-text);
+}
+
 @mixin rex-label-ui-active-state {
-  color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
+  &:not([disabled]):not(.error):not(.valid) {
+    color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
+  }
+}
+
+@mixin rex-label-ui-focus-style {
   outline: none;
 }

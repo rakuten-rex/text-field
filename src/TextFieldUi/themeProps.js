@@ -9,7 +9,7 @@ export default function ThemeProps() {
       'Theme Default'
     ),
     themeDefaultPlaceholder: color(
-      'Default Placeholder Color',
+      'Default Placeholder Text Color',
       '#FF79D1',
       'Theme Default'
     ),
@@ -28,5 +28,34 @@ export default function ThemeProps() {
       'Theme Active'
     ),
     themeActiveText: color('Active Text Color', '#333', 'Theme Active'),
+    themeDisabledBorder: color(
+      'Disabled Border Color',
+      '#DFDFDF',
+      'Theme Disabled'
+    ),
+    themeDisabledPlaceholder: color(
+      'Disabled Placeholder Text Color',
+      '#898989',
+      'Theme Disabled'
+    ),
+    themeDisabledText: color(
+      'Disabled Text Color',
+      '#898989',
+      'Theme Disabled'
+    ),
+    themeErrorBorder: color('Error Border Color', '#8C0000', 'Theme Error'),
+    themeErrorPlaceholder: color(
+      'Error Placeholder Color',
+      '#8C0000',
+      'Theme Error'
+    ),
+    themeErrorText: color('Error Text Color', '#333', 'Theme Error'),
+    themeValidBorder: color('Valid Border Color', '#8C0000', 'Theme Valid'),
+    themeValidPlaceholder: color(
+      'Valid Placeholder Color',
+      '#8C0000',
+      'Theme Valid'
+    ),
+    themeValidText: color('Valid Text Color', '#333', 'Theme Valid'),
   };
 }

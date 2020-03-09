@@ -8,6 +8,11 @@ export default function ThemeProps() {
       '#CB0085',
       'Theme Default'
     ),
+    themeLabelDisabledText: color(
+      'Disabled Label Text Color',
+      '#FFE9F8',
+      'Theme Disabled'
+    ),
     themeLabelHoverText: color(
       'Hover Label Text Color',
       '#FF41BE',
@@ -17,6 +22,16 @@ export default function ThemeProps() {
       'Active Label Text Color',
       '#5A003C',
       'Theme Active'
+    ),
+    themeLabelErrorText: color(
+      'Error Label Text Color',
+      '#DF0101',
+      'Theme Error'
+    ),
+    themeLabelValidText: color(
+      'Valid Label Text Color',
+      '#047205',
+      'Theme Valid'
     ),
   };
 }

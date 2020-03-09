@@ -1,35 +1,30 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { string, objectOf } from 'prop-types';
+import { string, bool, objectOf } from 'prop-types';
 import './LabelUi.scss';
 
 export default function LabelUi({
   htmlFor,
   label,
   className,
+  disabled,
   state,
-  labelRef,
   id,
-  style,
+  labelRef,
+  ...props
 }) {
-  const stateClass = (stateClassName => {
-    switch (stateClassName) {
+  const stateClass = (() => {
+    switch (state) {
       case 'error':
         return 'error';
       case 'valid':
         return 'valid';
       case 'active':
         return 'active';
-      case 'focus':
-        return 'focus';
-      case 'hover':
-        return 'hover';
-      case 'disabled':
-        return 'disabled';
       default:
-        return '';
+        return null;
     }
-  })(state);
+  })();
   const classes = ['rex-text-field-label-ui', className, stateClass]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
@@ -37,11 +32,12 @@ export default function LabelUi({
 
   return (
     <label
-      id={id || null}
+      id={id}
       htmlFor={htmlFor}
       className={classes}
+      disabled={disabled}
       ref={labelRef}
-      style={style}
+      {...props}
     >
       {label}
     </label>
@@ -49,21 +45,21 @@ export default function LabelUi({
 }
 
 LabelUi.defaultProps = {
-  htmlFor: null,
+  htmlFor: '',
   label: '',
   className: '',
+  disabled: false,
   state: '',
+  id: null,
   labelRef: null,
-  id: '',
-  style: {},
 };
 
 LabelUi.propTypes = {
   htmlFor: string,
   label: string,
   className: string,
+  disabled: bool,
   state: string,
-  labelRef: objectOf(string),
   id: string,
-  style: objectOf(string),
+  labelRef: objectOf(string),
 };
