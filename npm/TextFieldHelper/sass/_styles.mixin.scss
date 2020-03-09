@@ -6,40 +6,6 @@
 *
 * This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.
 */
-@mixin rex-core {
-  -webkit-text-size-adjust: 100%;
-
-  // html
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  // body
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #333333;
-  text-align: left;
-  background-color: inherit;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-
-  &:before,
-  &:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-}
-
 @mixin rex-text-field-ui {
   @include rex-core();
   input {
@@ -260,6 +226,118 @@
   }
   @include optional-at-root(":-ms-input-placeholder") {
     @content;
+  }
+}
+@mixin rex-core {
+  -webkit-text-size-adjust: 100%;
+
+  // html
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // body
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333333;
+  text-align: left;
+  background-color: inherit;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+@mixin rex-text-field-helper() {
+  &:hover,
+  &.hover {
+    @include rex-text-field-native-hover-state();
+  }
+}
+
+@mixin rex-text-field-native-hover-state {
+  &:not([disabled]) {
+    > div {
+      &:not([disabled]):not(.active):not(.error):not(.valid) {
+        border-color: var(
+          --rex-text-field-theme-hover-border,
+          $--rex-text-field-theme-hover-border
+        );
+        input {
+          color: var(
+            --rex-text-field-theme-hover-text,
+            $--rex-text-field-theme-hover-text
+          );
+          @include placeholder {
+            color: var(
+              --rex-text-field-theme-hover-placeholder,
+              $--rex-text-field-theme-hover-placeholder
+            );
+          }
+        }
+      }
+    }
+    small {
+      &:not([disabled]):not(.active):not(.error):not(.valid) {
+        color: var(
+          --rex-text-field-helper-theme-hover-text,
+          $--rex-text-field-helper-theme-hover-text
+        );
+        &.focus {
+          color: var(
+            --rex-text-field-helper-theme-active-text,
+            $--rex-text-field-helper-theme-active-text
+          );
+        }
+      }
+    }
+  }
+}
+@mixin rex-core {
+  -webkit-text-size-adjust: 100%;
+
+  // html
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // body
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333333;
+  text-align: left;
+  background-color: inherit;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
 // ReX Colors

@@ -1,7 +1,7 @@
 /*!
  * 
  * @license @rakuten-rex/text-field v1.1.4 2020-03-09
- * LabelUi/LabelUi.development.js
+ * HelperUi/HelperUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
  * 
@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -184,38 +184,95 @@ module.exports = _objectWithoutPropertiesLoose;
 /***/ }),
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */,
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return LabelUi; });
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(10);
-/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_LabelUi_scss__WEBPACK_IMPORTED_MODULE_3__);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
+var helpers_extends = __webpack_require__(1);
+var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__(2);
+var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
+
+// EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react","umd":"react"}
+var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_ = __webpack_require__(0);
+var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_);
+
+// EXTERNAL MODULE: ./src/HelperUi/HelperUi.scss
+var HelperUi = __webpack_require__(9);
+
+// CONCATENATED MODULE: ./src/assets/check.svg
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var check_ref =
+/*#__PURE__*/
+external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
+  fillRule: "evenodd",
+  clipRule: "evenodd",
+  d: "M11.25.78l-.53-.53-6.595 6.594L1.28 4l-.53.53 3.375 3.375L11.25.78z",
+  fill: "#047205"
+});
+
+var check_SvgCheck = function SvgCheck(props) {
+  return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", _extends({
+    width: 12,
+    height: 8,
+    fill: "none"
+  }, props), check_ref);
+};
+
+/* harmony default export */ var check = (check_SvgCheck);
+// CONCATENATED MODULE: ./src/assets/warning.svg
+function warning_extends() { warning_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return warning_extends.apply(this, arguments); }
+
+
+
+var warning_ref =
+/*#__PURE__*/
+external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
+  fillRule: "evenodd",
+  clipRule: "evenodd",
+  d: "M6 8a.563.563 0 110-1.125A.563.563 0 016 8zm-.375-1.875h.75V2.75h-.75v3.375zm5.557 2.601L6.47.395a.532.532 0 00-.47-.27.532.532 0 00-.468.27L.817 8.726c-.196.348.062.774.47.774h9.427c.407 0 .665-.426.468-.774z",
+  fill: "#DF0101"
+});
+
+var warning_SvgWarning = function SvgWarning(props) {
+  return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", warning_extends({
+    width: 12,
+    height: 10,
+    fill: "none"
+  }, props), warning_ref);
+};
+
+/* harmony default export */ var warning = (warning_SvgWarning);
+// CONCATENATED MODULE: ./src/HelperUi/HelperUi.jsx
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return HelperUi_HelperUi; });
 
 
 
 /* eslint-disable react/jsx-props-no-spreading */
 
 
-function LabelUi(_ref) {
-  var htmlFor = _ref.htmlFor,
-      label = _ref.label,
-      className = _ref.className,
-      disabled = _ref.disabled,
-      state = _ref.state,
-      id = _ref.id,
-      labelRef = _ref.labelRef,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["htmlFor", "label", "className", "disabled", "state", "id", "labelRef"]);
 
-  var stateClass = function () {
-    switch (state) {
+
+function HelperUi_HelperUi(_ref) {
+  var helper = _ref.helper,
+      disabled = _ref.disabled,
+      className = _ref.className,
+      state = _ref.state,
+      helperRef = _ref.helperRef,
+      props = objectWithoutProperties_default()(_ref, ["helper", "disabled", "className", "state", "helperRef"]);
+
+  var stateClass = function (stateClassName) {
+    switch (stateClassName) {
       case 'error':
         return 'error';
 
@@ -226,37 +283,44 @@ function LabelUi(_ref) {
         return 'active';
 
       default:
-        return null;
+        return '';
     }
-  }();
+  }(state);
 
-  var classes = ['rex-text-field-label-ui', className, stateClass].filter(function (singleClass) {
+  var classes = ['rex-text-field-helper-ui', className, stateClass].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    id: id,
-    htmlFor: htmlFor,
+  var withIcon = state === 'error' || state === 'valid';
+
+  var renderIcon = function renderIcon() {
+    if (state === 'error') {
+      return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(warning, {
+        className: "rex-icon"
+      });
+    }
+
+    return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(check, {
+      className: "rex-icon"
+    });
+  };
+
+  return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("small", extends_default()({
     className: classes,
     disabled: disabled,
-    ref: labelRef
-  }, props), label);
+    ref: helperRef
+  }, props), withIcon && renderIcon(), helper);
 }
-LabelUi.displayName = "LabelUi";
-LabelUi.defaultProps = {
-  htmlFor: '',
-  label: '',
-  className: '',
+HelperUi_HelperUi.displayName = "HelperUi";
+HelperUi_HelperUi.defaultProps = {
+  helper: '',
   disabled: false,
-  state: '',
-  id: null,
-  labelRef: null
+  className: '',
+  state: null,
+  helperRef: null
 };
 
 /***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin

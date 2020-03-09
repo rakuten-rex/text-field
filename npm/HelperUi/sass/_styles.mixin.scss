@@ -40,72 +40,111 @@
   }
 }
 
-@mixin rex-text-field-label-ui {
+@mixin rex-text-field-helper-ui {
   @include rex-core();
-  @include rex-label-ui-content();
+  @include rex-helper-ui-default-state();
 }
 
-@mixin rex-label-ui-content {
-  font-size: 0.75rem;
+@mixin rex-helper-ui-default-state() {
   display: block;
+  position: relative;
+  font-size: 0.75rem;
   color: var(
-    --rex-text-field-label-theme-text,
-    $--rex-text-field-label-theme-text
+    --rex-text-field-helper-theme-text,
+    $--rex-text-field-helper-theme-text
   );
   padding-left: 0.75rem;
-  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
   transition: color 0.15s ease-in-out;
+  svg path {
+    transition: fill 0.15s ease-in-out;
+  }
   &.error {
-    @include rex-label-ui-error-state();
+    @include rex-helper-ui-error-state();
   }
   &.valid {
-    @include rex-label-ui-valid-state();
+    @include rex-helper-ui-valid-state();
   }
   &:active,
   &.active {
-    @include rex-label-ui-active-state();
+    @include rex-helper-ui-active-state();
   }
   &:focus,
   &.focus {
-    @include rex-label-ui-focus-style();
+    @include rex-helper-ui-focus-state();
   }
   &[disabled],
   &.disabled {
-    @include rex-label-ui-disabled-state();
+    @include rex-helper-ui-disabled-state();
   }
 }
 
-@mixin rex-label-ui-disabled-state {
+@mixin rex-helper-ui-disabled-state() {
   color: var(
-    --rex-text-field-label-theme-disabled-text,
-    $--rex-text-field-label-theme-disabled-text
+    --rex-text-field-helper-theme-disabled-text,
+    $--rex-text-field-helper-theme-disabled-text
   );
+  svg {
+    path {
+      fill: var(
+        --rex-text-field-helper-theme-disabled-text,
+        $--rex-text-field-helper-theme-disabled-text
+      );
+    }
+  }
 }
 
-@mixin rex-label-ui-error-state {
-  color: var(
-    --rex-text-field-label-theme-error-text,
-    $--rex-text-field-label-theme-error-text
-  );
+@mixin rex-helper-ui-error-valid-common-state {
+  display: flex;
+  align-items: center;
+  svg {
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+  }
 }
 
-@mixin rex-label-ui-valid-state {
+@mixin rex-helper-ui-error-state {
+  @include rex-helper-ui-error-valid-common-state();
   color: var(
-    --rex-text-field-label-theme-valid-text,
-    $--rex-text-field-label-theme-valid-text
+    --rex-text-field-helper-theme-error-text,
+    $--rex-text-field-helper-theme-error-text
   );
+  svg {
+    path {
+      fill: var(
+        --rex-text-field-helper-theme-error-text,
+        $--rex-text-field-helper-theme-error-text
+      );
+    }
+  }
 }
 
-@mixin rex-label-ui-active-state {
+@mixin rex-helper-ui-valid-state {
+  @include rex-helper-ui-error-valid-common-state();
+  color: var(
+    --rex-text-field-helper-theme-valid-text,
+    $--rex-text-field-helper-theme-valid-text
+  );
+  svg {
+    path {
+      fill: var(
+        --rex-text-field-helper-theme-valid-text,
+        $--rex-text-field-helper-theme-valid-text
+      );
+    }
+  }
+}
+
+@mixin rex-helper-ui-active-state {
   &:not([disabled]):not(.error):not(.valid) {
     color: var(
-      --rex-text-field-label-theme-active-text,
-      $--rex-text-field-label-theme-active-text
+      --rex-text-field-helper-theme-active-text,
+      $--rex-text-field-helper-theme-active-text
     );
   }
 }
 
-@mixin rex-label-ui-focus-style {
+@mixin rex-helper-ui-focus-state {
   outline: none;
 } // ReX Colors
 $--rex-gray-300: #d1d1d1;
