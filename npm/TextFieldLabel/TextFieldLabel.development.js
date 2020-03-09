@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.3 2020-02-20
+ * @license @rakuten-rex/text-field v1.1.4 2020-03-09
  * TextFieldLabel/TextFieldLabel.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -137,7 +137,7 @@ module.exports = _extends;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(6);
+var objectWithoutPropertiesLoose = __webpack_require__(3);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -162,73 +162,24 @@ module.exports = _objectWithoutProperties;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return LabelUi; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_LabelUi_scss__WEBPACK_IMPORTED_MODULE_1__);
-/* eslint-disable react/jsx-props-no-spreading */
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
 
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
 
-function LabelUi(_ref) {
-  var htmlFor = _ref.htmlFor,
-      label = _ref.label,
-      className = _ref.className,
-      state = _ref.state,
-      labelRef = _ref.labelRef,
-      id = _ref.id,
-      style = _ref.style;
-
-  var stateClass = function (stateClassName) {
-    switch (stateClassName) {
-      case 'error':
-        return 'error';
-
-      case 'valid':
-        return 'valid';
-
-      case 'active':
-        return 'active';
-
-      case 'focus':
-        return 'focus';
-
-      case 'hover':
-        return 'hover';
-
-      case 'disabled':
-        return 'disabled';
-
-      default:
-        return '';
-    }
-  }(state);
-
-  var classes = ['rex-text-field-label-ui', className, stateClass].filter(function (singleClass) {
-    return singleClass && singleClass.length > 0;
-  }).join(' ').trim();
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    id: id || null,
-    htmlFor: htmlFor,
-    className: classes,
-    ref: labelRef,
-    style: style
-  }, label);
+  return target;
 }
-LabelUi.displayName = "LabelUi";
-LabelUi.defaultProps = {
-  htmlFor: null,
-  label: '',
-  className: '',
-  state: '',
-  labelRef: null,
-  id: '',
-  style: {}
-};
+
+module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
 /* 4 */
@@ -263,7 +214,10 @@ function TextFieldUi(_ref) {
       labelId = _ref.labelId,
       id = _ref.id,
       style = _ref.style,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style"]);
+      disabled = _ref.disabled,
+      handleOnFocus = _ref.handleOnFocus,
+      handleOnBlur = _ref.handleOnBlur,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style", "disabled", "handleOnFocus", "handleOnBlur"]);
 
   var stateClass = function (stateClassName) {
     switch (stateClassName) {
@@ -276,59 +230,31 @@ function TextFieldUi(_ref) {
       case 'active':
         return 'active';
 
-      case 'focus':
-        return 'focus';
-
-      case 'hover':
-        return 'hover';
-
-      case 'disabled':
-        return 'disabled';
-
       default:
         return '';
     }
   }(state);
 
-  var classes = ['rex-text-field-ui', className, stateClass].filter(function (singleClass) {
+  var borderClasses = ['rex-text-field-ui', 'rex-text-field-ui-border', className, stateClass].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
+  var innerClasses = ['rex-text-field-native', stateClass].join(' ').trim();
   var hasLabel = !!(label && label.length > 0);
-  var borderClass = ['rex-text-field-ui-border', stateClass].filter(function (singleClass) {
-    return singleClass && singleClass.length > 0;
-  }).join(' ').trim();
-
-  var handleOnFocus = function handleOnFocus(e) {
-    var textFieldBorder = e.target.parentNode.parentNode;
-    var textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
-    textFieldBorder && textFieldBorder.classList.add('focus');
-    textFieldLabel && textFieldLabel.classList.add('focus');
-  };
-
-  var handleOnFocusOut = function handleOnFocusOut(e) {
-    var textFieldBorder = e.target.parentNode.parentNode;
-    var textFieldLabel = e.target.parentNode.parentNode.parentNode.previousSibling;
-    textFieldBorder && textFieldBorder.classList.remove('focus');
-    textFieldLabel && textFieldLabel.classList.remove('focus');
-  };
-
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: classes,
-    style: style
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: borderClass
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: "rex-text-field-inner"
+    className: borderClasses,
+    style: style,
+    disabled: disabled
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     id: id,
-    className: "rex-text-field-native",
+    className: innerClasses,
     name: name,
     placeholder: placeholder,
     "aria-label": !hasLabel ? name || placeholder : null,
     "aria-labelledby": hasLabel ? labelId : null,
     onFocus: handleOnFocus,
-    onBlur: handleOnFocusOut
-  }, props)))));
+    onBlur: handleOnBlur,
+    disabled: disabled
+  }, props)));
 }
 TextFieldUi.displayName = "TextFieldUi";
 TextFieldUi.defaultProps = {
@@ -340,35 +266,90 @@ TextFieldUi.defaultProps = {
   label: '',
   labelId: '',
   id: '',
-  style: {}
+  style: {},
+  disabled: false,
+  handleOnFocus: function handleOnFocus() {},
+  handleOnBlur: function handleOnBlur() {}
 };
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin
+"use strict";
+/* harmony import */ var _TextFieldUi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _TextFieldUi__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return LabelUi; });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(10);
+/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_LabelUi_scss__WEBPACK_IMPORTED_MODULE_3__);
 
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
 
-  return target;
+
+/* eslint-disable react/jsx-props-no-spreading */
+
+
+function LabelUi(_ref) {
+  var htmlFor = _ref.htmlFor,
+      label = _ref.label,
+      className = _ref.className,
+      disabled = _ref.disabled,
+      state = _ref.state,
+      id = _ref.id,
+      labelRef = _ref.labelRef,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["htmlFor", "label", "className", "disabled", "state", "id", "labelRef"]);
+
+  var stateClass = function () {
+    switch (state) {
+      case 'error':
+        return 'error';
+
+      case 'valid':
+        return 'valid';
+
+      case 'active':
+        return 'active';
+
+      default:
+        return null;
+    }
+  }();
+
+  var classes = ['rex-text-field-label-ui', className, stateClass].filter(function (singleClass) {
+    return singleClass && singleClass.length > 0;
+  }).join(' ').trim();
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+    id: id,
+    htmlFor: htmlFor,
+    className: classes,
+    disabled: disabled,
+    ref: labelRef
+  }, props), label);
 }
-
-module.exports = _objectWithoutPropertiesLoose;
+LabelUi.displayName = "LabelUi";
+LabelUi.defaultProps = {
+  htmlFor: '',
+  label: '',
+  className: '',
+  disabled: false,
+  state: '',
+  id: null,
+  labelRef: null
+};
 
 /***/ }),
 /* 7 */
@@ -377,45 +358,43 @@ module.exports = _objectWithoutPropertiesLoose;
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 9 */
+/* 11 */,
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _LabelUi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _LabelUi__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+/* 13 */,
+/* 14 */,
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
-var helpers_extends = __webpack_require__(1);
-var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js
-var objectWithoutProperties = __webpack_require__(2);
-var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
-
-// EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react","umd":"react"}
-var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_ = __webpack_require__(0);
-var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_);
-
-// EXTERNAL MODULE: ./src/LabelUi/LabelUi.jsx
-var LabelUi = __webpack_require__(3);
-
-// CONCATENATED MODULE: ./src/LabelUi/index.jsx
-
-// EXTERNAL MODULE: ./src/TextFieldUi/TextFieldUi.jsx
-var TextFieldUi = __webpack_require__(4);
-
-// CONCATENATED MODULE: ./src/TextFieldUi/index.jsx
-
-// EXTERNAL MODULE: ./src/TextFieldLabel/TextFieldLabel.scss
-var TextFieldLabel = __webpack_require__(8);
-
-// CONCATENATED MODULE: ./src/TextFieldLabel/TextFieldLabel.jsx
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TextFieldLabel_TextFieldLabel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TextFieldLabel; });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _LabelUi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
+/* harmony import */ var _TextFieldUi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _TextFieldLabel_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(16);
+/* harmony import */ var _TextFieldLabel_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_TextFieldLabel_scss__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -426,52 +405,88 @@ var TextFieldLabel = __webpack_require__(8);
 
 
 
-function TextFieldLabel_TextFieldLabel(_ref) {
+function TextFieldLabel(_ref) {
   var name = _ref.name,
       placeholder = _ref.placeholder,
       className = _ref.className,
       label = _ref.label,
       htmlFor = _ref.htmlFor,
-      id = _ref.id,
       labelId = _ref.labelId,
       state = _ref.state,
       style = _ref.style,
-      props = objectWithoutProperties_default()(_ref, ["name", "placeholder", "className", "label", "htmlFor", "id", "labelId", "state", "style"]);
+      disabled = _ref.disabled,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "label", "htmlFor", "labelId", "state", "style", "disabled"]);
 
   var classes = ['rex-text-field-label', className].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
-  var labelEl = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_["useRef"])(null);
-  return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", extends_default()({
+  var labelEl = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])(null);
+
+  var handleOnFocus = function handleOnFocus(e) {
+    var textFieldNativeEl = e.target;
+    var outsideBorderEl = e.target.parentNode;
+    var isErrorOrValid = e.target.classList.contains('error') || e.target.classList.contains('valid');
+
+    if (!disabled && !isErrorOrValid) {
+      labelEl.current.classList.add('active');
+      textFieldNativeEl.classList.add('active');
+      outsideBorderEl.classList.add('active');
+    }
+  };
+
+  var handleOnBlur = function handleOnBlur(e) {
+    var textFieldNativeEl = e.target;
+    var outsideBorderEl = e.target.parentNode;
+    var isErrorOrValid = e.target.classList.contains('error') || e.target.classList.contains('valid');
+
+    if (!disabled && !isErrorOrValid) {
+      labelEl.current.classList.remove('active');
+      textFieldNativeEl.classList.remove('active');
+      outsideBorderEl.classList.remove('active');
+    }
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: classes,
-    style: style
-  }, props), external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(LabelUi["default"], {
+    style: style,
+    disabled: disabled
+  }, props), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_LabelUi__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"], {
     id: labelId,
     htmlFor: htmlFor,
     label: label,
     state: state,
-    labelRef: labelEl
-  }), external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(TextFieldUi["default"], {
-    id: id,
+    labelRef: labelEl,
+    disabled: disabled
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_TextFieldUi__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"], {
+    id: htmlFor,
     labelId: labelId,
     name: name,
     placeholder: placeholder,
     label: label,
-    state: state
+    state: state,
+    disabled: disabled,
+    handleOnFocus: handleOnFocus,
+    handleOnBlur: handleOnBlur
   }));
 }
-TextFieldLabel_TextFieldLabel.displayName = "TextFieldLabel";
-TextFieldLabel_TextFieldLabel.defaultProps = {
+TextFieldLabel.displayName = "TextFieldLabel";
+TextFieldLabel.defaultProps = {
   className: '',
   label: '',
   htmlFor: '',
   name: '',
   placeholder: '',
   state: '',
-  id: '',
   labelId: '',
-  style: null
+  style: null,
+  disabled: false
 };
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 /******/ ]);

@@ -1,0 +1,394 @@
+/*!
+* @license @rakuten-rex/text-field v1.1.4 2020-03-09
+* _styles.mixin.scss
+*
+* Copyright (c) 2018-present, Rakuten, Inc.
+*
+* This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.
+*/
+@mixin rex-text-field-ui {
+  @include rex-core();
+  input {
+    @include rex-text-field-native-state();
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      @include rex-text-field-native-active-state();
+    }
+    &[disabled],
+    &.disabled {
+      @include rex-text-field-native-disabled-state();
+    }
+    &.error {
+      @include rex-text-field-native-error-state();
+    }
+    &.valid {
+      @include rex-text-field-native-valid-state();
+    }
+  }
+
+  &-border {
+    @include rex-textarea-outside-border-state();
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      @include rex-textarea-outside-border-active-state();
+    }
+    &[disabled],
+    &.disabled {
+      @include rex-text-field-outside-border-disabled-state();
+    }
+    &.error {
+      @include rex-text-field-outside-border-error-state();
+    }
+    &.valid {
+      @include rex-text-field-outside-border-valid-state();
+    }
+  }
+}
+
+@mixin rex-text-field-native-state {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  color: var(--rex-text-field-theme-text, $--rex-text-field-theme-text);
+  background-clip: padding-box;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.625rem;
+  background-color: $--rex-white;
+  margin: 0;
+  @include rex-text-field-native-default-state();
+}
+
+@mixin rex-text-field-native-default-state {
+  @include placeholder {
+    color: var(
+      --rex-text-field-theme-placeholder,
+      $--rex-text-field-theme-placeholder
+    );
+    transition: color 0.15s ease-in-out;
+  }
+}
+
+@mixin rex-text-field-native-disabled-state {
+  color: var(
+    --rex-text-field-theme-disabled-text,
+    $--rex-text-field-theme-disabled-text
+  );
+  @include placeholder {
+    color: var(
+      --rex-text-field-theme-disabled-placeholder,
+      $--rex-text-field-theme-disabled-placeholder
+    );
+  }
+}
+
+@mixin rex-text-field-native-active-state {
+  &:not([disabled]) {
+    color: var(
+      --rex-text-field-theme-active-text,
+      $--rex-text-field-theme-active-text
+    );
+    border: 1px solid
+      var(
+        --rex-text-field-theme-active-border,
+        $--rex-text-field-theme-active-border
+      );
+    @include placeholder {
+      color: var(
+        --rex-text-field-theme-active-placeholder,
+        $--rex-text-field-theme-active-placeholder
+      );
+    }
+  }
+}
+
+@mixin rex-text-field-native-error-state {
+  &:not([disabled]) {
+    color: var(
+      --rex-text-field-theme-error-text,
+      $--rex-text-field-theme-error-text
+    );
+    border: 1px solid
+      var(
+        --rex-text-field-theme-error-border,
+        $--rex-text-field-theme-error-border
+      );
+    @include placeholder {
+      color: var(
+        --rex-text-field-theme-error-placeholder,
+        $--rex-text-field-theme-error-placeholder
+      );
+    }
+  }
+}
+
+@mixin rex-text-field-native-valid-state {
+  &:not([disabled]) {
+    color: var(
+      --rex-text-field-theme-valid-text,
+      $--rex-text-field-theme-valid-text
+    );
+    border: 1px solid
+      var(
+        --rex-text-field-theme-valid-border,
+        $--rex-text-field-theme-valid-border
+      );
+    @include placeholder {
+      color: var(
+        --rex-text-field-theme-valid-placeholder,
+        $--rex-text-field-theme-valid-placeholder
+      );
+    }
+  }
+}
+
+@mixin rex-textarea-outside-border-state {
+  transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  border: 1px solid
+    var(--rex-text-field-theme-border, $--rex-text-field-theme-border);
+  border-radius: 0.32rem;
+  padding: 0;
+  background-color: $--rex-white;
+}
+
+@mixin rex-text-field-outside-border-disabled-state {
+  border-color: var(
+    --rex-text-field-theme-disabled-border,
+    $--rex-text-field-theme-disabled-border
+  );
+}
+
+@mixin rex-textarea-outside-border-active-state {
+  &:not([disabled]) {
+    outline: none;
+    border-color: var(
+      --rex-text-field-theme-active-border,
+      $--rex-text-field-theme-active-border
+    );
+    background-color: var(
+      --rex-text-field-theme-active-border,
+      $--rex-text-field-theme-active-border
+    );
+  }
+}
+
+@mixin rex-text-field-outside-border-error-state {
+  &:not([disabled]) {
+    border-color: var(
+      --rex-text-field-theme-error-border,
+      $--rex-text-field-theme-error-border
+    );
+    background-color: var(
+      --rex-text-field-theme-error-border,
+      $--rex-text-field-theme-error-border
+    );
+  }
+}
+
+@mixin rex-text-field-outside-border-valid-state {
+  &:not([disabled]) {
+    border-color: var(
+      --rex-text-field-theme-valid-border,
+      $--rex-text-field-theme-valid-border
+    );
+    background-color: var(
+      --rex-text-field-theme-valid-border,
+      $--rex-text-field-theme-valid-border
+    );
+  }
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+@mixin rex-core {
+  -webkit-text-size-adjust: 100%;
+
+  // html
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // body
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333333;
+  text-align: left;
+  background-color: inherit;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+@mixin rex-text-field-helper() {
+  &:hover,
+  &.hover {
+    @include rex-text-field-native-hover-state();
+  }
+}
+
+@mixin rex-text-field-native-hover-state {
+  &:not([disabled]) {
+    > div {
+      &:not([disabled]):not(.active):not(.error):not(.valid) {
+        border-color: var(
+          --rex-text-field-theme-hover-border,
+          $--rex-text-field-theme-hover-border
+        );
+        input {
+          color: var(
+            --rex-text-field-theme-hover-text,
+            $--rex-text-field-theme-hover-text
+          );
+          @include placeholder {
+            color: var(
+              --rex-text-field-theme-hover-placeholder,
+              $--rex-text-field-theme-hover-placeholder
+            );
+          }
+        }
+      }
+    }
+    small {
+      &:not([disabled]):not(.active):not(.error):not(.valid) {
+        color: var(
+          --rex-text-field-helper-theme-hover-text,
+          $--rex-text-field-helper-theme-hover-text
+        );
+        &.focus {
+          color: var(
+            --rex-text-field-helper-theme-active-text,
+            $--rex-text-field-helper-theme-active-text
+          );
+        }
+      }
+    }
+  }
+}
+@mixin rex-core {
+  -webkit-text-size-adjust: 100%;
+
+  // html
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // body
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333333;
+  text-align: left;
+  background-color: inherit;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+// ReX Colors
+$--rex-gray-300: #d1d1d1;
+$--rex-gray-500: #9c9c9c;
+$--rex-gray-700: #686868;
+$--rex-gray-800: #4d4d4d;
+$--rex-gray-900: #333333;
+$--rex-white: #fff;
+$--rex-blue: #1364ff;
+$--rex-disabled-text: #898989;
+
+// Theme
+$--rex-text-field-theme-text: $--rex-gray-900;
+$--rex-text-field-theme-border: #606060;
+$--rex-text-field-theme-placeholder: #717171;
+
+$--rex-text-field-theme-hover-text: $--rex-gray-900;
+$--rex-text-field-theme-hover-border: $--rex-blue;
+$--rex-text-field-theme-hover-placeholder: #606060;
+
+$--rex-text-field-theme-active-text: $--rex-gray-900;
+$--rex-text-field-theme-active-border: $--rex-blue;
+$--rex-text-field-theme-active-placeholder: #606060;
+
+$--rex-text-field-theme-disabled-text: #898989;
+$--rex-text-field-theme-disabled-border: #dfdfdf;
+$--rex-text-field-theme-disabled-placeholder: $--rex-disabled-text;
+
+$--rex-text-field-theme-error-text: #898989;
+$--rex-text-field-theme-error-border: #df0101;
+$--rex-text-field-theme-error-placeholder: $--rex-disabled-text;
+
+$--rex-text-field-theme-valid-text: #898989;
+$--rex-text-field-theme-valid-border: #047205;
+$--rex-text-field-theme-valid-placeholder: $--rex-disabled-text;
+
+$--rex-text-field-label-theme-text: #606060;
+$--rex-text-field-label-theme-hover-text: $--rex-blue;
+$--rex-text-field-label-theme-active-text: $--rex-blue;
+$--rex-text-field-label-theme-disabled-text: $--rex-disabled-text;
+$--rex-text-field-label-theme-error-text: #e60000;
+$--rex-text-field-label-theme-valid-text: #069907;
+
+$--rex-text-field-helper-theme-text: #606060;
+$--rex-text-field-helper-theme-hover-text: #606060;
+$--rex-text-field-helper-theme-active-text: #606060;
+$--rex-text-field-helper-theme-disabled-text: $--rex-disabled-text;
+$--rex-text-field-helper-theme-error-text: #e60000;
+$--rex-text-field-helper-theme-valid-text: #069907;
+
+$--rex-password-theme-icon: #606060;
+$--rex-password-theme-hover-icon: #606060;
+$--rex-password-theme-active-icon: #606060;
