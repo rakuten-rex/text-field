@@ -2,10 +2,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
 import React from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import HelperUi from 'src/HelperUi';
-import CommonProps from './props';
-import ThemeProps from '../TextFieldUi/themeProps';
+import CommonProps, { StateProps } from './props';
+import ThemeProps from './themeProps';
 import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
 
 /**
@@ -55,14 +55,16 @@ function Theme() {
     themeHelperDisabledText,
     themeHelperHoverText,
     themeHelperActiveText,
+    themeHelperErrorText,
+    themeHelperValidText,
   } = ThemeProps();
 
   const customStyle = {
     '--rex-text-field-helper-theme-text': themeHelperDefaultText,
     '--rex-text-field-helper-theme-disabled-text': themeHelperDisabledText,
     '--rex-text-field-helper-theme-hover-text': themeHelperHoverText,
-    // '--rex-text-field-helper-theme-error-text': themeHelperErrorText,
-    // '--rex-text-field-helper-theme-valid-text': themeHelperValidText,
+    '--rex-text-field-helper-theme-error-text': themeHelperErrorText,
+    '--rex-text-field-helper-theme-valid-text': themeHelperValidText,
     '--rex-text-field-helper-theme-active-text': themeHelperActiveText,
   };
 
@@ -74,12 +76,8 @@ function Theme() {
 
 export const WithThemeReactAndCSSVars = () => {
   const { customStyle } = Theme();
-  const options = {
-    Default: null,
-    Active: 'active',
-  };
-  const state = select('State', options, 'null', 'Theme Props');
-  const disabled = boolean('Disabled', false, 'Theme Props');
+  const { state } = StateProps();
+  const disabled = boolean('Disabled', false, 'Theme Disabled');
 
   return (
     <HelperUi
@@ -93,12 +91,8 @@ export const WithThemeReactAndCSSVars = () => {
 
 export const WithThemeHTMLAndLegacyCSS = () => {
   const { customStyleHtml } = Theme();
-  const options = {
-    Default: null,
-    Active: 'active',
-  };
-  const state = select('State', options, 'null', 'Theme Props');
-  const disabled = boolean('Disabled', false, 'Theme Props');
+  const { state } = StateProps();
+  const disabled = boolean('Disabled', false, 'Theme Disabled');
 
   return (
     <>

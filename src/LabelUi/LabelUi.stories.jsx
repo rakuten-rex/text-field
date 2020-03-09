@@ -2,9 +2,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import LabelUi from 'src/LabelUi';
-import CommonProps from './props';
+import CommonProps, { StateProps } from './props';
 import ThemeProps from './themeProps';
 import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
 
@@ -83,12 +83,8 @@ function Theme() {
 
 export const WithThemeReactAndCSSVars = () => {
   const { customStyle } = Theme();
-  const options = {
-    Default: null,
-    Active: 'active',
-  };
-  const state = select('State', options, 'null', 'Theme Props');
-  const disabled = boolean('Disabled', false, 'Theme Props');
+  const { state } = StateProps();
+  const disabled = boolean('Disabled', false, 'Theme Disabled');
 
   return (
     <LabelUi
@@ -102,12 +98,8 @@ export const WithThemeReactAndCSSVars = () => {
 
 export const WithThemeHTMLAndLegacyCSS = () => {
   const { customStyleHtml } = Theme();
-  const options = {
-    Default: null,
-    Active: 'active',
-  };
-  const state = select('State', options, 'null', 'Theme Props');
-  const disabled = boolean('Disabled', false, 'Theme Props');
+  const { state } = StateProps();
+  const disabled = boolean('Disabled', false, 'Theme Disabled');
 
   return (
     <>
