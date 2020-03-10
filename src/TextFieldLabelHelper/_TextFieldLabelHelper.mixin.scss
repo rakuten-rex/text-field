@@ -13,10 +13,8 @@
     > div {
       &:not([disabled]):not(.active):not(.error):not(.valid) {
         border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
-        background-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
         input {
           color: var(--rex-text-field-theme-hover-text, $--rex-text-field-theme-hover-text);
-          border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
           @include placeholder {
             color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
           }

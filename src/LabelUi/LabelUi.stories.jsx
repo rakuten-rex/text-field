@@ -23,7 +23,11 @@ export const Default = () => {
   return <LabelUi label="Label" />;
 };
 
-export const Disabled = () => {
+export const FocusAndActiveState = () => {
+  return <LabelUi label="Label" state="active" />;
+};
+
+export const DisabledState = () => {
   return <LabelUi label="Label" disabled />;
 };
 
@@ -33,10 +37,6 @@ export const ErrorState = () => {
 
 export const ValidState = () => {
   return <LabelUi label="Label" state="valid" />;
-};
-
-export const ActiveState = () => {
-  return <LabelUi label="Label" state="active" />;
 };
 
 export const WithDynamicProps = () => {
@@ -81,7 +81,7 @@ function Theme() {
   };
 }
 
-export const WithThemeReactAndCSSVars = () => {
+export const ReactTheme = () => {
   const { customStyle } = Theme();
   const { state } = StateProps();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
@@ -96,7 +96,35 @@ export const WithThemeReactAndCSSVars = () => {
   );
 };
 
-export const WithThemeHTMLAndLegacyCSS = () => {
+export const ReactThemeAndAllStates = () => {
+  const { customStyle } = Theme();
+
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <LabelUi style={customStyle} label="Default" />
+          </td>
+          <td>
+            <LabelUi style={customStyle} label="Focus/Active" state="active" />
+          </td>
+          <td>
+            <LabelUi style={customStyle} label="Disabled" disabled />
+          </td>
+          <td>
+            <LabelUi style={customStyle} label="Error" state="error" />
+          </td>
+          <td>
+            <LabelUi style={customStyle} label="Valid" state="valid" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HTMLTheme = () => {
   const { customStyleHtml } = Theme();
   const { state } = StateProps();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
@@ -105,6 +133,37 @@ export const WithThemeHTMLAndLegacyCSS = () => {
     <>
       <style>{customStyleHtml}</style>
       <LabelUi label="Label" state={state} disabled={disabled} />
+    </>
+  );
+};
+
+export const HTMLThemeAndAllStates = () => {
+  const { customStyleHtml } = Theme();
+
+  return (
+    <>
+      <style>{customStyleHtml}</style>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <LabelUi label="Default" />
+            </td>
+            <td>
+              <LabelUi label="Focus/Active" state="active" />
+            </td>
+            <td>
+              <LabelUi label="Disabled" disabled />
+            </td>
+            <td>
+              <LabelUi label="Error" state="error" />
+            </td>
+            <td>
+              <LabelUi label="Valid" state="valid" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };

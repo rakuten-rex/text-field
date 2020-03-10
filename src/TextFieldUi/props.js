@@ -23,6 +23,7 @@ export default function CommonProps() {
     disabled: boolean('Disabled', false),
     className: text('Class Name', 'another-class-name'),
     name: text('Name', 'text-field'),
+    defaultValue: text('Default Value', 'Default Value'),
     state,
   };
 }

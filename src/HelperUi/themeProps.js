@@ -8,11 +8,6 @@ export default function ThemeProps() {
       '#606060',
       'Theme Default'
     ),
-    themeHelperDisabledText: color(
-      'Disabled Helper Text Color',
-      '#D1D1D1',
-      'Theme Disabled'
-    ),
     themeHelperHoverText: color(
       'Hover Helper Text Color',
       '#606060',
@@ -22,6 +17,11 @@ export default function ThemeProps() {
       'Active Helper Text Color',
       '#606060',
       'Theme Active'
+    ),
+    themeHelperDisabledText: color(
+      'Disabled Helper Text Color',
+      '#D1D1D1',
+      'Theme Disabled'
     ),
     themeHelperErrorText: color(
       'Error Helper Text Color',

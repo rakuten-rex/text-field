@@ -23,7 +23,11 @@ export const Default = () => {
   return <HelperUi helper="Helper Text" />;
 };
 
-export const Disabled = () => {
+export const FocusAndActiveState = () => {
+  return <HelperUi helper="Helper Text" state="active" />;
+};
+
+export const DisabledState = () => {
   return <HelperUi helper="Helper Text" disabled />;
 };
 
@@ -33,10 +37,6 @@ export const ErrorState = () => {
 
 export const ValidState = () => {
   return <HelperUi helper="Helper Text" state="valid" />;
-};
-
-export const ActiveState = () => {
-  return <HelperUi helper="Helper Text" state="active" />;
 };
 
 export const WithDynamicProps = () => {
@@ -74,7 +74,7 @@ function Theme() {
   };
 }
 
-export const WithThemeReactAndCSSVars = () => {
+export const ReactTheme = () => {
   const { customStyle } = Theme();
   const { state } = StateProps();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
@@ -89,7 +89,39 @@ export const WithThemeReactAndCSSVars = () => {
   );
 };
 
-export const WithThemeHTMLAndLegacyCSS = () => {
+export const ReactThemeAndAllStates = () => {
+  const { customStyle } = Theme();
+
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <HelperUi style={customStyle} helper="Default" />
+          </td>
+          <td>
+            <HelperUi
+              style={customStyle}
+              helper="Focus/Active"
+              state="active"
+            />
+          </td>
+          <td>
+            <HelperUi style={customStyle} helper="Disabled" disabled />
+          </td>
+          <td>
+            <HelperUi style={customStyle} helper="Error" state="error" />
+          </td>
+          <td>
+            <HelperUi style={customStyle} helper="Valid" state="valid" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HTMLTheme = () => {
   const { customStyleHtml } = Theme();
   const { state } = StateProps();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
@@ -98,6 +130,37 @@ export const WithThemeHTMLAndLegacyCSS = () => {
     <>
       <style>{customStyleHtml}</style>
       <HelperUi helper="Helper Text" state={state} disabled={disabled} />
+    </>
+  );
+};
+
+export const HTMLThemeAndAllStates = () => {
+  const { customStyleHtml } = Theme();
+
+  return (
+    <>
+      <style>{customStyleHtml}</style>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <HelperUi helper="Default" />
+            </td>
+            <td>
+              <HelperUi helper="Focus/Active" state="active" />
+            </td>
+            <td>
+              <HelperUi helper="Disabled" disabled />
+            </td>
+            <td>
+              <HelperUi helper="Error" state="error" />
+            </td>
+            <td>
+              <HelperUi helper="Valid" state="valid" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };

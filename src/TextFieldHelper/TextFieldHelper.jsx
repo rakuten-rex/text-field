@@ -16,6 +16,7 @@ export default function TextFieldHelper({
   state,
   style,
   disabled,
+  value,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -26,6 +27,8 @@ export default function TextFieldHelper({
         return 'valid';
       case 'active':
         return 'active';
+      case 'hover':
+        return 'hover';
       default:
         return '';
     }
@@ -67,6 +70,7 @@ export default function TextFieldHelper({
         disabled={disabled}
         handleOnFocus={handleOnFocus}
         handleOnBlur={handleOnBlur}
+        value={value}
       />
       <HelperUi
         helper={helper}
@@ -89,6 +93,7 @@ TextFieldHelper.defaultProps = {
   labelId: '',
   style: null,
   disabled: false,
+  value: '',
 };
 
 TextFieldHelper.propTypes = {
@@ -102,4 +107,5 @@ TextFieldHelper.propTypes = {
   labelId: string,
   style: objectOf(string),
   disabled: bool,
+  value: string,
 };

@@ -19,45 +19,12 @@ export default {
 /**
  * Stories
  * */
-export const DefaultView = () => {
+export const Default = () => {
   return (
     <TextFieldUi
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
-    />
-  );
-};
-
-export const Disabled = () => {
-  return (
-    <TextFieldUi
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      disabled
-    />
-  );
-};
-
-export const Error = () => {
-  return (
-    <TextFieldUi
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      state="error"
-    />
-  );
-};
-
-export const Valid = () => {
-  return (
-    <TextFieldUi
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      state="valid"
     />
   );
 };
@@ -73,6 +40,50 @@ export const FocusAndActiveState = () => {
   );
 };
 
+export const DisabledState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      disabled
+    />
+  );
+};
+
+export const ErrorState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="error"
+    />
+  );
+};
+
+export const ValidState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="valid"
+    />
+  );
+};
+
+export const WithDefaultValue = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      value="Default Value"
+    />
+  );
+};
+
 export const WithDynamicProps = () => {
   const {
     name,
@@ -81,6 +92,7 @@ export const WithDynamicProps = () => {
     state,
     disabled,
     className,
+    defaultValue,
   } = TexiFieldCommonProps();
 
   return (
@@ -91,6 +103,7 @@ export const WithDynamicProps = () => {
       htmlFor={htmlFor}
       state={state}
       disabled={disabled}
+      value={defaultValue}
     />
   );
 };
@@ -148,7 +161,7 @@ function Theme() {
   };
 }
 
-export const WithThemeReactAndCSSVars = () => {
+export const ReactTheme = () => {
   const { customStyle } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
   const { state } = StateProps();
@@ -165,7 +178,64 @@ export const WithThemeReactAndCSSVars = () => {
   );
 };
 
-export const WithThemeHTMLAndLegacyCSS = () => {
+export const ReactThemeAndAllStates = () => {
+  const { customStyle } = Theme();
+
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Default"
+              htmlFor="firstname"
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Focus/Active"
+              htmlFor="firstname"
+              state="active"
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Disabled"
+              htmlFor="firstname"
+              disabled
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Error"
+              htmlFor="firstname"
+              state="error"
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Valid"
+              htmlFor="firstname"
+              state="valid"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HTMLTheme = () => {
   const { customStyleHtml } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
   const { state } = StateProps();
@@ -180,6 +250,61 @@ export const WithThemeHTMLAndLegacyCSS = () => {
         disabled={disabled}
         state={state}
       />
+    </>
+  );
+};
+
+export const HTMLThemeAndAllStates = () => {
+  const { customStyleHtml } = Theme();
+
+  return (
+    <>
+      <style>{customStyleHtml}</style>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Default"
+                htmlFor="firstname"
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Focus/Active"
+                htmlFor="firstname"
+                state="active"
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Disabled"
+                htmlFor="firstname"
+                disabled
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Error"
+                htmlFor="firstname"
+                state="error"
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Valid"
+                htmlFor="firstname"
+                state="valid"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };

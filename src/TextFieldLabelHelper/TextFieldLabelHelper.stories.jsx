@@ -23,7 +23,7 @@ export default {
 /**
  * Stories
  * */
-export const DefaultView = () => {
+export const Default = () => {
   return (
     <TextFieldLabelHelper
       id="age"
@@ -37,7 +37,7 @@ export const DefaultView = () => {
   );
 };
 
-export const Disabled = () => {
+export const HoverState = () => {
   return (
     <TextFieldLabelHelper
       id="age"
@@ -47,37 +47,7 @@ export const Disabled = () => {
       label="Label"
       labelId="labelId"
       helper="Helper Text"
-      disabled
-    />
-  );
-};
-
-export const Error = () => {
-  return (
-    <TextFieldLabelHelper
-      id="age"
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      label="Label"
-      labelId="labelId"
-      helper="Helper Text"
-      state="error"
-    />
-  );
-};
-
-export const Valid = () => {
-  return (
-    <TextFieldLabelHelper
-      id="age"
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      label="Label"
-      labelId="labelId"
-      helper="Helper Text"
-      state="valid"
+      state="hover"
     />
   );
 };
@@ -93,6 +63,66 @@ export const FocusAndActiveState = () => {
       labelId="labelId"
       helper="Helper Text"
       state="active"
+    />
+  );
+};
+
+export const DisabledState = () => {
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      disabled
+    />
+  );
+};
+
+export const ErrorState = () => {
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      state="error"
+    />
+  );
+};
+
+export const ValidState = () => {
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      state="valid"
+    />
+  );
+};
+
+export const WithDefaultValue = () => {
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      value="Default Value"
     />
   );
 };
@@ -205,7 +235,7 @@ function Theme() {
   };
 }
 
-export const WithThemeReactAndCSSVars = () => {
+export const ReactTheme = () => {
   const { customStyle } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
   const { state } = StateProps();
@@ -226,7 +256,97 @@ export const WithThemeReactAndCSSVars = () => {
   );
 };
 
-export const WithThemeHTMLAndLegacyCSS = () => {
+export const ReactThemeAndAllStates = () => {
+  const { customStyle } = Theme();
+
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <TextFieldLabelHelper
+              style={customStyle}
+              id="age"
+              name="firstname"
+              placeholder="Default"
+              htmlFor="firstname"
+              label="Label"
+              labelId="labelId"
+              helper="Helper Text"
+            />
+          </td>
+          <td>
+            <TextFieldLabelHelper
+              style={customStyle}
+              id="age"
+              name="firstname"
+              placeholder="Hover"
+              htmlFor="firstname"
+              label="Label"
+              labelId="labelId"
+              helper="Helper Text"
+              state="hover"
+            />
+          </td>
+          <td>
+            <TextFieldLabelHelper
+              style={customStyle}
+              id="age"
+              name="firstname"
+              placeholder="Focus/Active"
+              htmlFor="firstname"
+              label="Label"
+              labelId="labelId"
+              helper="Helper Text"
+              state="active"
+            />
+          </td>
+          <td>
+            <TextFieldLabelHelper
+              style={customStyle}
+              id="age"
+              name="firstname"
+              placeholder="Disabled"
+              htmlFor="firstname"
+              label="Label"
+              labelId="labelId"
+              helper="Helper Text"
+              disabled
+            />
+          </td>
+          <td>
+            <TextFieldLabelHelper
+              style={customStyle}
+              id="age"
+              name="firstname"
+              placeholder="Error"
+              htmlFor="firstname"
+              label="Label"
+              labelId="labelId"
+              helper="Helper Text"
+              state="error"
+            />
+          </td>
+          <td>
+            <TextFieldLabelHelper
+              style={customStyle}
+              id="age"
+              name="firstname"
+              placeholder="Valid"
+              htmlFor="firstname"
+              label="Label"
+              labelId="labelId"
+              helper="Helper Text"
+              state="valid"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HTMLTheme = () => {
   const { customStyleHtml } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
   const { state } = StateProps();
@@ -245,6 +365,93 @@ export const WithThemeHTMLAndLegacyCSS = () => {
         disabled={disabled}
         state={state}
       />
+    </>
+  );
+};
+
+export const HTMLThemeAndAllStates = () => {
+  const { customStyleHtml } = Theme();
+
+  return (
+    <>
+      <style>{customStyleHtml}</style>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <TextFieldLabelHelper
+                id="age"
+                name="firstname"
+                placeholder="Default"
+                htmlFor="firstname"
+                label="Label"
+                labelId="labelId"
+                helper="Helper Text"
+              />
+            </td>
+            <td>
+              <TextFieldLabelHelper
+                id="age"
+                name="firstname"
+                placeholder="Hover"
+                htmlFor="firstname"
+                label="Label"
+                labelId="labelId"
+                helper="Helper Text"
+                state="hover"
+              />
+            </td>
+            <td>
+              <TextFieldLabelHelper
+                id="age"
+                name="firstname"
+                placeholder="Focus/Active"
+                htmlFor="firstname"
+                label="Label"
+                labelId="labelId"
+                helper="Helper Text"
+                state="active"
+              />
+            </td>
+            <td>
+              <TextFieldLabelHelper
+                id="age"
+                name="firstname"
+                placeholder="Disabled"
+                htmlFor="firstname"
+                label="Label"
+                labelId="labelId"
+                helper="Helper Text"
+                disabled
+              />
+            </td>
+            <td>
+              <TextFieldLabelHelper
+                id="age"
+                name="firstname"
+                placeholder="Error"
+                htmlFor="firstname"
+                label="Label"
+                labelId="labelId"
+                helper="Helper Text"
+                state="error"
+              />
+            </td>
+            <td>
+              <TextFieldLabelHelper
+                id="age"
+                name="firstname"
+                placeholder="Valid"
+                htmlFor="firstname"
+                label="Label"
+                labelId="labelId"
+                helper="Helper Text"
+                state="valid"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };

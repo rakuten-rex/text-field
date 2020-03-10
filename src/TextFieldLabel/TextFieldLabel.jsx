@@ -16,9 +16,24 @@ export default function TextFieldLabel({
   state,
   style,
   disabled,
+  value,
   ...props
 }) {
-  const classes = ['rex-text-field-label', className]
+  const stateClass = (stateClassName => {
+    switch (stateClassName) {
+      case 'error':
+        return 'error';
+      case 'valid':
+        return 'valid';
+      case 'active':
+        return 'active';
+      case 'hover':
+        return 'hover';
+      default:
+        return '';
+    }
+  })(state);
+  const classes = ['rex-text-field-label', className, stateClass]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
@@ -70,6 +85,7 @@ export default function TextFieldLabel({
         disabled={disabled}
         handleOnFocus={handleOnFocus}
         handleOnBlur={handleOnBlur}
+        value={value}
       />
     </div>
   );
@@ -85,6 +101,7 @@ TextFieldLabel.defaultProps = {
   labelId: '',
   style: null,
   disabled: false,
+  value: '',
 };
 
 TextFieldLabel.propTypes = {
@@ -97,4 +114,5 @@ TextFieldLabel.propTypes = {
   labelId: string,
   style: objectOf(string),
   disabled: bool,
+  value: string,
 };
