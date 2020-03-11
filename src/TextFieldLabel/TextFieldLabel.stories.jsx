@@ -240,71 +240,71 @@ export const ReactThemeAndAllStates = () => {
           <td>
             <TextFieldLabel
               style={customStyle}
-              id="age"
+              id="age_01"
               name="firstname"
               placeholder="Default"
               htmlFor="firstname_01"
               label="Label"
-              labelId="labelId"
+              labelId="labelId_01"
             />
           </td>
           <td>
             <TextFieldLabel
               style={customStyle}
-              id="age"
+              id="age_02"
               name="firstname"
               placeholder="Hover"
               htmlFor="firstname_02"
               label="Label"
-              labelId="labelId"
+              labelId="labelId_02"
               state="hover"
             />
           </td>
           <td>
             <TextFieldLabel
               style={customStyle}
-              id="age"
+              id="age_03"
               name="firstname"
               placeholder="Focus/Active"
               htmlFor="firstname_03"
               label="Label"
-              labelId="labelId"
+              labelId="labelId_03"
               state="active"
             />
           </td>
           <td>
             <TextFieldLabel
               style={customStyle}
-              id="age"
+              id="age_04"
               name="firstname"
               placeholder="Disabled"
               htmlFor="firstname_04"
               label="Label"
-              labelId="labelId"
+              labelId="labelId_04"
               disabled
             />
           </td>
           <td>
             <TextFieldLabel
               style={customStyle}
-              id="age"
+              id="age_05"
               name="firstname"
               placeholder="Error"
               htmlFor="firstname_05"
               label="Label"
-              labelId="labelId"
+              labelId="labelId_05"
               state="error"
             />
           </td>
           <td>
             <TextFieldLabel
               style={customStyle}
-              id="age"
+              id="age_06"
               name="firstname"
               placeholder="Valid"
               htmlFor="firstname_06"
               label="Label"
-              labelId="labelId"
+              labelId="labelId_06"
               state="valid"
             />
           </td>
@@ -347,66 +347,66 @@ export const HTMLThemeAndAllStates = () => {
           <tr>
             <td>
               <TextFieldLabel
-                id="age"
+                id="age_01"
                 name="firstname"
                 placeholder="Default"
                 htmlFor="firstname_01"
                 label="Label"
-                labelId="labelId"
+                labelId="labelId_01"
               />
             </td>
             <td>
               <TextFieldLabel
-                id="age"
+                id="age_02"
                 name="firstname"
                 placeholder="Hover"
                 htmlFor="firstname_02"
                 label="Label"
-                labelId="labelId"
+                labelId="labelId_02"
                 state="hover"
               />
             </td>
             <td>
               <TextFieldLabel
-                id="age"
+                id="age_03"
                 name="firstname"
                 placeholder="Focus/Active"
                 htmlFor="firstname_03"
                 label="Label"
-                labelId="labelId"
+                labelId="labelId_03"
                 state="active"
               />
             </td>
             <td>
               <TextFieldLabel
-                id="age"
+                id="age_04"
                 name="firstname"
                 placeholder="Disabled"
                 htmlFor="firstname_04"
                 label="Label"
-                labelId="labelId"
+                labelId="labelId_04"
                 disabled
               />
             </td>
             <td>
               <TextFieldLabel
-                id="age"
+                id="age_05"
                 name="firstname"
                 placeholder="Error"
                 htmlFor="firstname_05"
                 label="Label"
-                labelId="labelId"
+                labelId="labelId_05"
                 state="error"
               />
             </td>
             <td>
               <TextFieldLabel
-                id="age"
+                id="age_06"
                 name="firstname"
                 placeholder="Valid"
                 htmlFor="firstname_06"
                 label="Label"
-                labelId="labelId"
+                labelId="labelId_06"
                 state="valid"
               />
             </td>

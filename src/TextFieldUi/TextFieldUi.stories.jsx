@@ -190,7 +190,7 @@ export const ReactThemeAndAllStates = () => {
               style={customStyle}
               name="firstname"
               placeholder="Default"
-              htmlFor="firstname"
+              htmlFor="firstname_01"
             />
           </td>
           <td>
@@ -198,7 +198,7 @@ export const ReactThemeAndAllStates = () => {
               style={customStyle}
               name="firstname"
               placeholder="Focus/Active"
-              htmlFor="firstname"
+              htmlFor="firstname_02"
               state="active"
             />
           </td>
@@ -207,7 +207,7 @@ export const ReactThemeAndAllStates = () => {
               style={customStyle}
               name="firstname"
               placeholder="Disabled"
-              htmlFor="firstname"
+              htmlFor="firstname_03"
               disabled
             />
           </td>
@@ -216,7 +216,7 @@ export const ReactThemeAndAllStates = () => {
               style={customStyle}
               name="firstname"
               placeholder="Error"
-              htmlFor="firstname"
+              htmlFor="firstname_04"
               state="error"
             />
           </td>
@@ -225,7 +225,7 @@ export const ReactThemeAndAllStates = () => {
               style={customStyle}
               name="firstname"
               placeholder="Valid"
-              htmlFor="firstname"
+              htmlFor="firstname_05"
               state="valid"
             />
           </td>
@@ -267,14 +267,14 @@ export const HTMLThemeAndAllStates = () => {
               <TextFieldUi
                 name="firstname"
                 placeholder="Default"
-                htmlFor="firstname"
+                htmlFor="firstname_01"
               />
             </td>
             <td>
               <TextFieldUi
                 name="firstname"
                 placeholder="Focus/Active"
-                htmlFor="firstname"
+                htmlFor="firstname_02"
                 state="active"
               />
             </td>
@@ -282,7 +282,7 @@ export const HTMLThemeAndAllStates = () => {
               <TextFieldUi
                 name="firstname"
                 placeholder="Disabled"
-                htmlFor="firstname"
+                htmlFor="firstname_03"
                 disabled
               />
             </td>
@@ -290,7 +290,7 @@ export const HTMLThemeAndAllStates = () => {
               <TextFieldUi
                 name="firstname"
                 placeholder="Error"
-                htmlFor="firstname"
+                htmlFor="firstname_04"
                 state="error"
               />
             </td>
@@ -298,7 +298,7 @@ export const HTMLThemeAndAllStates = () => {
               <TextFieldUi
                 name="firstname"
                 placeholder="Valid"
-                htmlFor="firstname"
+                htmlFor="firstname_05"
                 state="valid"
               />
             </td>

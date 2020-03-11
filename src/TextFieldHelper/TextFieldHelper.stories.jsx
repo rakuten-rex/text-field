@@ -239,71 +239,71 @@ export const ReactThemeAndAllStates = () => {
           <td>
             <TextFieldHelper
               style={customStyle}
-              id="age"
+              id="age_01"
               name="firstname"
               placeholder="Default"
               htmlFor="firstname_01"
               helper="Helper Text"
-              labelId="labelId"
+              labelId="labelId_01"
             />
           </td>
           <td>
             <TextFieldHelper
               style={customStyle}
-              id="age"
+              id="age_02"
               name="firstname"
               placeholder="Hover"
               htmlFor="firstname_02"
               helper="Helper Text"
-              labelId="labelId"
+              labelId="labelId_02"
               state="hover"
             />
           </td>
           <td>
             <TextFieldHelper
               style={customStyle}
-              id="age"
+              id="age_03"
               name="firstname"
               placeholder="Focus/Active"
               htmlFor="firstname_03"
               helper="Helper Text"
-              labelId="labelId"
+              labelId="labelId_03"
               state="active"
             />
           </td>
           <td>
             <TextFieldHelper
               style={customStyle}
-              id="age"
+              id="age_04"
               name="firstname"
               placeholder="Disabled"
               htmlFor="firstname_04"
               helper="Helper Text"
-              labelId="labelId"
+              labelId="labelId_04"
               disabled
             />
           </td>
           <td>
             <TextFieldHelper
               style={customStyle}
-              id="age"
+              id="age_05"
               name="firstname"
               placeholder="Error"
               htmlFor="firstname_05"
               helper="Helper Text"
-              labelId="labelId"
+              labelId="labelId_05"
               state="error"
             />
           </td>
           <td>
             <TextFieldHelper
               style={customStyle}
-              id="age"
+              id="age_06"
               name="firstname"
               placeholder="Valid"
               htmlFor="firstname_06"
               helper="Helper Text"
-              labelId="labelId"
+              labelId="labelId_06"
               state="valid"
             />
           </td>
@@ -346,66 +346,66 @@ export const HTMLThemeAndAllStates = () => {
           <tr>
             <td>
               <TextFieldHelper
-                id="age"
+                id="age_01"
                 name="firstname"
                 placeholder="Default"
                 htmlFor="firstname_01"
                 helper="Helper Text"
-                labelId="labelId"
+                labelId="labelId_01"
               />
             </td>
             <td>
               <TextFieldHelper
-                id="age"
+                id="age_02"
                 name="firstname"
                 placeholder="Hover"
                 htmlFor="firstname_02"
                 helper="Helper Text"
-                labelId="labelId"
+                labelId="labelId_02"
                 state="hover"
               />
             </td>
             <td>
               <TextFieldHelper
-                id="age"
+                id="age_03"
                 name="firstname"
                 placeholder="Focus/Active"
                 htmlFor="firstname_03"
                 helper="Helper Text"
-                labelId="labelId"
+                labelId="labelId_03"
                 state="active"
               />
             </td>
             <td>
               <TextFieldHelper
-                id="age"
+                id="age_04"
                 name="firstname"
                 placeholder="Disabled"
                 htmlFor="firstname_04"
                 helper="Helper Text"
-                labelId="labelId"
+                labelId="labelId_04"
                 disabled
               />
             </td>
             <td>
               <TextFieldHelper
-                id="age"
+                id="age_05"
                 name="firstname"
                 placeholder="Error"
                 htmlFor="firstname_05"
                 helper="Helper Text"
-                labelId="labelId"
+                labelId="labelId_05"
                 state="error"
               />
             </td>
             <td>
               <TextFieldHelper
-                id="age"
+                id="age_06"
                 name="firstname"
                 placeholder="Valid"
                 htmlFor="firstname_06"
                 helper="Helper Text"
-                labelId="labelId"
+                labelId="labelId_06"
                 state="valid"
               />
             </td>
