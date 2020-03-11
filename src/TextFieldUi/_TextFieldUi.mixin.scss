@@ -78,7 +78,7 @@
 }
 
 @mixin rex-text-field-native-active-state {
-  &:not([disabled]) {
+  &:not([disabled]):not(.error):not(.valid) {
     color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
     border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
     @include placeholder {
@@ -90,7 +90,6 @@
 @mixin rex-text-field-native-error-state {
   &:not([disabled]) {
     color: var(--rex-text-field-theme-error-text, $--rex-text-field-theme-error-text);
-    border: 1px solid var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
     @include placeholder {
       color: var(--rex-text-field-theme-error-placeholder, $--rex-text-field-theme-error-placeholder);
     }
@@ -100,7 +99,6 @@
 @mixin rex-text-field-native-valid-state {
   &:not([disabled]) {
     color: var(--rex-text-field-theme-valid-text, $--rex-text-field-theme-valid-text);
-    border: 1px solid var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
     @include placeholder {
       color: var(--rex-text-field-theme-valid-placeholder, $--rex-text-field-theme-valid-placeholder);
     }
@@ -120,7 +118,7 @@
 }
 
 @mixin rex-textarea-outside-border-active-state {
-  &:not([disabled]) {
+  &:not([disabled]):not(.error):not(.valid) {
     outline: none;
     border-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
     background-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
@@ -130,14 +128,12 @@
 @mixin rex-text-field-outside-border-error-state {
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
-    background-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
   }
 }
 
 @mixin rex-text-field-outside-border-valid-state {
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
-    background-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
   }
 }
 
