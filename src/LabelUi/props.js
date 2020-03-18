@@ -4,6 +4,7 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 export function StateProps() {
   const options = {
     Default: null,
+    Hover: 'hover',
     Active: 'active',
     Error: 'error',
     Valid: 'valid',

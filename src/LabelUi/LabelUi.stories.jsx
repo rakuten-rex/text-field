@@ -23,6 +23,10 @@ export const Default = () => {
   return <LabelUi label="Label" />;
 };
 
+export const HoverState = () => {
+  return <LabelUi label="Label" state="hover" />;
+};
+
 export const FocusAndActiveState = () => {
   return <LabelUi label="Label" state="active" />;
 };
@@ -107,6 +111,9 @@ export const ReactThemeAllStates = () => {
             <LabelUi style={customStyle} label="Default" />
           </td>
           <td>
+            <LabelUi style={customStyle} label="Hover" state="hover" />
+          </td>
+          <td>
             <LabelUi style={customStyle} label="Focus/Active" state="active" />
           </td>
           <td>
@@ -148,6 +155,9 @@ export const HTMLThemeAllStates = () => {
           <tr>
             <td>
               <LabelUi label="Default" />
+            </td>
+            <td>
+              <LabelUi label="Hover" state="hover" />
             </td>
             <td>
               <LabelUi label="Focus/Active" state="active" />

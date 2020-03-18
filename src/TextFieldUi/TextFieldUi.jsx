@@ -59,16 +59,13 @@ class TextFieldUi extends Component {
           return 'valid';
         case 'active':
           return 'active';
+        case 'hover':
+          return 'hover';
         default:
           return '';
       }
     })(state);
-    const borderClasses = [
-      'rex-text-field-ui',
-      'rex-text-field-ui-border',
-      className,
-      stateClass,
-    ]
+    const borderClasses = ['rex-text-field-ui', className, stateClass]
       .filter(singleClass => singleClass && singleClass.length > 0)
       .join(' ')
       .trim();

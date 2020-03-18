@@ -23,6 +23,10 @@ export const Default = () => {
   return <HelperUi helper="Helper Text" />;
 };
 
+export const HoverState = () => {
+  return <HelperUi helper="Helper Text" state="hover" />;
+};
+
 export const FocusAndActiveState = () => {
   return <HelperUi helper="Helper Text" state="active" />;
 };
@@ -100,6 +104,9 @@ export const ReactThemeAllStates = () => {
             <HelperUi style={customStyle} helper="Default" />
           </td>
           <td>
+            <HelperUi style={customStyle} helper="Hover" state="hover" />
+          </td>
+          <td>
             <HelperUi
               style={customStyle}
               helper="Focus/Active"
@@ -145,6 +152,9 @@ export const HTMLThemeAllStates = () => {
           <tr>
             <td>
               <HelperUi helper="Default" />
+            </td>
+            <td>
+              <HelperUi helper="Hover" state="hover" />
             </td>
             <td>
               <HelperUi helper="Focus/Active" state="active" />

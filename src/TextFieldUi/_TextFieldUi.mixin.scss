@@ -3,6 +3,26 @@
 
 @mixin rex-text-field-ui {
   @include rex-core();
+  @include rex-text-field-border-state();
+  &.hover {
+    @include rex-text-field-border-hover-state();
+  }
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    @include rex-text-field-border-active-state();
+  }
+  &[disabled],
+  &.disabled {
+    @include rex-text-field-border-disabled-state();
+  }
+  &.error {
+    @include rex-text-field-border-error-state();
+  }
+  &.valid {
+    @include rex-text-field-border-valid-state();
+  }
   input {
     @include rex-text-field-native-state();
     &:active,
@@ -20,26 +40,6 @@
     }
     &.valid {
       @include rex-text-field-native-valid-state();
-    }
-  }
-
-  &-border {
-    @include rex-textarea-outside-border-state();
-    &:active,
-    &.active,
-    &:focus,
-    &.focus {
-      @include rex-textarea-outside-border-active-state();
-    }
-    &[disabled],
-    &.disabled {
-      @include rex-text-field-outside-border-disabled-state();
-    }
-    &.error {
-      @include rex-text-field-outside-border-error-state();
-    }
-    &.valid {
-      @include rex-text-field-outside-border-valid-state();
     }
   }
 }
@@ -105,7 +105,7 @@
   }
 }
 
-@mixin rex-textarea-outside-border-state {
+@mixin rex-text-field-border-state {
   transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: 1px solid var(--rex-text-field-theme-border, $--rex-text-field-theme-border);
   border-radius: 0.32rem;
@@ -113,11 +113,20 @@
   background-color: $--rex-white;
 }
 
-@mixin rex-text-field-outside-border-disabled-state {
+@mixin rex-text-field-border-hover-state {
+  border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
+  input {
+    @include placeholder {
+      color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
+    }
+  }
+}
+
+@mixin rex-text-field-border-disabled-state {
   border-color: var(--rex-text-field-theme-disabled-border, $--rex-text-field-theme-disabled-border);
 }
 
-@mixin rex-textarea-outside-border-active-state {
+@mixin rex-text-field-border-active-state {
   &:not([disabled]):not(.error):not(.valid) {
     outline: none;
     border-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
@@ -125,13 +134,13 @@
   }
 }
 
-@mixin rex-text-field-outside-border-error-state {
+@mixin rex-text-field-border-error-state {
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
   }
 }
 
-@mixin rex-text-field-outside-border-valid-state {
+@mixin rex-text-field-border-valid-state {
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
   }
