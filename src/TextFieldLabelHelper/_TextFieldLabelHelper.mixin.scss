@@ -2,9 +2,21 @@
 @import '../TextFieldUi//theme';
 
 @mixin rex-text-field-label-helper() {
+  @include rex-text-field-native-state();
   &:hover,
   &.hover {
     @include rex-text-field-native-hover-state();
+  }
+}
+
+@mixin rex-text-field-native-state {
+  label {
+    padding-left: .75rem;
+    margin-bottom: .25rem;
+  }
+  small {
+    padding-left: .75rem;
+    margin-top: .25rem;
   }
 }
 
