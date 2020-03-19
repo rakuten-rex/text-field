@@ -2,6 +2,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 import { string, objectOf, bool, func } from 'prop-types';
+import CheckIconPath from '../assets/check_large.svg';
+import WarningIconPath from '../assets/warning_large.svg';
 import './TextFieldUi.scss';
 
 class TextFieldUi extends Component {
@@ -69,26 +71,39 @@ class TextFieldUi extends Component {
       .filter(singleClass => singleClass && singleClass.length > 0)
       .join(' ')
       .trim();
-    const innerClasses = ['rex-text-field-native', stateClass].join(' ').trim();
+    const inputClasses = ['rex-text-field-native', stateClass].join(' ').trim();
     const hasLabel = !!(label && label.length > 0);
+    const innerClasses = ['rex-text-field-inner-border', stateClass]
+      .join(' ')
+      .trim();
+    const withIcon = state === 'error' || state === 'valid';
+    const renderIcon = () => {
+      if (state === 'error') {
+        return <WarningIconPath className="rex-icon" />;
+      }
+      return <CheckIconPath className="rex-icon" />;
+    };
 
     return (
       <div className={borderClasses} style={style} disabled={disabled}>
-        <input
-          type="text"
-          id={id}
-          className={innerClasses}
-          name={name}
-          placeholder={placeholder}
-          aria-label={!hasLabel ? name || placeholder : null}
-          aria-labelledby={hasLabel ? labelId : null}
-          onChange={this.handleOnChange}
-          onFocus={handleOnFocus}
-          onBlur={handleOnBlur}
-          disabled={disabled}
-          value={textValue}
-          {...props}
-        />
+        <div className={innerClasses}>
+          <input
+            type="text"
+            id={id}
+            className={inputClasses}
+            name={name}
+            placeholder={placeholder}
+            aria-label={!hasLabel ? name || placeholder : null}
+            aria-labelledby={hasLabel ? labelId : null}
+            onChange={this.handleOnChange}
+            onFocus={handleOnFocus}
+            onBlur={handleOnBlur}
+            disabled={disabled}
+            value={textValue}
+            {...props}
+          />
+          {withIcon && renderIcon()}
+        </div>
       </div>
     );
   }

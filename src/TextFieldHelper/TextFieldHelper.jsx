@@ -39,8 +39,8 @@ export default function TextFieldHelper({
     .trim();
   const helperEl = useRef(null);
   const handleOnFocus = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
 
     if (!disabled) {
       helperEl.current.classList.add('active');
@@ -49,8 +49,8 @@ export default function TextFieldHelper({
     }
   };
   const handleOnBlur = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
 
     if (!disabled) {
       helperEl.current.classList.remove('active');

@@ -42,8 +42,8 @@ export default function TextFieldLabelHelper({
   const labelEl = useRef(null);
   const helperEl = useRef(null);
   const handleOnFocus = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
 
     if (!disabled) {
       labelEl.current.classList.add('active');
@@ -53,8 +53,8 @@ export default function TextFieldLabelHelper({
     }
   };
   const handleOnBlur = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
 
     if (!disabled) {
       labelEl.current.classList.remove('active');

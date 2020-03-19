@@ -39,8 +39,8 @@ export default function TextFieldLabel({
     .trim();
   const labelEl = useRef(null);
   const handleOnFocus = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
     const isErrorOrValid =
       e.target.classList.contains('error') ||
       e.target.classList.contains('valid');
@@ -52,8 +52,8 @@ export default function TextFieldLabel({
     }
   };
   const handleOnBlur = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
     const isErrorOrValid =
       e.target.classList.contains('error') ||
       e.target.classList.contains('valid');

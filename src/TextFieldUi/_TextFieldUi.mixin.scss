@@ -23,44 +23,50 @@
   &.valid {
     @include rex-text-field-border-valid-state();
   }
-  input {
-    @include rex-text-field-native-state();
-    &:active,
-    &.active,
-    &:focus,
-    &.focus {
-      @include rex-text-field-native-active-state();
+  > div {
+    @include rex-text-field-inner-border-state();
+    &.active {
+      @include rex-text-field-inner-border-active-state();
     }
-    &[disabled],
-    &.disabled {
-      @include rex-text-field-native-disabled-state();
+    input {
+      @include rex-text-field-native-state();
+      &:active,
+      &.active,
+      &:focus,
+      &.focus {
+        @include rex-text-field-native-active-state();
+      }
+      &[disabled],
+      &.disabled {
+        @include rex-text-field-native-disabled-state();
+      }
+      &.error {
+        @include rex-text-field-native-error-state();
+      }
+      &.valid {
+        @include rex-text-field-native-valid-state();
+      }
     }
-    &.error {
-      @include rex-text-field-native-error-state();
-    }
-    &.valid {
-      @include rex-text-field-native-valid-state();
+    svg {
+      padding-bottom: .1875rem;
     }
   }
 }
 
 @mixin rex-text-field-native-state {
-  display: block;
+  @include rex-text-field-native-default-state();
   width: 100%;
   line-height: 1.5;
   color: var(--rex-text-field-theme-text, $--rex-text-field-theme-text);
   background-clip: padding-box;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
   -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   box-sizing: border-box;
   outline: none;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  padding: .375rem 0.625rem;
-  background-color: $--rex-white;
+  border: none;
   margin: 0;
-  @include rex-text-field-native-default-state();
+  padding: 0 1rem 0 0;
 }
 
 @mixin rex-text-field-native-default-state {
@@ -80,7 +86,6 @@
 @mixin rex-text-field-native-active-state {
   &:not([disabled]):not(.error):not(.valid) {
     color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
-    border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
     @include placeholder {
       color: var(--rex-text-field-theme-active-placeholder, $--rex-text-field-theme-active-placeholder);
     }
@@ -102,6 +107,22 @@
     @include placeholder {
       color: var(--rex-text-field-theme-valid-placeholder, $--rex-text-field-theme-valid-placeholder);
     }
+  }
+}
+
+@mixin rex-text-field-inner-border-state {
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  padding: .375rem 0.625rem;
+  background-color: $--rex-white;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+@mixin rex-text-field-inner-border-active-state {
+  &:not(.error):not(.valid) {
+    border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
   }
 }
 
