@@ -83,7 +83,7 @@ export const ErrorState = () => {
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
-      helper="Helper Text"
+      helper="Error Message"
       labelId="labelId"
       state="error"
     />
@@ -97,9 +97,23 @@ export const ValidState = () => {
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
-      helper="Helper Text"
+      helper="Valid Message"
       labelId="labelId"
       state="valid"
+    />
+  );
+};
+
+export const RequiredState = () => {
+  return (
+    <TextFieldHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      helper="Helper Text"
+      labelId="labelId"
+      required
     />
   );
 };

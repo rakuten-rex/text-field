@@ -50,6 +50,7 @@ class TextFieldUi extends Component {
       handleOnFocus,
       handleOnBlur,
       value,
+      required,
       ...props
     } = this.props;
     const { textValue } = this.state;
@@ -100,6 +101,7 @@ class TextFieldUi extends Component {
             onBlur={handleOnBlur}
             disabled={disabled}
             value={textValue}
+            required={required}
             {...props}
           />
           {withIcon && renderIcon()}
@@ -123,6 +125,7 @@ TextFieldUi.defaultProps = {
   handleOnFocus: () => {},
   handleOnBlur: () => {},
   value: '',
+  required: false,
 };
 
 TextFieldUi.propTypes = {
@@ -139,6 +142,7 @@ TextFieldUi.propTypes = {
   handleOnFocus: func,
   handleOnBlur: func,
   value: string,
+  required: bool,
 };
 
 export default TextFieldUi;

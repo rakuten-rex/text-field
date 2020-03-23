@@ -17,6 +17,7 @@ export default function TextFieldLabel({
   style,
   disabled,
   value,
+  required,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -74,6 +75,7 @@ export default function TextFieldLabel({
         state={state}
         labelRef={labelEl}
         disabled={disabled}
+        required={required}
       />
       <TextFieldUi
         id={htmlFor}
@@ -86,6 +88,7 @@ export default function TextFieldLabel({
         handleOnFocus={handleOnFocus}
         handleOnBlur={handleOnBlur}
         value={value}
+        required={required}
       />
     </div>
   );
@@ -102,6 +105,7 @@ TextFieldLabel.defaultProps = {
   style: null,
   disabled: false,
   value: '',
+  required: false,
 };
 
 TextFieldLabel.propTypes = {
@@ -115,4 +119,5 @@ TextFieldLabel.propTypes = {
   style: objectOf(string),
   disabled: bool,
   value: string,
+  required: bool,
 };

@@ -25,6 +25,7 @@ export default function CommonProps() {
     className: text('Class Name', 'another-class-name'),
     name: text('Name', 'text-field'),
     defaultValue: text('Default Value', 'Default Value'),
+    required: boolean('Required', false),
     state,
   };
 }

@@ -17,6 +17,7 @@ export default function TextFieldHelper({
   style,
   disabled,
   value,
+  required,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -71,6 +72,7 @@ export default function TextFieldHelper({
         handleOnFocus={handleOnFocus}
         handleOnBlur={handleOnBlur}
         value={value}
+        required={required}
       />
       <HelperUi
         helper={helper}
@@ -94,6 +96,7 @@ TextFieldHelper.defaultProps = {
   style: null,
   disabled: false,
   value: '',
+  required: false,
 };
 
 TextFieldHelper.propTypes = {
@@ -108,4 +111,5 @@ TextFieldHelper.propTypes = {
   style: objectOf(string),
   disabled: bool,
   value: string,
+  required: bool,
 };

@@ -11,6 +11,7 @@ export default function LabelUi({
   state,
   id,
   labelRef,
+  required,
   ...props
 }) {
   const stateClass = (() => {
@@ -31,6 +32,7 @@ export default function LabelUi({
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
+  const renderLabelText = required ? `${label} *` : label;
 
   return (
     <label
@@ -41,7 +43,7 @@ export default function LabelUi({
       ref={labelRef}
       {...props}
     >
-      {label}
+      {renderLabelText}
     </label>
   );
 }
@@ -54,6 +56,7 @@ LabelUi.defaultProps = {
   state: '',
   id: null,
   labelRef: null,
+  required: false,
 };
 
 LabelUi.propTypes = {
@@ -64,4 +67,5 @@ LabelUi.propTypes = {
   state: string,
   id: string,
   labelRef: objectOf(string),
+  required: bool,
 };

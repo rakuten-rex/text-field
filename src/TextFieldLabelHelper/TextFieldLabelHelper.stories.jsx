@@ -91,7 +91,7 @@ export const ErrorState = () => {
       htmlFor="firstname"
       label="Label"
       labelId="labelId"
-      helper="Helper Text"
+      helper="Error Message"
       state="error"
     />
   );
@@ -106,8 +106,23 @@ export const ValidState = () => {
       htmlFor="firstname"
       label="Label"
       labelId="labelId"
-      helper="Helper Text"
+      helper="Valid Message"
       state="valid"
+    />
+  );
+};
+
+export const RequiredState = () => {
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      required
     />
   );
 };
@@ -323,7 +338,7 @@ export const ReactThemeAllStates = () => {
               htmlFor="firstname_05"
               label="Label"
               labelId="labelId_05"
-              helper="Helper Text"
+              helper="Error Message"
               state="error"
             />
           </td>
@@ -336,7 +351,7 @@ export const ReactThemeAllStates = () => {
               htmlFor="firstname_06"
               label="Label"
               labelId="labelId_06"
-              helper="Helper Text"
+              helper="Valid Message"
               state="valid"
             />
           </td>
@@ -433,7 +448,7 @@ export const HTMLThemeAllStates = () => {
                 htmlFor="firstname_05"
                 label="Label"
                 labelId="labelId_05"
-                helper="Helper Text"
+                helper="Error Message"
                 state="error"
               />
             </td>
@@ -445,7 +460,7 @@ export const HTMLThemeAllStates = () => {
                 htmlFor="firstname_06"
                 label="Label"
                 labelId="labelId_06"
-                helper="Helper Text"
+                helper="Valid Message"
                 state="valid"
               />
             </td>

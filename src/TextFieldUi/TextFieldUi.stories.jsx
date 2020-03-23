@@ -84,6 +84,18 @@ export const ValidState = () => {
   );
 };
 
+export const RequiredState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="valid"
+      required
+    />
+  );
+};
+
 export const WithDefaultValue = () => {
   return (
     <TextFieldUi
@@ -104,6 +116,7 @@ export const WithDynamicProps = () => {
     disabled,
     className,
     defaultValue,
+    required,
   } = TexiFieldCommonProps();
 
   return (
@@ -115,6 +128,7 @@ export const WithDynamicProps = () => {
       state={state}
       disabled={disabled}
       value={defaultValue}
+      required={required}
     />
   );
 };

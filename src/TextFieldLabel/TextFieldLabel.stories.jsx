@@ -104,6 +104,20 @@ export const ValidState = () => {
   );
 };
 
+export const RequiredState = () => {
+  return (
+    <TextFieldLabel
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      required
+    />
+  );
+};
+
 export const WithDefaultValue = () => {
   return (
     <TextFieldLabel
@@ -126,6 +140,7 @@ export const WithDynamicProps = () => {
     state,
     disabled,
     className,
+    required,
   } = TexiFieldCommonProps();
   const { label, labelId } = LabelCommonProps();
 
@@ -139,6 +154,7 @@ export const WithDynamicProps = () => {
       label={label}
       disabled={disabled}
       labelId={labelId}
+      required={required}
     />
   );
 };
