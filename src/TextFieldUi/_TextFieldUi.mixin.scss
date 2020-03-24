@@ -159,11 +159,21 @@
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
   }
+  svg {
+    path {
+      fill: var(--rex-text-field-helper-theme-error-text, $--rex-text-field-helper-theme-error-text);
+    }
+  }
 }
 
 @mixin rex-text-field-border-valid-state {
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+  }
+  svg {
+    path {
+      fill: var(--rex-text-field-helper-theme-valid-text, $--rex-text-field-helper-theme-valid-text);
+    }
   }
 }
 

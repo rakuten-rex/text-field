@@ -10,52 +10,52 @@ export default function ThemeProps() {
     ),
     themeDefaultPlaceholder: color(
       'Default Placeholder Text Color',
-      '#FF79D1',
+      '#EF0AA1',
       'Theme Default'
     ),
-    themeDefaultText: color('Default Text Color', '#333', 'Theme Default'),
-    themeHoverBorder: color('Hover Border Color', '#FF41BE', 'Theme Hover'),
+    themeDefaultText: color('Default Text Color', '#A2006A', 'Theme Default'),
+    themeHoverBorder: color('Hover Border Color', '#A2006A', 'Theme Hover'),
     themeHoverPlaceholder: color(
       'Hover Placeholder Color',
-      '#FFACE3',
+      '#CB0085',
       'Theme Hover'
     ),
-    themeHoverText: color('Hover Text Color', '#333', 'Theme Hover'),
-    themeActiveBorder: color('Active Border Color', '#8C0000', 'Theme Active'),
+    themeHoverText: color('Hover Text Color', '#830056', 'Theme Hover'),
+    themeActiveBorder: color('Active Border Color', '#830056', 'Theme Active'),
     themeActivePlaceholder: color(
       'Active Placeholder Color',
-      '#8C0000',
+      '#A2006A',
       'Theme Active'
     ),
-    themeActiveText: color('Active Text Color', '#333', 'Theme Active'),
+    themeActiveText: color('Active Text Color', '#5A003C', 'Theme Active'),
     themeDisabledBorder: color(
       'Disabled Border Color',
-      '#DFDFDF',
+      '#686868',
       'Theme Disabled'
     ),
     themeDisabledPlaceholder: color(
       'Disabled Placeholder Text Color',
-      '#898989',
+      '#828282',
       'Theme Disabled'
     ),
     themeDisabledText: color(
       'Disabled Text Color',
-      '#898989',
+      '#4D4D4D',
       'Theme Disabled'
     ),
-    themeErrorBorder: color('Error Border Color', '#8C0000', 'Theme Error'),
+    themeErrorBorder: color('Error Border Color', '#9B00EC', 'Theme Error'),
     themeErrorPlaceholder: color(
       'Error Placeholder Color',
-      '#8C0000',
+      '#B62AFF',
       'Theme Error'
     ),
-    themeErrorText: color('Error Text Color', '#333', 'Theme Error'),
-    themeValidBorder: color('Valid Border Color', '#8C0000', 'Theme Valid'),
+    themeErrorText: color('Error Text Color', '#7D00BE', 'Theme Error'),
+    themeValidBorder: color('Valid Border Color', '#0085C7', 'Theme Valid'),
     themeValidPlaceholder: color(
       'Valid Placeholder Color',
-      '#8C0000',
+      '#00A0F0',
       'Theme Valid'
     ),
-    themeValidText: color('Valid Text Color', '#333', 'Theme Valid'),
+    themeValidText: color('Valid Text Color', '#006A9E', 'Theme Valid'),
   };
 }

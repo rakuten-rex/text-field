@@ -5,32 +5,32 @@ export default function ThemeProps() {
   return {
     themeHelperDefaultText: color(
       'Default Helper Text Color',
-      '#606060',
+      '#686868',
       'Theme Default'
     ),
     themeHelperHoverText: color(
       'Hover Helper Text Color',
-      '#606060',
+      '#4D4D4D',
       'Theme Hover'
     ),
     themeHelperActiveText: color(
       'Active Helper Text Color',
-      '#606060',
+      '#333333',
       'Theme Active'
     ),
     themeHelperDisabledText: color(
       'Disabled Helper Text Color',
-      '#D1D1D1',
+      '#686868',
       'Theme Disabled'
     ),
     themeHelperErrorText: color(
       'Error Helper Text Color',
-      '#DF0101',
+      '#9B00EC',
       'Theme Error'
     ),
     themeHelperValidText: color(
       'Valid Helper Text Color',
-      '#047205',
+      '#0085C7',
       'Theme Valid'
     ),
   };
