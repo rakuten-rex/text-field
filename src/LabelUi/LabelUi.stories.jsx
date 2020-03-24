@@ -43,6 +43,10 @@ export const ValidState = () => {
   return <LabelUi label="Label" state="valid" />;
 };
 
+export const RequiredState = () => {
+  return <LabelUi label="Label" required />;
+};
+
 export const WithDynamicProps = () => {
   const { label, htmlFor, state, disabled } = CommonProps();
 

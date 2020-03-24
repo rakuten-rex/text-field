@@ -32,7 +32,7 @@ export default function LabelUi({
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
-  const renderLabelText = required ? `${label} *` : label;
+  const labelText = required ? `${label} *` : label;
 
   return (
     <label
@@ -43,7 +43,7 @@ export default function LabelUi({
       ref={labelRef}
       {...props}
     >
-      {renderLabelText}
+      {labelText}
     </label>
   );
 }
