@@ -50,6 +50,7 @@ export default function ThemeProps() {
       'Theme Error'
     ),
     themeErrorText: color('Error Text Color', '#7D00BE', 'Theme Error'),
+    themeErrorIconColor: color('Error Icon Color', '#9B00EC', 'Theme Error'),
     themeValidBorder: color('Valid Border Color', '#0085C7', 'Theme Valid'),
     themeValidPlaceholder: color(
       'Valid Placeholder Color',
@@ -57,5 +58,6 @@ export default function ThemeProps() {
       'Theme Valid'
     ),
     themeValidText: color('Valid Text Color', '#006A9E', 'Theme Valid'),
+    themeValidIconColor: color('Valid Icon Color', '#006A9E', 'Theme Valid'),
   };
 }

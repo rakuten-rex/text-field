@@ -161,7 +161,7 @@
   }
   svg {
     path {
-      fill: var(--rex-text-field-helper-theme-error-text, $--rex-text-field-helper-theme-error-text);
+      fill: var(--rex-text-field-theme-error-icon-color, $--rex-text-field-theme-error-icon-color);
     }
   }
 }
@@ -172,7 +172,7 @@
   }
   svg {
     path {
-      fill: var(--rex-text-field-helper-theme-valid-text, $--rex-text-field-helper-theme-valid-text);
+      fill: var(--rex-text-field-theme-valid-icon-color, $--rex-text-field-theme-valid-icon-color);
     }
   }
 }

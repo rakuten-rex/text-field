@@ -180,9 +180,11 @@ function Theme() {
     themeErrorBorder,
     themeErrorPlaceholder,
     themeErrorText,
+    themeErrorIconColor,
     themeValidBorder,
     themeValidPlaceholder,
     themeValidText,
+    themeValidIconColor,
   } = TextFieldThemeProps();
   const {
     themeLabelDefaultText,
@@ -209,9 +211,11 @@ function Theme() {
     '--rex-text-field-theme-error-text': themeErrorText,
     '--rex-text-field-theme-error-border': themeErrorBorder,
     '--rex-text-field-theme-error-placeholder': themeErrorPlaceholder,
+    '--rex-text-field-theme-error-icon-color': themeErrorIconColor,
     '--rex-text-field-theme-valid-text': themeValidText,
     '--rex-text-field-theme-valid-border': themeValidBorder,
     '--rex-text-field-theme-valid-placeholder': themeValidPlaceholder,
+    '--rex-text-field-theme-valid-icon-color': themeValidIconColor,
     '--rex-text-field-label-theme-text': themeLabelDefaultText,
     '--rex-text-field-label-theme-disabled-text': themeLabelDisabledText,
     '--rex-text-field-label-theme-hover-text': themeLabelHoverText,

@@ -154,9 +154,11 @@ function Theme() {
     themeErrorBorder,
     themeErrorPlaceholder,
     themeErrorText,
+    themeErrorIconColor,
     themeValidBorder,
     themeValidPlaceholder,
     themeValidText,
+    themeValidIconColor,
   } = ThemeProps();
 
   const customStyle = {
@@ -175,9 +177,11 @@ function Theme() {
     '--rex-text-field-theme-error-text': themeErrorText,
     '--rex-text-field-theme-error-border': themeErrorBorder,
     '--rex-text-field-theme-error-placeholder': themeErrorPlaceholder,
+    '--rex-text-field-theme-error-icon-color': themeErrorIconColor,
     '--rex-text-field-theme-valid-text': themeValidText,
     '--rex-text-field-theme-valid-border': themeValidBorder,
     '--rex-text-field-theme-valid-placeholder': themeValidPlaceholder,
+    '--rex-text-field-theme-valid-icon-color': themeValidIconColor,
   };
 
   return {
