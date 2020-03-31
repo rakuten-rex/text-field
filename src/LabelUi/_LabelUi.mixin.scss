@@ -4,15 +4,9 @@
 @mixin rex-text-field-label-ui {
   @include rex-core();
   @include rex-label-ui-content();
-}
-
-@mixin rex-label-ui-content {
-  font-size: .75rem;
-  display: block;
-  color: var(--rex-text-field-label-theme-text, $--rex-text-field-label-theme-text);
-  padding-left: .75rem;
-  margin-bottom: .25rem;
-  transition: color 0.15s ease-in-out;
+  &.hover {
+    @include rex-label-ui-hover-state();
+  }
   &.error {
     @include rex-label-ui-error-state();
   }
@@ -31,6 +25,17 @@
   &.disabled {
     @include rex-label-ui-disabled-state();
   }
+}
+
+@mixin rex-label-ui-content {
+  font-size: .75rem;
+  display: block;
+  color: var(--rex-text-field-label-theme-text, $--rex-text-field-label-theme-text);
+  transition: color 0.15s ease-in-out;
+}
+
+@mixin rex-label-ui-hover-state {
+  color: var(--rex-text-field-label-theme-hover-text, $--rex-text-field-label-theme-hover-text);
 }
 
 @mixin rex-label-ui-disabled-state {

@@ -3,64 +3,71 @@
 
 @mixin rex-text-field-ui {
   @include rex-core();
-  input {
-    @include rex-text-field-native-state();
-    &:active,
-    &.active,
-    &:focus,
-    &.focus {
-      @include rex-text-field-native-active-state();
-    }
-    &[disabled],
-    &.disabled {
-      @include rex-text-field-native-disabled-state();
-    }
-    &.error {
-      @include rex-text-field-native-error-state();
-    }
-    &.valid {
-      @include rex-text-field-native-valid-state();
-    }
+  @include rex-text-field-border-state();
+  &.hover {
+    @include rex-text-field-border-hover-state();
   }
-
-  &-border {
-    @include rex-textarea-outside-border-state();
-    &:active,
-    &.active,
-    &:focus,
-    &.focus {
-      @include rex-textarea-outside-border-active-state();
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    @include rex-text-field-border-active-state();
+  }
+  &[disabled],
+  &.disabled {
+    @include rex-text-field-border-disabled-state();
+  }
+  &.error {
+    @include rex-text-field-border-error-state();
+  }
+  &.valid {
+    @include rex-text-field-border-valid-state();
+  }
+  > div {
+    @include rex-text-field-inner-border-state();
+    &.active {
+      @include rex-text-field-inner-border-active-state();
     }
-    &[disabled],
-    &.disabled {
-      @include rex-text-field-outside-border-disabled-state();
+    input {
+      @include rex-text-field-native-state();
+      &:active,
+      &.active,
+      &:focus,
+      &.focus {
+        @include rex-text-field-native-active-state();
+      }
+      &[disabled],
+      &.disabled {
+        @include rex-text-field-native-disabled-state();
+      }
+      &.error {
+        @include rex-text-field-native-error-state();
+      }
+      &.valid {
+        @include rex-text-field-native-valid-state();
+      }
     }
-    &.error {
-      @include rex-text-field-outside-border-error-state();
-    }
-    &.valid {
-      @include rex-text-field-outside-border-valid-state();
+    svg {
+      padding-bottom: .1875rem;
+      overflow: unset;
     }
   }
 }
 
 @mixin rex-text-field-native-state {
-  display: block;
+  @include rex-text-field-native-default-state();
   width: 100%;
   line-height: 1.5;
   color: var(--rex-text-field-theme-text, $--rex-text-field-theme-text);
   background-clip: padding-box;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
   -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   box-sizing: border-box;
   outline: none;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  padding: .375rem 0.625rem;
-  background-color: $--rex-white;
+  border: none;
   margin: 0;
-  @include rex-text-field-native-default-state();
+  padding: 0 1rem 0 0;
 }
 
 @mixin rex-text-field-native-default-state {
@@ -78,9 +85,8 @@
 }
 
 @mixin rex-text-field-native-active-state {
-  &:not([disabled]) {
+  &:not([disabled]):not(.error):not(.valid) {
     color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
-    border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
     @include placeholder {
       color: var(--rex-text-field-theme-active-placeholder, $--rex-text-field-theme-active-placeholder);
     }
@@ -90,7 +96,6 @@
 @mixin rex-text-field-native-error-state {
   &:not([disabled]) {
     color: var(--rex-text-field-theme-error-text, $--rex-text-field-theme-error-text);
-    border: 1px solid var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
     @include placeholder {
       color: var(--rex-text-field-theme-error-placeholder, $--rex-text-field-theme-error-placeholder);
     }
@@ -100,14 +105,29 @@
 @mixin rex-text-field-native-valid-state {
   &:not([disabled]) {
     color: var(--rex-text-field-theme-valid-text, $--rex-text-field-theme-valid-text);
-    border: 1px solid var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
     @include placeholder {
       color: var(--rex-text-field-theme-valid-placeholder, $--rex-text-field-theme-valid-placeholder);
     }
   }
 }
 
-@mixin rex-textarea-outside-border-state {
+@mixin rex-text-field-inner-border-state {
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  padding: .375rem .6875rem .375rem .625rem ;
+  background-color: $--rex-white;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+@mixin rex-text-field-inner-border-active-state {
+  &:not(.error):not(.valid) {
+    border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+  }
+}
+
+@mixin rex-text-field-border-state {
   transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: 1px solid var(--rex-text-field-theme-border, $--rex-text-field-theme-border);
   border-radius: 0.32rem;
@@ -115,29 +135,46 @@
   background-color: $--rex-white;
 }
 
-@mixin rex-text-field-outside-border-disabled-state {
+@mixin rex-text-field-border-hover-state {
+  border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
+  input {
+    @include placeholder {
+      color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
+    }
+  }
+}
+
+@mixin rex-text-field-border-disabled-state {
   border-color: var(--rex-text-field-theme-disabled-border, $--rex-text-field-theme-disabled-border);
 }
 
-@mixin rex-textarea-outside-border-active-state {
-  &:not([disabled]) {
+@mixin rex-text-field-border-active-state {
+  &:not([disabled]):not(.error):not(.valid) {
     outline: none;
     border-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
     background-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
   }
 }
 
-@mixin rex-text-field-outside-border-error-state {
+@mixin rex-text-field-border-error-state {
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
-    background-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+  }
+  svg {
+    path {
+      fill: var(--rex-text-field-theme-error-icon-color, $--rex-text-field-theme-error-icon-color);
+    }
   }
 }
 
-@mixin rex-text-field-outside-border-valid-state {
+@mixin rex-text-field-border-valid-state {
   &:not([disabled]) {
     border-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
-    background-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+  }
+  svg {
+    path {
+      fill: var(--rex-text-field-theme-valid-icon-color, $--rex-text-field-theme-valid-icon-color);
+    }
   }
 }
 

@@ -8,29 +8,29 @@ export default function ThemeProps() {
       '#CB0085',
       'Theme Default'
     ),
-    themeLabelDisabledText: color(
-      'Disabled Label Text Color',
-      '#FFE9F8',
-      'Theme Disabled'
-    ),
     themeLabelHoverText: color(
       'Hover Label Text Color',
-      '#FF41BE',
+      '#A2006A',
       'Theme Hover'
     ),
     themeLabelActiveText: color(
       'Active Label Text Color',
-      '#5A003C',
+      '#830056',
       'Theme Active'
+    ),
+    themeLabelDisabledText: color(
+      'Disabled Label Text Color',
+      '#686868',
+      'Theme Disabled'
     ),
     themeLabelErrorText: color(
       'Error Label Text Color',
-      '#DF0101',
+      '#9B00EC',
       'Theme Error'
     ),
     themeLabelValidText: color(
       'Valid Label Text Color',
-      '#047205',
+      '#0085C7',
       'Theme Valid'
     ),
   };

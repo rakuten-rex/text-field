@@ -2,9 +2,21 @@
 @import '../TextFieldUi//theme';
 
 @mixin rex-text-field-label-helper() {
+  @include rex-text-field-native-state();
   &:hover,
   &.hover {
     @include rex-text-field-native-hover-state();
+  }
+}
+
+@mixin rex-text-field-native-state {
+  label {
+    padding-left: .75rem;
+    margin-bottom: .25rem;
+  }
+  small {
+    padding-left: .75rem;
+    margin-top: .25rem;
   }
 }
 
@@ -13,10 +25,8 @@
     > div {
       &:not([disabled]):not(.active):not(.error):not(.valid) {
         border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
-        background-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
         input {
           color: var(--rex-text-field-theme-hover-text, $--rex-text-field-theme-hover-text);
-          border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
           @include placeholder {
             color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
           }

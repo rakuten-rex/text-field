@@ -19,7 +19,7 @@ export default {
 /**
  * Stories
  * */
-export const DefaultView = () => {
+export const Default = () => {
   return (
     <TextFieldUi
       name="firstname"
@@ -29,35 +29,13 @@ export const DefaultView = () => {
   );
 };
 
-export const Disabled = () => {
+export const HoverState = () => {
   return (
     <TextFieldUi
       name="firstname"
       placeholder="Placeholder"
       htmlFor="firstname"
-      disabled
-    />
-  );
-};
-
-export const Error = () => {
-  return (
-    <TextFieldUi
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      state="error"
-    />
-  );
-};
-
-export const Valid = () => {
-  return (
-    <TextFieldUi
-      name="firstname"
-      placeholder="Placeholder"
-      htmlFor="firstname"
-      state="valid"
+      state="hover"
     />
   );
 };
@@ -73,6 +51,62 @@ export const FocusAndActiveState = () => {
   );
 };
 
+export const DisabledState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      disabled
+    />
+  );
+};
+
+export const ErrorState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="error"
+    />
+  );
+};
+
+export const ValidState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="valid"
+    />
+  );
+};
+
+export const RequiredState = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      state="valid"
+      required
+    />
+  );
+};
+
+export const WithDefaultValue = () => {
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      value="Default Value"
+    />
+  );
+};
+
 export const WithDynamicProps = () => {
   const {
     name,
@@ -81,6 +115,8 @@ export const WithDynamicProps = () => {
     state,
     disabled,
     className,
+    defaultValue,
+    required,
   } = TexiFieldCommonProps();
 
   return (
@@ -91,6 +127,8 @@ export const WithDynamicProps = () => {
       htmlFor={htmlFor}
       state={state}
       disabled={disabled}
+      value={defaultValue}
+      required={required}
     />
   );
 };
@@ -116,9 +154,11 @@ function Theme() {
     themeErrorBorder,
     themeErrorPlaceholder,
     themeErrorText,
+    themeErrorIconColor,
     themeValidBorder,
     themeValidPlaceholder,
     themeValidText,
+    themeValidIconColor,
   } = ThemeProps();
 
   const customStyle = {
@@ -137,9 +177,11 @@ function Theme() {
     '--rex-text-field-theme-error-text': themeErrorText,
     '--rex-text-field-theme-error-border': themeErrorBorder,
     '--rex-text-field-theme-error-placeholder': themeErrorPlaceholder,
+    '--rex-text-field-theme-error-icon-color': themeErrorIconColor,
     '--rex-text-field-theme-valid-text': themeValidText,
     '--rex-text-field-theme-valid-border': themeValidBorder,
     '--rex-text-field-theme-valid-placeholder': themeValidPlaceholder,
+    '--rex-text-field-theme-valid-icon-color': themeValidIconColor,
   };
 
   return {
@@ -148,7 +190,7 @@ function Theme() {
   };
 }
 
-export const WithThemeReactAndCSSVars = () => {
+export const ReactTheme = () => {
   const { customStyle } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
   const { state } = StateProps();
@@ -165,7 +207,73 @@ export const WithThemeReactAndCSSVars = () => {
   );
 };
 
-export const WithThemeHTMLAndLegacyCSS = () => {
+export const ReactThemeAllStates = () => {
+  const { customStyle } = Theme();
+
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Default"
+              htmlFor="firstname_01"
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Hover"
+              htmlFor="firstname_02"
+              state="hover"
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Focus/Active"
+              htmlFor="firstname_03"
+              state="active"
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Disabled"
+              htmlFor="firstname_04"
+              disabled
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Error"
+              htmlFor="firstname_05"
+              state="error"
+            />
+          </td>
+          <td>
+            <TextFieldUi
+              style={customStyle}
+              name="firstname"
+              placeholder="Valid"
+              htmlFor="firstname_06"
+              state="valid"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HTMLTheme = () => {
   const { customStyleHtml } = Theme();
   const disabled = boolean('Disabled', false, 'Theme Disabled');
   const { state } = StateProps();
@@ -180,6 +288,69 @@ export const WithThemeHTMLAndLegacyCSS = () => {
         disabled={disabled}
         state={state}
       />
+    </>
+  );
+};
+
+export const HTMLThemeAllStates = () => {
+  const { customStyleHtml } = Theme();
+
+  return (
+    <>
+      <style>{customStyleHtml}</style>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Default"
+                htmlFor="firstname_01"
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Hover"
+                htmlFor="firstname_02"
+                state="hover"
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Focus/Active"
+                htmlFor="firstname_03"
+                state="active"
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Disabled"
+                htmlFor="firstname_04"
+                disabled
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Error"
+                htmlFor="firstname_05"
+                state="error"
+              />
+            </td>
+            <td>
+              <TextFieldUi
+                name="firstname"
+                placeholder="Valid"
+                htmlFor="firstname_06"
+                state="valid"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };

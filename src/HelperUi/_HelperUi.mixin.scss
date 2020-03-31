@@ -4,18 +4,8 @@
 @mixin rex-text-field-helper-ui {
   @include rex-core();
   @include rex-helper-ui-default-state();
-}
-
-@mixin rex-helper-ui-default-state() {
-  display: block;
-  position: relative;
-  font-size: .75rem;
-  color: var(--rex-text-field-helper-theme-text, $--rex-text-field-helper-theme-text);
-  padding-left: .75rem;
-  margin-top: .25rem;
-  transition: color 0.15s ease-in-out;
-  svg path {
-    transition: fill 0.15s ease-in-out;
+  &.hover {
+    @include rex-helper-ui-hover-state();
   }
   &.error {
     @include rex-helper-ui-error-state();
@@ -37,7 +27,22 @@
   }
 }
 
-@mixin rex-helper-ui-disabled-state() {
+@mixin rex-helper-ui-default-state() {
+  display: block;
+  position: relative;
+  font-size: .75rem;
+  color: var(--rex-text-field-helper-theme-text, $--rex-text-field-helper-theme-text);
+  transition: color 0.15s ease-in-out;
+  svg path {
+    transition: fill 0.15s ease-in-out;
+  }
+}
+
+@mixin rex-helper-ui-hover-state {
+  color: var(--rex-text-field-helper-theme-hover-text, $--rex-text-field-helper-theme-hover-text);
+}
+
+@mixin rex-helper-ui-disabled-state {
   color: var(--rex-text-field-helper-theme-disabled-text, $--rex-text-field-helper-theme-disabled-text);
   svg {
     path {

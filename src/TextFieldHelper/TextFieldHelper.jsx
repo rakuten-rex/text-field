@@ -16,6 +16,8 @@ export default function TextFieldHelper({
   state,
   style,
   disabled,
+  value,
+  required,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -26,6 +28,8 @@ export default function TextFieldHelper({
         return 'valid';
       case 'active':
         return 'active';
+      case 'hover':
+        return 'hover';
       default:
         return '';
     }
@@ -36,8 +40,8 @@ export default function TextFieldHelper({
     .trim();
   const helperEl = useRef(null);
   const handleOnFocus = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
 
     if (!disabled) {
       helperEl.current.classList.add('active');
@@ -46,8 +50,8 @@ export default function TextFieldHelper({
     }
   };
   const handleOnBlur = e => {
-    const textFieldNativeEl = e.target;
-    const outsideBorderEl = e.target.parentNode;
+    const textFieldNativeEl = e.target.parentNode;
+    const outsideBorderEl = e.target.parentNode.parentNode;
 
     if (!disabled) {
       helperEl.current.classList.remove('active');
@@ -67,6 +71,8 @@ export default function TextFieldHelper({
         disabled={disabled}
         handleOnFocus={handleOnFocus}
         handleOnBlur={handleOnBlur}
+        value={value}
+        required={required}
       />
       <HelperUi
         helper={helper}
@@ -89,6 +95,8 @@ TextFieldHelper.defaultProps = {
   labelId: '',
   style: null,
   disabled: false,
+  value: '',
+  required: false,
 };
 
 TextFieldHelper.propTypes = {
@@ -102,4 +110,6 @@ TextFieldHelper.propTypes = {
   labelId: string,
   style: objectOf(string),
   disabled: bool,
+  value: string,
+  required: bool,
 };

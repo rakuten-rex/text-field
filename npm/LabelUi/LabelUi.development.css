@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.4 2020-03-09
+ * @license @rakuten-rex/text-field v1.2.0 2020-03-31
  * LabelUi/LabelUi.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -20,8 +20,6 @@
     "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 0.75rem;
   line-height: 1.5;
-  margin-bottom: 0.25rem;
-  padding-left: 0.75rem;
   text-align: left;
   transition: color 0.15s ease-in-out;
 }
@@ -34,11 +32,14 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.rex-text-field-label-ui.hover {
+  color: var(--rex-text-field-label-theme-hover-text, #1364ff);
+}
 .rex-text-field-label-ui.error {
-  color: var(--rex-text-field-label-theme-error-text, #e60000);
+  color: var(--rex-text-field-label-theme-error-text, #df0101);
 }
 .rex-text-field-label-ui.valid {
-  color: var(--rex-text-field-label-theme-valid-text, #069907);
+  color: var(--rex-text-field-label-theme-valid-text, #606060);
 }
 .rex-text-field-label-ui.active:not([disabled]):not(.error):not(.valid),
 .rex-text-field-label-ui:active:not([disabled]):not(.error):not(.valid) {

@@ -21,6 +21,8 @@ export default function HelperUi({
         return 'valid';
       case 'active':
         return 'active';
+      case 'hover':
+        return 'hover';
       default:
         return '';
     }

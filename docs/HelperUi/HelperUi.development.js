@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.4 2020-03-09
+ * @license @rakuten-rex/text-field v1.2.0 2020-03-31
  * HelperUi/HelperUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -137,7 +137,7 @@ module.exports = _extends;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(3);
+var objectWithoutPropertiesLoose = __webpack_require__(5);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -161,7 +161,9 @@ function _objectWithoutProperties(source, excluded) {
 module.exports = _objectWithoutProperties;
 
 /***/ }),
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports) {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -182,11 +184,17 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 4 */,
-/* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -205,26 +213,24 @@ var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_ = __
 var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_);
 
 // EXTERNAL MODULE: ./src/HelperUi/HelperUi.scss
-var HelperUi = __webpack_require__(9);
+var HelperUi = __webpack_require__(17);
 
 // CONCATENATED MODULE: ./src/assets/check.svg
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
 
-var check_ref =
-/*#__PURE__*/
-external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
+var check_ref = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
   fillRule: "evenodd",
   clipRule: "evenodd",
-  d: "M11.25.78l-.53-.53-6.595 6.594L1.28 4l-.53.53 3.375 3.375L11.25.78z",
+  d: "M11.25 2.78l-.53-.53-6.595 6.594L1.28 6l-.53.53 3.375 3.375L11.25 2.78z",
   fill: "#047205"
 });
 
 var check_SvgCheck = function SvgCheck(props) {
-  return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", _extends({
+  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", _extends({
     width: 12,
-    height: 8,
+    height: 12,
     fill: "none"
   }, props), check_ref);
 };
@@ -235,19 +241,17 @@ function warning_extends() { warning_extends = Object.assign || function (target
 
 
 
-var warning_ref =
-/*#__PURE__*/
-external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
+var warning_ref = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
   fillRule: "evenodd",
   clipRule: "evenodd",
-  d: "M6 8a.563.563 0 110-1.125A.563.563 0 016 8zm-.375-1.875h.75V2.75h-.75v3.375zm5.557 2.601L6.47.395a.532.532 0 00-.47-.27.532.532 0 00-.468.27L.817 8.726c-.196.348.062.774.47.774h9.427c.407 0 .665-.426.468-.774z",
+  d: "M6 9a.563.563 0 110-1.125A.563.563 0 016 9zm-.375-1.875h.75V3.75h-.75v3.375zm5.557 2.601L6.47 1.395a.532.532 0 00-.47-.27.532.532 0 00-.468.27L.817 9.726c-.196.348.062.774.47.774h9.427c.407 0 .665-.426.468-.774z",
   fill: "#DF0101"
 });
 
 var warning_SvgWarning = function SvgWarning(props) {
-  return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", warning_extends({
+  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", warning_extends({
     width: 12,
-    height: 10,
+    height: 12,
     fill: "none"
   }, props), warning_ref);
 };
@@ -282,6 +286,9 @@ function HelperUi_HelperUi(_ref) {
       case 'active':
         return 'active';
 
+      case 'hover':
+        return 'hover';
+
       default:
         return '';
     }
@@ -294,17 +301,17 @@ function HelperUi_HelperUi(_ref) {
 
   var renderIcon = function renderIcon() {
     if (state === 'error') {
-      return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(warning, {
+      return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(warning, {
         className: "rex-icon"
       });
     }
 
-    return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(check, {
+    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(check, {
       className: "rex-icon"
     });
   };
 
-  return external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("small", extends_default()({
+  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("small", extends_default()({
     className: classes,
     disabled: disabled,
     ref: helperRef
@@ -320,7 +327,7 @@ HelperUi_HelperUi.defaultProps = {
 };
 
 /***/ }),
-/* 9 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin

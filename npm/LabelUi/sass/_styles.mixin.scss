@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.1.4 2020-03-09
+* @license @rakuten-rex/text-field v1.2.0 2020-03-31
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -43,18 +43,9 @@
 @mixin rex-text-field-label-ui {
   @include rex-core();
   @include rex-label-ui-content();
-}
-
-@mixin rex-label-ui-content {
-  font-size: 0.75rem;
-  display: block;
-  color: var(
-    --rex-text-field-label-theme-text,
-    $--rex-text-field-label-theme-text
-  );
-  padding-left: 0.75rem;
-  margin-bottom: 0.25rem;
-  transition: color 0.15s ease-in-out;
+  &.hover {
+    @include rex-label-ui-hover-state();
+  }
   &.error {
     @include rex-label-ui-error-state();
   }
@@ -73,6 +64,23 @@
   &.disabled {
     @include rex-label-ui-disabled-state();
   }
+}
+
+@mixin rex-label-ui-content {
+  font-size: 0.75rem;
+  display: block;
+  color: var(
+    --rex-text-field-label-theme-text,
+    $--rex-text-field-label-theme-text
+  );
+  transition: color 0.15s ease-in-out;
+}
+
+@mixin rex-label-ui-hover-state {
+  color: var(
+    --rex-text-field-label-theme-hover-text,
+    $--rex-text-field-label-theme-hover-text
+  );
 }
 
 @mixin rex-label-ui-disabled-state {
@@ -134,28 +142,26 @@ $--rex-text-field-theme-disabled-text: #898989;
 $--rex-text-field-theme-disabled-border: #dfdfdf;
 $--rex-text-field-theme-disabled-placeholder: $--rex-disabled-text;
 
-$--rex-text-field-theme-error-text: #898989;
+$--rex-text-field-theme-error-text: $--rex-gray-900;
 $--rex-text-field-theme-error-border: #df0101;
 $--rex-text-field-theme-error-placeholder: $--rex-disabled-text;
+$--rex-text-field-theme-error-icon-color: #df0101;
 
-$--rex-text-field-theme-valid-text: #898989;
-$--rex-text-field-theme-valid-border: #047205;
+$--rex-text-field-theme-valid-text: $--rex-gray-900;
+$--rex-text-field-theme-valid-border: #606060;
 $--rex-text-field-theme-valid-placeholder: $--rex-disabled-text;
+$--rex-text-field-theme-valid-icon-color: #606060;
 
 $--rex-text-field-label-theme-text: #606060;
 $--rex-text-field-label-theme-hover-text: $--rex-blue;
 $--rex-text-field-label-theme-active-text: $--rex-blue;
 $--rex-text-field-label-theme-disabled-text: $--rex-disabled-text;
-$--rex-text-field-label-theme-error-text: #e60000;
-$--rex-text-field-label-theme-valid-text: #069907;
+$--rex-text-field-label-theme-error-text: #df0101;
+$--rex-text-field-label-theme-valid-text: #606060;
 
 $--rex-text-field-helper-theme-text: #606060;
 $--rex-text-field-helper-theme-hover-text: #606060;
 $--rex-text-field-helper-theme-active-text: #606060;
 $--rex-text-field-helper-theme-disabled-text: $--rex-disabled-text;
-$--rex-text-field-helper-theme-error-text: #e60000;
-$--rex-text-field-helper-theme-valid-text: #069907;
-
-$--rex-password-theme-icon: #606060;
-$--rex-password-theme-hover-icon: #606060;
-$--rex-password-theme-active-icon: #606060;
+$--rex-text-field-helper-theme-error-text: #df0101;
+$--rex-text-field-helper-theme-valid-text: #047205;

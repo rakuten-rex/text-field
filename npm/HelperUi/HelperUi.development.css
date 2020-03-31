@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.4 2020-03-09
+ * @license @rakuten-rex/text-field v1.2.0 2020-03-31
  * HelperUi/HelperUi.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -20,8 +20,6 @@
     "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 0.75rem;
   line-height: 1.5;
-  margin-top: 0.25rem;
-  padding-left: 0.75rem;
   position: relative;
   text-align: left;
   transition: color 0.15s ease-in-out;
@@ -38,9 +36,12 @@
 .rex-text-field-helper-ui svg path {
   transition: fill 0.15s ease-in-out;
 }
+.rex-text-field-helper-ui.hover {
+  color: var(--rex-text-field-helper-theme-hover-text, #606060);
+}
 .rex-text-field-helper-ui.error {
   align-items: center;
-  color: var(--rex-text-field-helper-theme-error-text, #e60000);
+  color: var(--rex-text-field-helper-theme-error-text, #df0101);
   display: flex;
 }
 .rex-text-field-helper-ui.error svg {
@@ -48,11 +49,11 @@
   margin-right: 0.25rem;
 }
 .rex-text-field-helper-ui.error svg path {
-  fill: var(--rex-text-field-helper-theme-error-text, #e60000);
+  fill: var(--rex-text-field-helper-theme-error-text, #df0101);
 }
 .rex-text-field-helper-ui.valid {
   align-items: center;
-  color: var(--rex-text-field-helper-theme-valid-text, #069907);
+  color: var(--rex-text-field-helper-theme-valid-text, #047205);
   display: flex;
 }
 .rex-text-field-helper-ui.valid svg {
@@ -60,7 +61,7 @@
   margin-right: 0.25rem;
 }
 .rex-text-field-helper-ui.valid svg path {
-  fill: var(--rex-text-field-helper-theme-valid-text, #069907);
+  fill: var(--rex-text-field-helper-theme-valid-text, #047205);
 }
 .rex-text-field-helper-ui.active:not([disabled]):not(.error):not(.valid),
 .rex-text-field-helper-ui:active:not([disabled]):not(.error):not(.valid) {
