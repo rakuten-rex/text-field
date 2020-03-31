@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.4 2020-03-09
+ * @license @rakuten-rex/text-field v1.2.0 2020-03-31
  * LabelUi/LabelUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -137,7 +137,7 @@ module.exports = _extends;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(3);
+var objectWithoutPropertiesLoose = __webpack_require__(5);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -161,7 +161,9 @@ function _objectWithoutProperties(source, excluded) {
 module.exports = _objectWithoutProperties;
 
 /***/ }),
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports) {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -182,9 +184,13 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -196,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(10);
+/* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
 /* harmony import */ var _LabelUi_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_LabelUi_scss__WEBPACK_IMPORTED_MODULE_3__);
 
 
@@ -212,7 +218,8 @@ function LabelUi(_ref) {
       state = _ref.state,
       id = _ref.id,
       labelRef = _ref.labelRef,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["htmlFor", "label", "className", "disabled", "state", "id", "labelRef"]);
+      required = _ref.required,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["htmlFor", "label", "className", "disabled", "state", "id", "labelRef", "required"]);
 
   var stateClass = function () {
     switch (state) {
@@ -225,6 +232,9 @@ function LabelUi(_ref) {
       case 'active':
         return 'active';
 
+      case 'hover':
+        return 'hover';
+
       default:
         return null;
     }
@@ -233,13 +243,14 @@ function LabelUi(_ref) {
   var classes = ['rex-text-field-label-ui', className, stateClass].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+  var labelText = required ? "".concat(label, " *") : label;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     id: id,
     htmlFor: htmlFor,
     className: classes,
     disabled: disabled,
     ref: labelRef
-  }, props), label);
+  }, props), labelText);
 }
 LabelUi.displayName = "LabelUi";
 LabelUi.defaultProps = {
@@ -249,14 +260,17 @@ LabelUi.defaultProps = {
   disabled: false,
   state: '',
   id: null,
-  labelRef: null
+  labelRef: null,
+  required: false
 };
 
 /***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
