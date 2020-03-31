@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.1.4 2020-03-09
+ * @license @rakuten-rex/text-field v1.2.0 2020-03-31
  * TextFieldUi/TextFieldUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -137,7 +137,7 @@ module.exports = _extends;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(3);
+var objectWithoutPropertiesLoose = __webpack_require__(5);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -164,6 +164,33 @@ module.exports = _objectWithoutProperties;
 /* 3 */
 /***/ (function(module, exports) {
 
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+module.exports = _assertThisInitialized;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+function _getPrototypeOf(o) {
+  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+module.exports = _getPrototypeOf;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -182,82 +209,321 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 4 */
+/* 6 */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(13);
+
+var assertThisInitialized = __webpack_require__(3);
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return assertThisInitialized(self);
+}
+
+module.exports = _possibleConstructorReturn;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var setPrototypeOf = __webpack_require__(14);
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) setPrototypeOf(subClass, superClass);
+}
+
+module.exports = _inherits;
+
+/***/ }),
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TextFieldUi; });
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _TextFieldUi_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
-/* harmony import */ var _TextFieldUi_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TextFieldUi_scss__WEBPACK_IMPORTED_MODULE_3__);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
+var helpers_extends = __webpack_require__(1);
+var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__(2);
+var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
+var classCallCheck = __webpack_require__(6);
+var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/createClass.js
+var createClass = __webpack_require__(7);
+var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
+var assertThisInitialized = __webpack_require__(3);
+var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
+var possibleConstructorReturn = __webpack_require__(8);
+var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
+var getPrototypeOf = __webpack_require__(4);
+var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
+var inherits = __webpack_require__(9);
+var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
+
+// EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react","umd":"react"}
+var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_ = __webpack_require__(0);
+var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_);
+
+// CONCATENATED MODULE: ./src/assets/check_large.svg
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
+
+var _ref = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
+  fillRule: "evenodd",
+  clipRule: "evenodd",
+  d: "M15 3.707L14.293 3 5.5 11.793 1.707 8 1 8.707l4.5 4.5 9.5-9.5z",
+  fill: "#047205"
+});
+
+var check_large_SvgCheckLarge = function SvgCheckLarge(props) {
+  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", _extends({
+    width: 16,
+    height: 16,
+    fill: "none"
+  }, props), _ref);
+};
+
+/* harmony default export */ var check_large = (check_large_SvgCheckLarge);
+// CONCATENATED MODULE: ./src/assets/warning_large.svg
+function warning_large_extends() { warning_large_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return warning_large_extends.apply(this, arguments); }
+
+
+
+var warning_large_ref = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("path", {
+  fillRule: "evenodd",
+  clipRule: "evenodd",
+  d: "M8 12a.75.75 0 110-1.5.75.75 0 010 1.5zm-.5-2.5h1V5h-1v4.5zm7.41 3.469L8.625 1.86A.71.71 0 008 1.5a.71.71 0 00-.625.36L1.09 12.969C.827 13.431 1.17 14 1.715 14h12.57c.543 0 .887-.568.625-1.031z",
+  fill: "#DF0101"
+});
+
+var warning_large_SvgWarningLarge = function SvgWarningLarge(props) {
+  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("svg", warning_large_extends({
+    width: 16,
+    height: 16,
+    fill: "none"
+  }, props), warning_large_ref);
+};
+
+/* harmony default export */ var warning_large = (warning_large_SvgWarningLarge);
+// EXTERNAL MODULE: ./src/TextFieldUi/TextFieldUi.scss
+var TextFieldUi_TextFieldUi = __webpack_require__(15);
+
+// CONCATENATED MODULE: ./src/TextFieldUi/TextFieldUi.jsx
+
+
+
+
+
+
+
+
+
+function _createSuper(Derived) { return function () { var Super = getPrototypeOf_default()(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = getPrototypeOf_default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn_default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 /* eslint-disable no-unused-expressions */
 
 /* eslint-disable react/jsx-props-no-spreading */
 
 
-function TextFieldUi(_ref) {
-  var name = _ref.name,
-      placeholder = _ref.placeholder,
-      className = _ref.className,
-      htmlFor = _ref.htmlFor,
-      state = _ref.state,
-      label = _ref.label,
-      labelId = _ref.labelId,
-      id = _ref.id,
-      style = _ref.style,
-      disabled = _ref.disabled,
-      handleOnFocus = _ref.handleOnFocus,
-      handleOnBlur = _ref.handleOnBlur,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style", "disabled", "handleOnFocus", "handleOnBlur"]);
 
-  var stateClass = function (stateClassName) {
-    switch (stateClassName) {
-      case 'error':
-        return 'error';
 
-      case 'valid':
-        return 'valid';
 
-      case 'active':
-        return 'active';
+var TextFieldUi_TextFieldUi_TextFieldUi = /*#__PURE__*/function (_Component) {
+  inherits_default()(TextFieldUi, _Component);
 
-      default:
-        return '';
+  var _super = _createSuper(TextFieldUi);
+
+  function TextFieldUi(props) {
+    var _this;
+
+    classCallCheck_default()(this, TextFieldUi);
+
+    _this = _super.call(this, props);
+    var value = _this.props.value;
+    _this.state = {
+      textValue: value
+    };
+    _this.updateValue = _this.updateValue.bind(assertThisInitialized_default()(_this));
+    _this.handleOnChange = _this.handleOnChange.bind(assertThisInitialized_default()(_this));
+    return _this;
+  }
+
+  createClass_default()(TextFieldUi, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var value = this.props.value;
+
+      if (value !== prevProps.value) {
+        this.updateValue(value);
+      }
     }
-  }(state);
+  }, {
+    key: "updateValue",
+    value: function updateValue(textValue) {
+      this.setState({
+        textValue: textValue
+      });
+    }
+  }, {
+    key: "handleOnChange",
+    value: function handleOnChange(e) {
+      this.updateValue(e.target.value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          name = _this$props.name,
+          placeholder = _this$props.placeholder,
+          className = _this$props.className,
+          htmlFor = _this$props.htmlFor,
+          state = _this$props.state,
+          label = _this$props.label,
+          labelId = _this$props.labelId,
+          id = _this$props.id,
+          style = _this$props.style,
+          disabled = _this$props.disabled,
+          handleOnFocus = _this$props.handleOnFocus,
+          handleOnBlur = _this$props.handleOnBlur,
+          value = _this$props.value,
+          required = _this$props.required,
+          props = objectWithoutProperties_default()(_this$props, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style", "disabled", "handleOnFocus", "handleOnBlur", "value", "required"]);
 
-  var borderClasses = ['rex-text-field-ui', 'rex-text-field-ui-border', className, stateClass].filter(function (singleClass) {
-    return singleClass && singleClass.length > 0;
-  }).join(' ').trim();
-  var innerClasses = ['rex-text-field-native', stateClass].join(' ').trim();
-  var hasLabel = !!(label && label.length > 0);
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: borderClasses,
-    style: style,
-    disabled: disabled
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    id: id,
-    className: innerClasses,
-    name: name,
-    placeholder: placeholder,
-    "aria-label": !hasLabel ? name || placeholder : null,
-    "aria-labelledby": hasLabel ? labelId : null,
-    onFocus: handleOnFocus,
-    onBlur: handleOnBlur,
-    disabled: disabled
-  }, props)));
-}
-TextFieldUi.displayName = "TextFieldUi";
-TextFieldUi.defaultProps = {
+      var textValue = this.state.textValue;
+
+      var stateClass = function (stateClassName) {
+        switch (stateClassName) {
+          case 'error':
+            return 'error';
+
+          case 'valid':
+            return 'valid';
+
+          case 'active':
+            return 'active';
+
+          case 'hover':
+            return 'hover';
+
+          default:
+            return '';
+        }
+      }(state);
+
+      var borderClasses = ['rex-text-field-ui', className, stateClass].filter(function (singleClass) {
+        return singleClass && singleClass.length > 0;
+      }).join(' ').trim();
+      var inputClasses = ['rex-text-field-native', stateClass].join(' ').trim();
+      var hasLabel = !!(label && label.length > 0);
+      var innerClasses = ['rex-text-field-inner-border', stateClass].join(' ').trim();
+      var withIcon = state === 'error' || state === 'valid';
+
+      var renderIcon = function renderIcon() {
+        if (state === 'error') {
+          return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(warning_large, {
+            className: "rex-icon"
+          });
+        }
+
+        return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement(check_large, {
+          className: "rex-icon"
+        });
+      };
+
+      return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", {
+        className: borderClasses,
+        style: style,
+        disabled: disabled
+      }, /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", {
+        className: innerClasses
+      }, /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("input", extends_default()({
+        type: "text",
+        id: id,
+        className: inputClasses,
+        name: name,
+        placeholder: placeholder,
+        "aria-label": !hasLabel ? name || placeholder : null,
+        "aria-labelledby": hasLabel ? labelId : null,
+        onChange: this.handleOnChange,
+        onFocus: handleOnFocus,
+        onBlur: handleOnBlur,
+        disabled: disabled,
+        value: textValue,
+        required: required
+      }, props)), withIcon && renderIcon()));
+    }
+  }]);
+
+  return TextFieldUi;
+}(external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_["Component"]);
+
+TextFieldUi_TextFieldUi_TextFieldUi.displayName = "TextFieldUi";
+TextFieldUi_TextFieldUi_TextFieldUi.defaultProps = {
   name: '',
   placeholder: '',
   className: '',
@@ -265,17 +531,57 @@ TextFieldUi.defaultProps = {
   state: '',
   label: '',
   labelId: '',
-  id: '',
+  id: null,
   style: {},
   disabled: false,
   handleOnFocus: function handleOnFocus() {},
-  handleOnBlur: function handleOnBlur() {}
+  handleOnBlur: function handleOnBlur() {},
+  value: '',
+  required: false
 };
+/* harmony default export */ var src_TextFieldUi_TextFieldUi = __webpack_exports__["default"] = (TextFieldUi_TextFieldUi_TextFieldUi);
 
 /***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */
+/* 11 */,
+/* 12 */,
+/* 13 */
+/***/ (function(module, exports) {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+function _setPrototypeOf(o, p) {
+  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+module.exports = _setPrototypeOf;
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
