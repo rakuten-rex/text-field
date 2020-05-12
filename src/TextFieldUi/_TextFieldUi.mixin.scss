@@ -1,4 +1,4 @@
-@import "./core.mixin";
+@import './core.mixin';
 @import '../TextFieldUi/theme';
 
 @mixin rex-text-field-ui {
@@ -13,7 +13,6 @@
   &.focus {
     @include rex-text-field-border-active-state();
   }
-  &[disabled],
   &.disabled {
     @include rex-text-field-border-disabled-state();
   }
@@ -48,7 +47,7 @@
       }
     }
     svg {
-      padding-bottom: .1875rem;
+      padding-bottom: 0.1875rem;
       overflow: unset;
     }
   }
@@ -72,41 +71,68 @@
 
 @mixin rex-text-field-native-default-state {
   @include placeholder {
-    color: var(--rex-text-field-theme-placeholder, $--rex-text-field-theme-placeholder);
+    color: var(
+      --rex-text-field-theme-placeholder,
+      $--rex-text-field-theme-placeholder
+    );
     transition: color 0.15s ease-in-out;
   }
 }
 
 @mixin rex-text-field-native-disabled-state {
-  color: var(--rex-text-field-theme-disabled-text, $--rex-text-field-theme-disabled-text);
+  color: var(
+    --rex-text-field-theme-disabled-text,
+    $--rex-text-field-theme-disabled-text
+  );
   @include placeholder {
-    color: var(--rex-text-field-theme-disabled-placeholder, $--rex-text-field-theme-disabled-placeholder)
+    color: var(
+      --rex-text-field-theme-disabled-placeholder,
+      $--rex-text-field-theme-disabled-placeholder
+    );
   }
 }
 
 @mixin rex-text-field-native-active-state {
   &:not([disabled]):not(.error):not(.valid) {
-    color: var(--rex-text-field-theme-active-text, $--rex-text-field-theme-active-text);
+    color: var(
+      --rex-text-field-theme-active-text,
+      $--rex-text-field-theme-active-text
+    );
     @include placeholder {
-      color: var(--rex-text-field-theme-active-placeholder, $--rex-text-field-theme-active-placeholder);
+      color: var(
+        --rex-text-field-theme-active-placeholder,
+        $--rex-text-field-theme-active-placeholder
+      );
     }
   }
 }
 
 @mixin rex-text-field-native-error-state {
   &:not([disabled]) {
-    color: var(--rex-text-field-theme-error-text, $--rex-text-field-theme-error-text);
+    color: var(
+      --rex-text-field-theme-error-text,
+      $--rex-text-field-theme-error-text
+    );
     @include placeholder {
-      color: var(--rex-text-field-theme-error-placeholder, $--rex-text-field-theme-error-placeholder);
+      color: var(
+        --rex-text-field-theme-error-placeholder,
+        $--rex-text-field-theme-error-placeholder
+      );
     }
   }
 }
 
 @mixin rex-text-field-native-valid-state {
   &:not([disabled]) {
-    color: var(--rex-text-field-theme-valid-text, $--rex-text-field-theme-valid-text);
+    color: var(
+      --rex-text-field-theme-valid-text,
+      $--rex-text-field-theme-valid-text
+    );
     @include placeholder {
-      color: var(--rex-text-field-theme-valid-placeholder, $--rex-text-field-theme-valid-placeholder);
+      color: var(
+        --rex-text-field-theme-valid-placeholder,
+        $--rex-text-field-theme-valid-placeholder
+      );
     }
   }
 }
@@ -116,64 +142,97 @@
   align-items: flex-end;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  padding: .375rem .6875rem .375rem .625rem ;
+  padding: 0.375rem 0.6875rem 0.375rem 0.625rem;
   background-color: $--rex-white;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 @mixin rex-text-field-inner-border-active-state {
   &:not(.error):not(.valid) {
-    border: 1px solid var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+    border: 1px solid
+      var(
+        --rex-text-field-theme-active-border,
+        $--rex-text-field-theme-active-border
+      );
   }
 }
 
 @mixin rex-text-field-border-state {
   transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
-  border: 1px solid var(--rex-text-field-theme-border, $--rex-text-field-theme-border);
+  border: 1px solid
+    var(--rex-text-field-theme-border, $--rex-text-field-theme-border);
   border-radius: 0.32rem;
   padding: 0;
   background-color: $--rex-white;
 }
 
 @mixin rex-text-field-border-hover-state {
-  border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
+  border-color: var(
+    --rex-text-field-theme-hover-border,
+    $--rex-text-field-theme-hover-border
+  );
   input {
     @include placeholder {
-      color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
+      color: var(
+        --rex-text-field-theme-hover-placeholder,
+        $--rex-text-field-theme-hover-placeholder
+      );
     }
   }
 }
 
 @mixin rex-text-field-border-disabled-state {
-  border-color: var(--rex-text-field-theme-disabled-border, $--rex-text-field-theme-disabled-border);
+  border-color: var(
+    --rex-text-field-theme-disabled-border,
+    $--rex-text-field-theme-disabled-border
+  );
 }
 
 @mixin rex-text-field-border-active-state {
-  &:not([disabled]):not(.error):not(.valid) {
+  &:not(.disabled):not(.error):not(.valid) {
     outline: none;
-    border-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
-    background-color: var(--rex-text-field-theme-active-border, $--rex-text-field-theme-active-border);
+    border-color: var(
+      --rex-text-field-theme-active-border,
+      $--rex-text-field-theme-active-border
+    );
+    background-color: var(
+      --rex-text-field-theme-active-border,
+      $--rex-text-field-theme-active-border
+    );
   }
 }
 
 @mixin rex-text-field-border-error-state {
-  &:not([disabled]) {
-    border-color: var(--rex-text-field-theme-error-border, $--rex-text-field-theme-error-border);
+  &:not(.disabled) {
+    border-color: var(
+      --rex-text-field-theme-error-border,
+      $--rex-text-field-theme-error-border
+    );
   }
   svg {
     path {
-      fill: var(--rex-text-field-theme-error-icon-color, $--rex-text-field-theme-error-icon-color);
+      fill: var(
+        --rex-text-field-theme-error-icon-color,
+        $--rex-text-field-theme-error-icon-color
+      );
     }
   }
 }
 
 @mixin rex-text-field-border-valid-state {
-  &:not([disabled]) {
-    border-color: var(--rex-text-field-theme-valid-border, $--rex-text-field-theme-valid-border);
+  &:not(.disabled) {
+    border-color: var(
+      --rex-text-field-theme-valid-border,
+      $--rex-text-field-theme-valid-border
+    );
   }
   svg {
     path {
-      fill: var(--rex-text-field-theme-valid-icon-color, $--rex-text-field-theme-valid-icon-color);
+      fill: var(
+        --rex-text-field-theme-valid-icon-color,
+        $--rex-text-field-theme-valid-icon-color
+      );
     }
   }
 }
@@ -185,16 +244,16 @@
 }
 
 @mixin placeholder {
-  @include optional-at-root("::-webkit-input-placeholder") {
+  @include optional-at-root('::-webkit-input-placeholder') {
     @content;
   }
-  @include optional-at-root(":-moz-placeholder") {
+  @include optional-at-root(':-moz-placeholder') {
     @content;
   }
-  @include optional-at-root("::-moz-placeholder") {
+  @include optional-at-root('::-moz-placeholder') {
     @content;
   }
-  @include optional-at-root(":-ms-input-placeholder") {
+  @include optional-at-root(':-ms-input-placeholder') {
     @content;
   }
 }

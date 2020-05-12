@@ -36,7 +36,13 @@ export default function TextFieldLabelHelper({
         return '';
     }
   })(state);
-  const classes = ['rex-text-field-label-helper', className, stateClass]
+  const disabledState = disabled ? 'disabled' : '';
+  const classes = [
+    'rex-text-field-label-helper',
+    className,
+    stateClass,
+    disabledState,
+  ]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
@@ -66,7 +72,7 @@ export default function TextFieldLabelHelper({
   };
 
   return (
-    <div className={classes} style={style} disabled={disabled} {...props}>
+    <div className={classes} style={style} {...props}>
       <LabelUi
         id={labelId}
         htmlFor={htmlFor}

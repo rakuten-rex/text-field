@@ -34,7 +34,13 @@ export default function TextFieldHelper({
         return '';
     }
   })(state);
-  const classes = ['rex-text-field-helper', className, stateClass]
+  const disabledState = disabled ? 'disabled' : '';
+  const classes = [
+    'rex-text-field-helper',
+    className,
+    stateClass,
+    disabledState,
+  ]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
@@ -61,7 +67,7 @@ export default function TextFieldHelper({
   };
 
   return (
-    <div className={classes} style={style} disabled={disabled} {...props}>
+    <div className={classes} style={style} {...props}>
       <TextFieldUi
         id={htmlFor}
         labelId={labelId}
@@ -86,7 +92,6 @@ export default function TextFieldHelper({
 
 TextFieldHelper.defaultProps = {
   className: '',
-  label: '',
   helper: '',
   htmlFor: '',
   name: '',
@@ -101,7 +106,6 @@ TextFieldHelper.defaultProps = {
 
 TextFieldHelper.propTypes = {
   className: string,
-  label: string,
   helper: string,
   htmlFor: string,
   name: string,
