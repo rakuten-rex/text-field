@@ -9,13 +9,13 @@ React, HTML/CSS and Vue.js
 <img src="project-scripts/webpack/markdown/logos/npm.svg?sanitize=true" height="16" />
 
 ```
-npm install @rakuten-rex/text-field@1.2.0 --save
+npm install @rakuten-rex/text-field@1.3.0 --save
 ```
 
 <img src="project-scripts/webpack/markdown/logos/yarn.svg?sanitize=true" height="16" />
 
 ```
-yarn add @rakuten-rex/text-field@1.2.0
+yarn add @rakuten-rex/text-field@1.3.0
 ```
 
 # Getting started
@@ -61,10 +61,18 @@ import TextFieldLabel from '@rakuten-rex/text-field/TextFieldLabel';
 
 function MyCustomComponent() {
   return (
-    <TextFieldLabel id='age' name='firstname' placeholder='Placeholder' htmlFor='firstname' label='Label' labelId='labelId' />
+    <TextFieldLabel
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+    />
   );
 }
 ```
+
 
 
 [Click here](https://rakuten-rex.github.io/text-field/) to see all working examples in Storybook.
@@ -86,11 +94,13 @@ import '@rakuten-rex/text-field/TextFieldLabel/css';
 function MyCustomComponent() {
   return (
     <div class="rex-my-component" role="presentation">
-      <div class="rex-text-field-helper" id="age" label="">
-        <div class="rex-text-field-ui rex-text-field-ui-border">
-          <input id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-label="firstname" />
+      <div class="rex-text-field-label" id="age">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-inner-border">
+            <input type="text" id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" value="" />
+          </div>
         </div>
-        <small class="rex-text-field-helper-ui">Helper Text</small>
       </div>
     </div>
   );
@@ -109,11 +119,13 @@ import '@rakuten-rex/text-field/TextFieldLabel/css/static';
 function MyCustomComponent() {
   return (
     <div class="rex-my-component" role="presentation">
-      <div class="rex-text-field-helper" id="age" label="">
-        <div class="rex-text-field-ui rex-text-field-ui-border">
-          <input id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-label="firstname" />
+      <div class="rex-text-field-label" id="age">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-inner-border">
+            <input type="text" id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" value="" />
+          </div>
         </div>
-        <small class="rex-text-field-helper-ui">Helper Text</small>
       </div>
     </div>
   );
@@ -150,11 +162,13 @@ Example:
 ```vue
 <template>
     <div class="rex-my-component" role="presentation">
-      <div class="rex-text-field-helper" id="age" label="">
-        <div class="rex-text-field-ui rex-text-field-ui-border">
-          <input id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-label="firstname" />
+      <div class="rex-text-field-label" id="age">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-inner-border">
+            <input type="text" id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" value="" />
+          </div>
         </div>
-        <small class="rex-text-field-helper-ui">Helper Text</small>
       </div>
     </div>
 </template>
@@ -176,21 +190,21 @@ Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles
 ### Using CSS Variables (Modern Websites and WebApps)
 **Production mode URL** (recommended for Static HTML projects):  
 ```
-https://unpkg.com/@rakuten-rex/text-field@1.2.0/TextFieldLabel/TextFieldLabel.production.min.css
+https://unpkg.com/@rakuten-rex/text-field@1.3.0/TextFieldLabel/TextFieldLabel.production.min.css
 ```
 
 
 Development mode URL (for local testing):  
 
 ```
-https://unpkg.com/@rakuten-rex/text-field@1.2.0/TextFieldLabel/TextFieldLabel.development.css
+https://unpkg.com/@rakuten-rex/text-field@1.3.0/TextFieldLabel/TextFieldLabel.development.css
 ```
 
 
 ### Using Static CSS (Legacy Websites)
 
 ```
-https://unpkg.com/@rakuten-rex/text-field@1.2.0/TextFieldLabel/TextFieldLabel.static.css
+https://unpkg.com/@rakuten-rex/text-field@1.3.0/TextFieldLabel/TextFieldLabel.static.css
 ```
 
 ### <img src="project-scripts/webpack/markdown/logos/html-5.svg?sanitize=true" height="16" /> Single component integration
@@ -207,15 +221,17 @@ Example:
     <meta charset="utf-8">
     <title>My Page</title>
     <!-- ReX text-field -->
-    <link href="https://unpkg.com/@rakuten-rex/text-field@1.2.0/TextFieldLabel/TextFieldLabel.production.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/@rakuten-rex/text-field@1.3.0/TextFieldLabel/TextFieldLabel.production.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="rex-my-component" role="presentation">
-      <div class="rex-text-field-helper" id="age" label="">
-        <div class="rex-text-field-ui rex-text-field-ui-border">
-          <input id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-label="firstname" />
+      <div class="rex-text-field-label" id="age">
+        <label id="labelId" for="firstname" class="rex-text-field-label-ui">Label</label>
+        <div class="rex-text-field-ui">
+          <div class="rex-text-field-inner-border">
+            <input type="text" id="firstname" class="rex-text-field-native" name="firstname" placeholder="Placeholder" aria-labelledby="labelId" value="" />
+          </div>
         </div>
-        <small class="rex-text-field-helper-ui">Helper Text</small>
       </div>
     </div>
   </body>

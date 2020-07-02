@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.2.0 2020-03-31
+* @license @rakuten-rex/text-field v1.3.0 2020-07-02
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -18,7 +18,6 @@
   &.focus {
     @include rex-text-field-border-active-state();
   }
-  &[disabled],
   &.disabled {
     @include rex-text-field-border-disabled-state();
   }
@@ -196,7 +195,7 @@
 }
 
 @mixin rex-text-field-border-active-state {
-  &:not([disabled]):not(.error):not(.valid) {
+  &:not(.disabled):not(.error):not(.valid) {
     outline: none;
     border-color: var(
       --rex-text-field-theme-active-border,
@@ -210,7 +209,7 @@
 }
 
 @mixin rex-text-field-border-error-state {
-  &:not([disabled]) {
+  &:not(.disabled) {
     border-color: var(
       --rex-text-field-theme-error-border,
       $--rex-text-field-theme-error-border
@@ -227,7 +226,7 @@
 }
 
 @mixin rex-text-field-border-valid-state {
-  &:not([disabled]) {
+  &:not(.disabled) {
     border-color: var(
       --rex-text-field-theme-valid-border,
       $--rex-text-field-theme-valid-border
@@ -317,9 +316,9 @@
 }
 
 @mixin rex-text-field-native-hover-state {
-  &:not([disabled]) {
+  &:not(.disabled) {
     > div {
-      &:not([disabled]):not(.active):not(.error):not(.valid) {
+      &:not(.disabled):not(.active):not(.error):not(.valid) {
         border-color: var(
           --rex-text-field-theme-hover-border,
           $--rex-text-field-theme-hover-border
@@ -339,7 +338,7 @@
       }
     }
     label {
-      &:not([disabled]):not(.active):not(.error):not(.valid) {
+      &:not(.disabled):not(.active):not(.error):not(.valid) {
         color: var(
           --rex-text-field-label-theme-hover-text,
           $--rex-text-field-label-theme-hover-text
@@ -353,7 +352,7 @@
       }
     }
     small {
-      &:not([disabled]):not(.active):not(.error):not(.valid) {
+      &:not(.disabled):not(.active):not(.error):not(.valid) {
         color: var(
           --rex-text-field-helper-theme-hover-text,
           $--rex-text-field-helper-theme-hover-text
