@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.2.0 2020-03-31
+ * @license @rakuten-rex/text-field v1.3.0 2020-07-02
  * TextFieldHelper/TextFieldHelper.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -63,20 +63,18 @@
 .rex-text-field-helper-ui.valid svg path {
   fill: var(--rex-text-field-helper-theme-valid-text, #047205);
 }
-.rex-text-field-helper-ui.active:not([disabled]):not(.error):not(.valid),
-.rex-text-field-helper-ui:active:not([disabled]):not(.error):not(.valid) {
+.rex-text-field-helper-ui.active:not(.disabled):not(.error):not(.valid),
+.rex-text-field-helper-ui:active:not(.disabled):not(.error):not(.valid) {
   color: var(--rex-text-field-helper-theme-active-text, #606060);
 }
 .rex-text-field-helper-ui.focus,
 .rex-text-field-helper-ui:focus {
   outline: none;
 }
-.rex-text-field-helper-ui.disabled,
-.rex-text-field-helper-ui[disabled] {
+.rex-text-field-helper-ui.disabled {
   color: var(--rex-text-field-helper-theme-disabled-text, #898989);
 }
-.rex-text-field-helper-ui.disabled svg path,
-.rex-text-field-helper-ui[disabled] svg path {
+.rex-text-field-helper-ui.disabled svg path {
   fill: var(--rex-text-field-helper-theme-disabled-text, #898989);
 }
 .rex-text-field-ui {
@@ -119,25 +117,24 @@
 .rex-text-field-ui.hover input:-ms-input-placeholder {
   color: var(--rex-text-field-theme-hover-placeholder, #606060);
 }
-.rex-text-field-ui.active:not([disabled]):not(.error):not(.valid),
-.rex-text-field-ui.focus:not([disabled]):not(.error):not(.valid),
-.rex-text-field-ui:active:not([disabled]):not(.error):not(.valid),
-.rex-text-field-ui:focus:not([disabled]):not(.error):not(.valid) {
+.rex-text-field-ui.active:not(.disabled):not(.error):not(.valid),
+.rex-text-field-ui.focus:not(.disabled):not(.error):not(.valid),
+.rex-text-field-ui:active:not(.disabled):not(.error):not(.valid),
+.rex-text-field-ui:focus:not(.disabled):not(.error):not(.valid) {
   background-color: var(--rex-text-field-theme-active-border, #1364ff);
   border-color: var(--rex-text-field-theme-active-border, #1364ff);
   outline: none;
 }
-.rex-text-field-ui.disabled,
-.rex-text-field-ui[disabled] {
+.rex-text-field-ui.disabled {
   border-color: var(--rex-text-field-theme-disabled-border, #dfdfdf);
 }
-.rex-text-field-ui.error:not([disabled]) {
+.rex-text-field-ui.error:not(.disabled) {
   border-color: var(--rex-text-field-theme-error-border, #df0101);
 }
 .rex-text-field-ui.error svg path {
   fill: var(--rex-text-field-theme-error-icon-color, #df0101);
 }
-.rex-text-field-ui.valid:not([disabled]) {
+.rex-text-field-ui.valid:not(.disabled) {
   border-color: var(--rex-text-field-theme-valid-border, #606060);
 }
 .rex-text-field-ui.valid svg path {
@@ -299,59 +296,59 @@
   margin-top: 0.25rem;
   padding-left: 0.75rem;
 }
-.rex-text-field-helper.hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid),
-.rex-text-field-helper:hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid) {
+.rex-text-field-helper.hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid),
+.rex-text-field-helper:hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid) {
   border-color: var(--rex-text-field-theme-hover-border, #1364ff);
 }
-.rex-text-field-helper.hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper.hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input,
-.rex-text-field-helper:hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper:hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input {
   color: var(--rex-text-field-theme-hover-text, #333);
 }
-.rex-text-field-helper.hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper.hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input::-webkit-input-placeholder,
-.rex-text-field-helper:hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper:hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input::-webkit-input-placeholder {
   color: var(--rex-text-field-theme-hover-placeholder, #606060);
 }
-.rex-text-field-helper.hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper.hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input:-moz-placeholder,
-.rex-text-field-helper.hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper.hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input::-moz-placeholder,
-.rex-text-field-helper:hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper:hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input:-moz-placeholder,
-.rex-text-field-helper:hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper:hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input::-moz-placeholder {
   color: var(--rex-text-field-theme-hover-placeholder, #606060);
 }
-.rex-text-field-helper.hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper.hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input:-ms-input-placeholder,
-.rex-text-field-helper:hover:not([disabled])
-  > div:not([disabled]):not(.active):not(.error):not(.valid)
+.rex-text-field-helper:hover:not(.disabled)
+  > div:not(.disabled):not(.active):not(.error):not(.valid)
   input:-ms-input-placeholder {
   color: var(--rex-text-field-theme-hover-placeholder, #606060);
 }
-.rex-text-field-helper.hover:not([disabled])
-  small:not([disabled]):not(.active):not(.error):not(.valid),
-.rex-text-field-helper:hover:not([disabled])
-  small:not([disabled]):not(.active):not(.error):not(.valid) {
+.rex-text-field-helper.hover:not(.disabled)
+  small:not(.disabled):not(.active):not(.error):not(.valid),
+.rex-text-field-helper:hover:not(.disabled)
+  small:not(.disabled):not(.active):not(.error):not(.valid) {
   color: var(--rex-text-field-helper-theme-hover-text, #606060);
 }
-.rex-text-field-helper.hover:not([disabled])
-  small:not([disabled]):not(.active):not(.error):not(.valid).focus,
-.rex-text-field-helper:hover:not([disabled])
-  small:not([disabled]):not(.active):not(.error):not(.valid).focus {
+.rex-text-field-helper.hover:not(.disabled)
+  small:not(.disabled):not(.active):not(.error):not(.valid).focus,
+.rex-text-field-helper:hover:not(.disabled)
+  small:not(.disabled):not(.active):not(.error):not(.valid).focus {
   color: var(--rex-text-field-helper-theme-active-text, #606060);
 }

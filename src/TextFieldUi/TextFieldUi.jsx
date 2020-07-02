@@ -68,7 +68,13 @@ class TextFieldUi extends Component {
           return '';
       }
     })(state);
-    const borderClasses = ['rex-text-field-ui', className, stateClass]
+    const disabledState = disabled ? 'disabled' : '';
+    const borderClasses = [
+      'rex-text-field-ui',
+      className,
+      stateClass,
+      disabledState,
+    ]
       .filter(singleClass => singleClass && singleClass.length > 0)
       .join(' ')
       .trim();
@@ -86,7 +92,7 @@ class TextFieldUi extends Component {
     };
 
     return (
-      <div className={borderClasses} style={style} disabled={disabled}>
+      <div className={borderClasses} style={style}>
         <div className={innerClasses}>
           <input
             type="text"

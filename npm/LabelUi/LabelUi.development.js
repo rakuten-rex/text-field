@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.2.0 2020-03-31
+ * @license @rakuten-rex/text-field v1.3.0 2020-07-02
  * LabelUi/LabelUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -240,7 +240,8 @@ function LabelUi(_ref) {
     }
   }();
 
-  var classes = ['rex-text-field-label-ui', className, stateClass].filter(function (singleClass) {
+  var disabledState = disabled ? 'disabled' : '';
+  var classes = ['rex-text-field-label-ui', className, stateClass, disabledState].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
   var labelText = required ? "".concat(label, " *") : label;
@@ -248,7 +249,6 @@ function LabelUi(_ref) {
     id: id,
     htmlFor: htmlFor,
     className: classes,
-    disabled: disabled,
     ref: labelRef
   }, props), labelText);
 }

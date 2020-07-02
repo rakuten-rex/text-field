@@ -1,5 +1,5 @@
 @import '../TextFieldUi/TextFieldUi.mixin';
-@import '../TextFieldUi//theme';
+@import '../TextFieldUi/theme';
 
 @mixin rex-text-field-label-helper() {
   @include rex-text-field-native-state();
@@ -11,41 +11,62 @@
 
 @mixin rex-text-field-native-state {
   label {
-    padding-left: .75rem;
-    margin-bottom: .25rem;
+    padding-left: 0.75rem;
+    margin-bottom: 0.25rem;
   }
   small {
-    padding-left: .75rem;
-    margin-top: .25rem;
+    padding-left: 0.75rem;
+    margin-top: 0.25rem;
   }
 }
 
 @mixin rex-text-field-native-hover-state {
-  &:not([disabled]) {
+  &:not(.disabled) {
     > div {
-      &:not([disabled]):not(.active):not(.error):not(.valid) {
-        border-color: var(--rex-text-field-theme-hover-border, $--rex-text-field-theme-hover-border);
+      &:not(.disabled):not(.active):not(.error):not(.valid) {
+        border-color: var(
+          --rex-text-field-theme-hover-border,
+          $--rex-text-field-theme-hover-border
+        );
         input {
-          color: var(--rex-text-field-theme-hover-text, $--rex-text-field-theme-hover-text);
+          color: var(
+            --rex-text-field-theme-hover-text,
+            $--rex-text-field-theme-hover-text
+          );
           @include placeholder {
-            color: var(--rex-text-field-theme-hover-placeholder, $--rex-text-field-theme-hover-placeholder);
+            color: var(
+              --rex-text-field-theme-hover-placeholder,
+              $--rex-text-field-theme-hover-placeholder
+            );
           }
         }
       }
     }
     label {
-      &:not([disabled]):not(.active):not(.error):not(.valid) {
-        color: var(--rex-text-field-label-theme-hover-text, $--rex-text-field-label-theme-hover-text);
+      &:not(.disabled):not(.active):not(.error):not(.valid) {
+        color: var(
+          --rex-text-field-label-theme-hover-text,
+          $--rex-text-field-label-theme-hover-text
+        );
         &.focus {
-          color: var(--rex-text-field-label-theme-active-text, $--rex-text-field-label-theme-active-text);
+          color: var(
+            --rex-text-field-label-theme-active-text,
+            $--rex-text-field-label-theme-active-text
+          );
         }
       }
     }
     small {
-      &:not([disabled]):not(.active):not(.error):not(.valid) {
-        color: var(--rex-text-field-helper-theme-hover-text, $--rex-text-field-helper-theme-hover-text);
+      &:not(.disabled):not(.active):not(.error):not(.valid) {
+        color: var(
+          --rex-text-field-helper-theme-hover-text,
+          $--rex-text-field-helper-theme-hover-text
+        );
         &.focus {
-          color: var(--rex-text-field-helper-theme-active-text, $--rex-text-field-helper-theme-active-text);
+          color: var(
+            --rex-text-field-helper-theme-active-text,
+            $--rex-text-field-helper-theme-active-text
+          );
         }
       }
     }

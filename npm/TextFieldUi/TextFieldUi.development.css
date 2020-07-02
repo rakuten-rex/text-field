@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.2.0 2020-03-31
+ * @license @rakuten-rex/text-field v1.3.0 2020-07-02
  * TextFieldUi/TextFieldUi.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -47,25 +47,24 @@
 .rex-text-field-ui.hover input:-ms-input-placeholder {
   color: var(--rex-text-field-theme-hover-placeholder, #606060);
 }
-.rex-text-field-ui.active:not([disabled]):not(.error):not(.valid),
-.rex-text-field-ui.focus:not([disabled]):not(.error):not(.valid),
-.rex-text-field-ui:active:not([disabled]):not(.error):not(.valid),
-.rex-text-field-ui:focus:not([disabled]):not(.error):not(.valid) {
+.rex-text-field-ui.active:not(.disabled):not(.error):not(.valid),
+.rex-text-field-ui.focus:not(.disabled):not(.error):not(.valid),
+.rex-text-field-ui:active:not(.disabled):not(.error):not(.valid),
+.rex-text-field-ui:focus:not(.disabled):not(.error):not(.valid) {
   background-color: var(--rex-text-field-theme-active-border, #1364ff);
   border-color: var(--rex-text-field-theme-active-border, #1364ff);
   outline: none;
 }
-.rex-text-field-ui.disabled,
-.rex-text-field-ui[disabled] {
+.rex-text-field-ui.disabled {
   border-color: var(--rex-text-field-theme-disabled-border, #dfdfdf);
 }
-.rex-text-field-ui.error:not([disabled]) {
+.rex-text-field-ui.error:not(.disabled) {
   border-color: var(--rex-text-field-theme-error-border, #df0101);
 }
 .rex-text-field-ui.error svg path {
   fill: var(--rex-text-field-theme-error-icon-color, #df0101);
 }
-.rex-text-field-ui.valid:not([disabled]) {
+.rex-text-field-ui.valid:not(.disabled) {
   border-color: var(--rex-text-field-theme-valid-border, #606060);
 }
 .rex-text-field-ui.valid svg path {

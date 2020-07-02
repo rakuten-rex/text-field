@@ -27,7 +27,13 @@ export default function HelperUi({
         return '';
     }
   })(state);
-  const classes = ['rex-text-field-helper-ui', className, stateClass]
+  const disabledState = disabled ? 'disabled' : '';
+  const classes = [
+    'rex-text-field-helper-ui',
+    className,
+    stateClass,
+    disabledState,
+  ]
     .filter(singleClass => singleClass && singleClass.length > 0)
     .join(' ')
     .trim();
@@ -40,7 +46,7 @@ export default function HelperUi({
   };
 
   return (
-    <small className={classes} disabled={disabled} ref={helperRef} {...props}>
+    <small className={classes} ref={helperRef} {...props}>
       {withIcon && renderIcon()}
       {helper}
     </small>
