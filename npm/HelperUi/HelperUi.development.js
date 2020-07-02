@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.2.0 2020-03-31
+ * @license @rakuten-rex/text-field v1.3.0 2020-07-02
  * HelperUi/HelperUi.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -294,7 +294,8 @@ function HelperUi_HelperUi(_ref) {
     }
   }(state);
 
-  var classes = ['rex-text-field-helper-ui', className, stateClass].filter(function (singleClass) {
+  var disabledState = disabled ? 'disabled' : '';
+  var classes = ['rex-text-field-helper-ui', className, stateClass, disabledState].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
   var withIcon = state === 'error' || state === 'valid';
@@ -313,7 +314,6 @@ function HelperUi_HelperUi(_ref) {
 
   return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("small", extends_default()({
     className: classes,
-    disabled: disabled,
     ref: helperRef
   }, props), withIcon && renderIcon(), helper);
 }

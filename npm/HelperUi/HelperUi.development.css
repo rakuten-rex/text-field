@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.2.0 2020-03-31
+ * @license @rakuten-rex/text-field v1.3.0 2020-07-02
  * HelperUi/HelperUi.development.css
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -63,19 +63,17 @@
 .rex-text-field-helper-ui.valid svg path {
   fill: var(--rex-text-field-helper-theme-valid-text, #047205);
 }
-.rex-text-field-helper-ui.active:not([disabled]):not(.error):not(.valid),
-.rex-text-field-helper-ui:active:not([disabled]):not(.error):not(.valid) {
+.rex-text-field-helper-ui.active:not(.disabled):not(.error):not(.valid),
+.rex-text-field-helper-ui:active:not(.disabled):not(.error):not(.valid) {
   color: var(--rex-text-field-helper-theme-active-text, #606060);
 }
 .rex-text-field-helper-ui.focus,
 .rex-text-field-helper-ui:focus {
   outline: none;
 }
-.rex-text-field-helper-ui.disabled,
-.rex-text-field-helper-ui[disabled] {
+.rex-text-field-helper-ui.disabled {
   color: var(--rex-text-field-helper-theme-disabled-text, #898989);
 }
-.rex-text-field-helper-ui.disabled svg path,
-.rex-text-field-helper-ui[disabled] svg path {
+.rex-text-field-helper-ui.disabled svg path {
   fill: var(--rex-text-field-helper-theme-disabled-text, #898989);
 }

@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.2.0 2020-03-31
+ * @license @rakuten-rex/text-field v1.3.0 2020-07-02
  * TextFieldHelper/TextFieldHelper.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -246,25 +246,7 @@ module.exports = _createClass;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _typeof = __webpack_require__(13);
-
-var assertThisInitialized = __webpack_require__(3);
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return assertThisInitialized(self);
-}
-
-module.exports = _possibleConstructorReturn;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var setPrototypeOf = __webpack_require__(14);
+var setPrototypeOf = __webpack_require__(13);
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
@@ -282,6 +264,24 @@ function _inherits(subClass, superClass) {
 }
 
 module.exports = _inherits;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(14);
+
+var assertThisInitialized = __webpack_require__(3);
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return assertThisInitialized(self);
+}
+
+module.exports = _possibleConstructorReturn;
 
 /***/ }),
 /* 10 */
@@ -310,17 +310,17 @@ var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
 var assertThisInitialized = __webpack_require__(3);
 var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
+var inherits = __webpack_require__(8);
+var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
+
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
-var possibleConstructorReturn = __webpack_require__(8);
+var possibleConstructorReturn = __webpack_require__(9);
 var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
 var getPrototypeOf = __webpack_require__(4);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
-var inherits = __webpack_require__(9);
-var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
 // EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react","umd":"react"}
 var external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_ = __webpack_require__(0);
@@ -381,7 +381,7 @@ var TextFieldUi_TextFieldUi = __webpack_require__(15);
 
 
 
-function _createSuper(Derived) { return function () { var Super = getPrototypeOf_default()(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = getPrototypeOf_default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn_default()(this, result); }; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = getPrototypeOf_default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf_default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn_default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
@@ -475,7 +475,8 @@ var TextFieldUi_TextFieldUi_TextFieldUi = /*#__PURE__*/function (_Component) {
         }
       }(state);
 
-      var borderClasses = ['rex-text-field-ui', className, stateClass].filter(function (singleClass) {
+      var disabledState = disabled ? 'disabled' : '';
+      var borderClasses = ['rex-text-field-ui', className, stateClass, disabledState].filter(function (singleClass) {
         return singleClass && singleClass.length > 0;
       }).join(' ').trim();
       var inputClasses = ['rex-text-field-native', stateClass].join(' ').trim();
@@ -497,8 +498,7 @@ var TextFieldUi_TextFieldUi_TextFieldUi = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", {
         className: borderClasses,
-        style: style,
-        disabled: disabled
+        style: style
       }, /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", {
         className: innerClasses
       }, /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("input", extends_default()({
@@ -556,6 +556,21 @@ TextFieldUi_TextFieldUi_TextFieldUi.defaultProps = {
 /* 13 */
 /***/ (function(module, exports) {
 
+function _setPrototypeOf(o, p) {
+  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+module.exports = _setPrototypeOf;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -573,21 +588,6 @@ function _typeof(obj) {
 }
 
 module.exports = _typeof;
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-function _setPrototypeOf(o, p) {
-  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-module.exports = _setPrototypeOf;
 
 /***/ }),
 /* 15 */
@@ -696,7 +696,8 @@ function HelperUi_HelperUi(_ref) {
     }
   }(state);
 
-  var classes = ['rex-text-field-helper-ui', className, stateClass].filter(function (singleClass) {
+  var disabledState = disabled ? 'disabled' : '';
+  var classes = ['rex-text-field-helper-ui', className, stateClass, disabledState].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
   var withIcon = state === 'error' || state === 'valid';
@@ -715,7 +716,6 @@ function HelperUi_HelperUi(_ref) {
 
   return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("small", extends_default()({
     className: classes,
-    disabled: disabled,
     ref: helperRef
   }, props), withIcon && renderIcon(), helper);
 }
@@ -806,7 +806,8 @@ function TextFieldHelper(_ref) {
     }
   }(state);
 
-  var classes = ['rex-text-field-helper', className, stateClass].filter(function (singleClass) {
+  var disabledState = disabled ? 'disabled' : '';
+  var classes = ['rex-text-field-helper', className, stateClass, disabledState].filter(function (singleClass) {
     return singleClass && singleClass.length > 0;
   }).join(' ').trim();
   var helperEl = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])(null);
@@ -835,8 +836,7 @@ function TextFieldHelper(_ref) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: classes,
-    style: style,
-    disabled: disabled
+    style: style
   }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_TextFieldUi__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"], {
     id: htmlFor,
     labelId: labelId,
@@ -858,7 +858,6 @@ function TextFieldHelper(_ref) {
 TextFieldHelper.displayName = "TextFieldHelper";
 TextFieldHelper.defaultProps = {
   className: '',
-  label: '',
   helper: '',
   htmlFor: '',
   name: '',

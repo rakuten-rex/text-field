@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.2.0 2020-03-31
+* @license @rakuten-rex/text-field v1.3.0 2020-07-02
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -60,7 +60,6 @@
   &.focus {
     @include rex-label-ui-focus-style();
   }
-  &[disabled],
   &.disabled {
     @include rex-label-ui-disabled-state();
   }
@@ -105,7 +104,7 @@
 }
 
 @mixin rex-label-ui-active-state {
-  &:not([disabled]):not(.error):not(.valid) {
+  &:not(.disabled):not(.error):not(.valid) {
     color: var(
       --rex-text-field-label-theme-active-text,
       $--rex-text-field-label-theme-active-text
@@ -115,7 +114,8 @@
 
 @mixin rex-label-ui-focus-style {
   outline: none;
-} // ReX Colors
+}
+// ReX Colors
 $--rex-gray-300: #d1d1d1;
 $--rex-gray-500: #9c9c9c;
 $--rex-gray-700: #686868;
