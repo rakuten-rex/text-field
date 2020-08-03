@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.3.0 2020-07-02
+* @license @rakuten-rex/text-field v1.4.0 2020-08-03
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -68,7 +68,7 @@
 @mixin rex-helper-ui-default-state() {
   display: block;
   position: relative;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(
     --rex-text-field-helper-theme-text,
     $--rex-text-field-helper-theme-text
@@ -105,8 +105,8 @@
   display: flex;
   align-items: center;
   svg {
-    font-size: 0.75rem;
-    margin-right: 0.25rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
   }
 }
 
