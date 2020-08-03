@@ -29,7 +29,7 @@
 @mixin rex-helper-ui-default-state() {
   display: block;
   position: relative;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(
     --rex-text-field-helper-theme-text,
     $--rex-text-field-helper-theme-text
@@ -66,8 +66,8 @@
   display: flex;
   align-items: center;
   svg {
-    font-size: 0.75rem;
-    margin-right: 0.25rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
   }
 }
 
