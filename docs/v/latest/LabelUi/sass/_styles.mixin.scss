@@ -1,5 +1,5 @@
 /*!
-* @license @rakuten-rex/text-field v1.3.0 2020-07-02
+* @license @rakuten-rex/text-field v1.4.0 2020-08-03
 * _styles.mixin.scss
 *
 * Copyright (c) 2018-present, Rakuten, Inc.
@@ -66,7 +66,7 @@
 }
 
 @mixin rex-label-ui-content {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   display: block;
   color: var(
     --rex-text-field-label-theme-text,

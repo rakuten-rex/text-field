@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.3.0 2020-07-02
+ * @license @rakuten-rex/text-field v1.4.0 2020-08-03
  * TextFieldLabelHelper/TextFieldLabelHelper.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
