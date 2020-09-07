@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/text-field v1.4.0 2020-08-03
+ * @license @rakuten-rex/text-field v1.5.0 2020-09-07
  * TextFieldLabel/TextFieldLabel.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -452,7 +452,8 @@ var TextFieldUi_TextFieldUi_TextFieldUi = /*#__PURE__*/function (_Component) {
           handleOnBlur = _this$props.handleOnBlur,
           value = _this$props.value,
           required = _this$props.required,
-          props = objectWithoutProperties_default()(_this$props, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style", "disabled", "handleOnFocus", "handleOnBlur", "value", "required"]);
+          inputRef = _this$props.inputRef,
+          props = objectWithoutProperties_default()(_this$props, ["name", "placeholder", "className", "htmlFor", "state", "label", "labelId", "id", "style", "disabled", "handleOnFocus", "handleOnBlur", "value", "required", "inputRef"]);
 
       var textValue = this.state.textValue;
 
@@ -502,6 +503,7 @@ var TextFieldUi_TextFieldUi_TextFieldUi = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("div", {
         className: innerClasses
       }, /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_umd_react_default.a.createElement("input", extends_default()({
+        ref: inputRef,
         type: "text",
         id: id,
         className: inputClasses,
@@ -537,7 +539,8 @@ TextFieldUi_TextFieldUi_TextFieldUi.defaultProps = {
   handleOnFocus: function handleOnFocus() {},
   handleOnBlur: function handleOnBlur() {},
   value: '',
-  required: false
+  required: false,
+  inputRef: function inputRef() {}
 };
 /* harmony default export */ var src_TextFieldUi_TextFieldUi = __webpack_exports__["default"] = (TextFieldUi_TextFieldUi_TextFieldUi);
 
@@ -729,7 +732,8 @@ function TextFieldLabel(_ref) {
       disabled = _ref.disabled,
       value = _ref.value,
       required = _ref.required,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "label", "htmlFor", "labelId", "state", "style", "disabled", "value", "required"]);
+      inputRef = _ref.inputRef,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["name", "placeholder", "className", "label", "htmlFor", "labelId", "state", "style", "disabled", "value", "required", "inputRef"]);
 
   var stateClass = function (stateClassName) {
     switch (stateClassName) {
@@ -802,7 +806,8 @@ function TextFieldLabel(_ref) {
     handleOnFocus: handleOnFocus,
     handleOnBlur: handleOnBlur,
     value: value,
-    required: required
+    required: required,
+    inputRef: inputRef
   }));
 }
 TextFieldLabel.displayName = "TextFieldLabel";
@@ -817,7 +822,8 @@ TextFieldLabel.defaultProps = {
   style: null,
   disabled: false,
   value: '',
-  required: false
+  required: false,
+  inputRef: function inputRef() {}
 };
 
 /***/ }),
