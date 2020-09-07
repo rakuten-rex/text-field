@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { boolean } from '@storybook/addon-knobs';
 import TextFieldLabelHelper from 'src/TextFieldLabelHelper';
 import TexiFieldCommonProps, { StateProps } from '../TextFieldUi/props';
@@ -138,6 +138,25 @@ export const WithDefaultValue = () => {
       labelId="labelId"
       helper="Helper Text"
       value="Default Value"
+    />
+  );
+};
+
+export const WithCustomizedRefDefaultFocus = () => {
+  const ownRef = useRef();
+
+  useEffect(() => ownRef.current && ownRef.current.focus());
+
+  return (
+    <TextFieldLabelHelper
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      helper="Helper Text"
+      inputRef={ownRef}
     />
   );
 };

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import TextFieldLabel from 'src/TextFieldLabel';
 import { boolean } from '@storybook/addon-knobs';
 import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
@@ -128,6 +128,24 @@ export const WithDefaultValue = () => {
       label="Label"
       labelId="labelId"
       value="Default Value"
+    />
+  );
+};
+
+export const WithCustomizedRefDefaultFocus = () => {
+  const ownRef = useRef();
+
+  useEffect(() => ownRef.current && ownRef.current.focus());
+
+  return (
+    <TextFieldLabel
+      id="age"
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      label="Label"
+      labelId="labelId"
+      inputRef={ownRef}
     />
   );
 };
