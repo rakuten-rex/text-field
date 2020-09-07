@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from 'react';
-import { string, objectOf, bool } from 'prop-types';
+import { string, objectOf, bool, func } from 'prop-types';
 import LabelUi from '../LabelUi';
 import TextFieldUi from '../TextFieldUi';
 import './TextFieldLabel.scss';
@@ -18,6 +18,7 @@ export default function TextFieldLabel({
   disabled,
   value,
   required,
+  inputRef,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -90,6 +91,7 @@ export default function TextFieldLabel({
         handleOnBlur={handleOnBlur}
         value={value}
         required={required}
+        inputRef={inputRef}
       />
     </div>
   );
@@ -107,6 +109,7 @@ TextFieldLabel.defaultProps = {
   disabled: false,
   value: '',
   required: false,
+  inputRef: () => {},
 };
 
 TextFieldLabel.propTypes = {
@@ -121,4 +124,5 @@ TextFieldLabel.propTypes = {
   disabled: bool,
   value: string,
   required: bool,
+  inputRef: func,
 };

@@ -51,6 +51,7 @@ class TextFieldUi extends Component {
       handleOnBlur,
       value,
       required,
+      inputRef,
       ...props
     } = this.props;
     const { textValue } = this.state;
@@ -95,6 +96,7 @@ class TextFieldUi extends Component {
       <div className={borderClasses} style={style}>
         <div className={innerClasses}>
           <input
+            ref={inputRef}
             type="text"
             id={id}
             className={inputClasses}
@@ -132,6 +134,7 @@ TextFieldUi.defaultProps = {
   handleOnBlur: () => {},
   value: '',
   required: false,
+  inputRef: () => {},
 };
 
 TextFieldUi.propTypes = {
@@ -149,6 +152,7 @@ TextFieldUi.propTypes = {
   handleOnBlur: func,
   value: string,
   required: bool,
+  inputRef: func,
 };
 
 export default TextFieldUi;

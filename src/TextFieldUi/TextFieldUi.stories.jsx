@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import TextFieldUi from 'src/TextFieldUi';
 import { boolean } from '@storybook/addon-knobs';
 import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
@@ -103,6 +103,21 @@ export const WithDefaultValue = () => {
       placeholder="Placeholder"
       htmlFor="firstname"
       value="Default Value"
+    />
+  );
+};
+
+export const WithCustomizedRefDefaultFocus = () => {
+  const ownRef = useRef();
+
+  useEffect(() => ownRef.current && ownRef.current.focus());
+
+  return (
+    <TextFieldUi
+      name="firstname"
+      placeholder="Placeholder"
+      htmlFor="firstname"
+      inputRef={ownRef}
     />
   );
 };

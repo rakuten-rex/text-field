@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from 'react';
-import { string, objectOf, bool } from 'prop-types';
+import { string, objectOf, bool, func } from 'prop-types';
 import HelperUi from '../HelperUi';
 import TextFieldUi from '../TextFieldUi';
 import './TextFieldHelper.scss';
@@ -18,6 +18,7 @@ export default function TextFieldHelper({
   disabled,
   value,
   required,
+  inputRef,
   ...props
 }) {
   const stateClass = (stateClassName => {
@@ -79,6 +80,7 @@ export default function TextFieldHelper({
         handleOnBlur={handleOnBlur}
         value={value}
         required={required}
+        inputRef={inputRef}
       />
       <HelperUi
         helper={helper}
@@ -102,6 +104,7 @@ TextFieldHelper.defaultProps = {
   disabled: false,
   value: '',
   required: false,
+  inputRef: () => {},
 };
 
 TextFieldHelper.propTypes = {
@@ -116,4 +119,5 @@ TextFieldHelper.propTypes = {
   disabled: bool,
   value: string,
   required: bool,
+  inputRef: func,
 };
